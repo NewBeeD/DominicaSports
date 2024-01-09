@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dnas",
+  "info": {
+    "singularName": "dna",
+    "pluralName": "dnas",
+    "displayName": "DNA_League",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "dna_teams": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dna-team.dna-team"
+    }
+  }
+}

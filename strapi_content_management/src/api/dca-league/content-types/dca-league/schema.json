@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dca_leagues",
+  "info": {
+    "singularName": "dca-league",
+    "pluralName": "dca-leagues",
+    "displayName": "DCA_League"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

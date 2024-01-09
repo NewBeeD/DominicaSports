@@ -1,0 +1,91 @@
+{
+  "kind": "collectionType",
+  "collectionName": "players",
+  "info": {
+    "singularName": "player",
+    "pluralName": "players",
+    "displayName": "DFA_player",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "First_Name": {
+      "type": "string",
+      "required": true
+    },
+    "Last_Name": {
+      "type": "string",
+      "required": false
+    },
+    "Profile_Pic": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Age": {
+      "type": "integer",
+      "required": false
+    },
+    "Nationality": {
+      "type": "string"
+    },
+    "Height_cm": {
+      "type": "decimal"
+    },
+    "Weight_kgs": {
+      "type": "decimal"
+    },
+    "Goals": {
+      "type": "integer"
+    },
+    "Assists": {
+      "type": "integer"
+    },
+    "Birthdate": {
+      "type": "date"
+    },
+    "Position": {
+      "type": "enumeration",
+      "enum": [
+        "GK",
+        "CB",
+        "RB",
+        "LB",
+        "RW",
+        "LW",
+        "CM",
+        "CDM",
+        "CF",
+        "ST"
+      ],
+      "required": true
+    },
+    "Yellow_Cards": {
+      "type": "integer"
+    },
+    "Red_Cards": {
+      "type": "integer"
+    },
+    "dfa_team": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::team.team"
+    },
+    "Gender": {
+      "type": "enumeration",
+      "enum": [
+        "Male",
+        "Female"
+      ]
+    }
+  }
+}

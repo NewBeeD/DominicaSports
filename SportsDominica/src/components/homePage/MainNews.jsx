@@ -35,7 +35,7 @@ const MainNews = () => {
 
   return (
 
-    <Box sx={{ display: 'flex', justifyContent: 'center'}} marginTop={{xs: 0, sm: 4}}>
+    <Box height={{sm: 500}} sx={{ display: 'flex', justifyContent: 'center'}} marginTop={{xs: 0, sm: 4}}>
 
 
 
@@ -52,7 +52,7 @@ const MainNews = () => {
             </Box>
 
             <Box>
-              <Typography fontSize={{xs: 11, sm: 25}} sx={{ color: {xs:'white', sm: 'black'}}}>{headline[newsCounter].title}</Typography>
+              <Typography fontSize={{xs: 11, sm: 25}} sx={{ color: {xs:'white', sm: 'white'}}}>{headline[newsCounter].title}</Typography>
             </Box>
 
           </Stack>      
@@ -65,7 +65,7 @@ const MainNews = () => {
 
             {headline.map((_, idx) => {
 
-              return <Box key={idx} width={30} height={2} sx={{ backgroundColor: {xs: (newsCounter === idx? 'green': 'white'), sm: (newsCounter === idx? 'green': 'black')}}}></Box>
+              return <Box key={idx} width={30} height={2} sx={{ backgroundColor: {xs: (newsCounter === idx? 'green': 'white'), sm: (newsCounter === idx? 'white': 'black')}}}></Box>
 
             })}
           

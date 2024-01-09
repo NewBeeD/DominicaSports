@@ -2,26 +2,34 @@
   {
     "category": "DFA",
     "title": "Welcome Home Guys",
-    "src": "https://scontent.fdcf1-1.fna.fbcdn.net/v/t39.30808-6/404463607_747056940786686_1027842634616805792_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=3635dc&_nc_ohc=jC-9z6Ldt-gAX_kVtxX&_nc_ht=scontent.fdcf1-1.fna&oh=00_AfA37L8cifkn7gGIlAkQvEoVDuXQvo-iYeDwFHcQPcoJvQ&oe=6589BBFA",
-    "alt": "Image 1 for Carousel"
+    "src": "https://images.immediate.co.uk/production/volatile/sites/3/2022/09/England-next-match-153eb4a.jpg?quality=90&webp=true&resize=1000,667",
+    "alt": "Image 1 for Carousel",
+    "alternative": "src/assets/DFA1.png",
+    "news": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     "category": "DABA",
     "title": "League starts off with a bang",
-    "src": "https://scontent.fdcf1-1.fna.fbcdn.net/v/t39.30808-6/371107073_917788169765416_8734250285525593014_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=783fdb&_nc_ohc=AIW_ox4mNKsAX-cGjK6&_nc_ht=scontent.fdcf1-1.fna&oh=00_AfDbtferBk8s82X2NSI8GYjZBvkWSLzjm0aInMbe9mruPg&oe=6589714A",
-    "alt": "Image 2 for Carousel"
+    "src": "https://a.espncdn.com/combiner/i?img=/photo/2023/1228/r1271345_1296x729_16-9.jpg",
+    "alt": "Image 2 for Carousel",
+    "alternative": "src/assets/DABA1.png",
+    "news": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     "category": "DVA",
     "title": "Solid win for the DSC Strikers",
-    "src": "https://scontent.fdcf1-1.fna.fbcdn.net/v/t39.30808-6/380888139_807188804540963_2279844499564897844_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=3635dc&_nc_ohc=5o3U0q7To0AAX9jBxMH&_nc_ht=scontent.fdcf1-1.fna&oh=00_AfA2NyupAHtMUNIAEWqUXDJDXUioLQK8CQDaInfOsPMn6g&oe=6589EF24",
-    "alt": "Image 3 for Carousel"
+    "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Algeria_and_Japan_women%27s_national_volleyball_team_at_the_2012_Summer_Olympics_%287913959028%29.jpg/1200px-Algeria_and_Japan_women%27s_national_volleyball_team_at_the_2012_Summer_Olympics_%287913959028%29.jpg",
+    "alt": "Image 3 for Carousel",
+    "alternative": "src/assets/DAVA1.png",
+    "news": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     "category": "DNA",
     "title": "Our girls are on route to Guyana",
-    "src": "https://scontent.fdcf1-1.fna.fbcdn.net/v/t39.30808-6/339432101_5955671317879579_2533621606962162608_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=3635dc&_nc_ohc=XRhKxIXiBgcAX9IRoNX&_nc_ht=scontent.fdcf1-1.fna&oh=00_AfBMTd2Ykb0XvsjXy36D3TRtkx7UD89ip5N0N-QnQbacUg&oe=658958B3",
-    "alt": "Image 4 for Carousel"
+    "src": "https://media.rnztools.nz/rnz/image/upload/s--jjmdOcge--/ar_16:10,c_fill,f_auto,g_auto,q_auto,w_1050/v1680029335/4LL1KAA_220922_SilverFernsJamaica_03_JPG",
+    "alt": "Image 4 for Carousel",
+    "alternative": "src/assets/DNA1.png",
+    "news": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   }
 ]}
 
