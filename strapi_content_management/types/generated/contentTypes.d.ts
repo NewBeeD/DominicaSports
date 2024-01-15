@@ -783,9 +783,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     Title: Attribute.String & Attribute.Required;
     Article_img: Attribute.Media;
     Author: Attribute.String;
-    Acheivement: Attribute.String;
     Body_Content: Attribute.Text & Attribute.Required;
     Sub_Header: Attribute.String;
+    dfa_leagues: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::league.league'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1437,6 +1441,11 @@ export interface ApiTeamTeam extends Schema.CollectionType {
       'api::league.league'
     >;
     Gender: Attribute.Enumeration<['Male', 'Female']>;
+    dfa_players: Attribute.Relation<
+      'api::team.team',
+      'oneToMany',
+      'api::player.player'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

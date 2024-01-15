@@ -10,28 +10,28 @@ import { useState, useEffect } from "react"
 const HomePage = () => {
 
   
-  const [leagueNames, setLeagueNames] = useState(['dfa', 'daba'])
+  // const [leagueNames, setLeagueNames] = useState(['dfa', 'daba'])
   const [counter, setCounter] = useState(0)
 
   
   
   
-  useEffect(()=>{ 
+  // useEffect(()=>{ 
 
-    const intervalId = setInterval(()=> {
+  //   const intervalId = setInterval(()=> {
 
     
-      setCounter((prevCount) => {
+  //     setCounter((prevCount) => {
 
-        if(prevCount < leagueNames.length-1){return prevCount + 1}
-        else{return 0}
-      })
+  //       if(prevCount < leagueNames.length-1){return prevCount + 1}
+  //       else{return 0}
+  //     })
       
-    }, 4000)
+  //   }, 4000)
 
-    // Clean up the interval when components unmounts
-    return () => clearInterval(intervalId)
-  }, [])
+  //   // Clean up the interval when components unmounts
+  //   return () => clearInterval(intervalId)
+  // }, [])
 
 
 
@@ -43,8 +43,8 @@ const HomePage = () => {
       <NavBar />
       <MainNews />
       <TrendingSection />
-      {leagueNames[counter] === 'dfa'? <Points_Table leagueName='dfa'/>: leagueNames[counter] === 'daba'? <Points_Table leagueName='daba'/>: ''}
-      <FixturesData leagueName='dfa' />
+      {/* {leagueNames[counter] === 'dfa'? <Points_Table leagueName='dfa'/>: leagueNames[counter] === 'daba'? <Points_Table leagueName='daba'/>: ''} */}
+      {/* <FixturesData leagueName='dfa' /> */}
 
 
     </Box>

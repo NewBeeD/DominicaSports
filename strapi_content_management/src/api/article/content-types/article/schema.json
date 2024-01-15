@@ -30,15 +30,17 @@
     "Author": {
       "type": "string"
     },
-    "Acheivement": {
-      "type": "string"
-    },
     "Body_Content": {
       "type": "text",
       "required": true
     },
     "Sub_Header": {
       "type": "string"
+    },
+    "dfa_leagues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::league.league"
     }
   }
 }

@@ -3,14 +3,29 @@ import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMed
 import { useState } from 'react'
 import Divider from '@mui/material/Divider';
 
-import {slides} from '../../assets/imageData.json'
-import '../../css/TrendingNewsCss.css'
+// Function to fetch article data and structured data
+import GetArticles from '../../modules/Homepage/TrendingSection/TrendingSectionDataFetch'
+
+// Redux
+import { useSelector } from 'react-redux';
+
+// Function to properly structure the data recieved from strapi for easy display
+
+
+
+
 
 const TrendingSection = () => {
 
-  const [trendingNews, setTrendingNews] = useState(slides)
-  
-  
+  // This function fetches the data on strapi and then structures it, then passes it to redux state
+  GetArticles()
+
+  const articles_raw = useSelector((state) => state.articles)
+  const articles = articles_raw[0]
+
+
+
+
   return (
     
     <Box sx={{ backgroundColor: {xs: 'white', sm: 'white'}}} marginBottom={4}>  
@@ -29,35 +44,66 @@ const TrendingSection = () => {
 
       
 
-      <Box>
+      <Box marginTop={5}>
 
         <Stack direction='column' spacing={4} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
 
-         
 
-          {trendingNews && trendingNews.map((item, idx) => {
 
-            return (
-            <Box key={idx}>
-              
-              <Card >
+          {articles && articles.map((item, idx) => {
 
-                <CardActions>
-                  <Typography sx={{ color: 'green', fontSize: {xs: 15}, textDecoration: 'underline'}}>{item.category}</Typography>
-                </CardActions>
-
-                <CardHeader title={item.title} subheader='3 mins ago' />
-                <CardContent>
-                  <Typography sx={{ color: 'black'}} >
-                    {item.news.length < 25? item.news: (item.news.substr(0, 55) + "...")}
-                  </Typography>
-                </CardContent>
-                <CardMedia component='img' height={200} src={item.src} alt={item.alt}/>
-              </Card>
-
-            </Box>)
+          return (
+          <Box key={idx}>
             
-          })}
+            <Card >
+
+              <CardActions>
+                <Typography sx={{ color: 'green', fontSize: {xs: 15}, textDecoration: 'underline'}}>{item.league}</Typography>
+              </CardActions>
+
+              <CardHeader title={item.title} subheader={item.time}/>
+
+              <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
+
+              {/* <CardContent>
+                <Typography sx={{ color: 'black'}}>
+                  {item.Body_Content.length < 25? item.Body_Content: (item.Body_Content.substr(0, 75) + "...")}
+                </Typography>
+              </CardContent> */}
+              
+            </Card>
+
+          </Box>)
+
+        })}
+                   
+
+        {/* {data?.data.map((item, idx) => {
+
+          return (
+          <Box key={idx}>
+            
+            <Card >
+
+              <CardActions>
+                <Typography sx={{ color: 'green', fontSize: {xs: 15}, textDecoration: 'underline'}}>{item.attributes['dfa_leagues'].data[0].attributes['League_Name']}</Typography>
+              </CardActions>
+
+              <CardHeader title={item.attributes['Title']} subheader={item.attributes['publishedAt']} />
+
+              <CardMedia component='img' height={200} src={item.attributes['Article_img'].data[0].attributes['formats']['small'].url} alt={item.alt}/>
+
+              <CardContent>
+                <Typography sx={{ color: 'black'}}>
+                  {item.attributes['Body_Content'].length < 25? item.attributes['Body_Content']: (item.attributes['Body_Content'].substr(0, 75) + "...")}
+                </Typography>
+              </CardContent>
+              
+            </Card>
+
+          </Box>)
+
+        })} */}
 
         </Stack>
 

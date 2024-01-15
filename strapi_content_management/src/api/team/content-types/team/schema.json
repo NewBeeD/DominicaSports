@@ -44,6 +44,11 @@
         "Male",
         "Female"
       ]
+    },
+    "dfa_players": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::player.player"
     }
   }
 }
