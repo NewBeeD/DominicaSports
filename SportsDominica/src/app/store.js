@@ -1,9 +1,9 @@
 import { configureStore} from '@reduxjs/toolkit'
-import { articleSlice } from '../features/TrendingArticles/TrendingArticlesSilce'
+
+import rootReducer from './rootReducer'
+
 
 export const store = configureStore({
 
-  reducer: {
-    articles: articleSlice.reducer,
-  },
+  reducer: rootReducer
 })

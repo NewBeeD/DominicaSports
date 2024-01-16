@@ -768,6 +768,36 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAllLeagueAllLeague extends Schema.CollectionType {
+  collectionName: 'all_leagues';
+  info: {
+    singularName: 'all-league';
+    pluralName: 'all-leagues';
+    displayName: 'all_league';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::all-league.all-league',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::all-league.all-league',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Schema.CollectionType {
   collectionName: 'articles';
   info: {
@@ -789,6 +819,31 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article',
       'oneToMany',
       'api::league.league'
+    >;
+    daba_leagues: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::daba-league.daba-league'
+    >;
+    dava_leagues: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::dava-league.dava-league'
+    >;
+    dca_leagues: Attribute.Relation<
+      'api::article.article',
+      'oneToMany',
+      'api::dca-league.dca-league'
+    >;
+    dna_league: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::dna.dna'
+    >;
+    article: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::article.article'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1324,6 +1379,54 @@ export interface ApiDnaTeamDnaTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiFixtureFixture extends Schema.CollectionType {
+  collectionName: 'fixtures';
+  info: {
+    singularName: 'fixture';
+    pluralName: 'fixtures';
+    displayName: 'fixture';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Home_Team: Attribute.String & Attribute.Required;
+    Away_Team: Attribute.String & Attribute.Required;
+    Date: Attribute.DateTime & Attribute.Required;
+    venue: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'api::venue.venue'
+    >;
+    all_league: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'api::all-league.all-league'
+    >;
+    Cancelled: Attribute.Enumeration<['Yes', 'No']> &
+      Attribute.Required &
+      Attribute.DefaultTo<'No'>;
+    Home_Team_Score: Attribute.Integer;
+    Away_team_Score: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::fixture.fixture',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLeagueLeague extends Schema.CollectionType {
   collectionName: 'leagues';
   info: {
@@ -1456,6 +1559,37 @@ export interface ApiTeamTeam extends Schema.CollectionType {
   };
 }
 
+export interface ApiVenueVenue extends Schema.CollectionType {
+  collectionName: 'venues';
+  info: {
+    singularName: 'venue';
+    pluralName: 'venues';
+    displayName: 'venue';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Location: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::venue.venue',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::venue.venue',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1474,6 +1608,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::all-league.all-league': ApiAllLeagueAllLeague;
       'api::article.article': ApiArticleArticle;
       'api::daba-league.daba-league': ApiDabaLeagueDabaLeague;
       'api::daba-player.daba-player': ApiDabaPlayerDabaPlayer;
@@ -1487,9 +1622,11 @@ declare module '@strapi/types' {
       'api::dna.dna': ApiDnaDna;
       'api::dna-player.dna-player': ApiDnaPlayerDnaPlayer;
       'api::dna-team.dna-team': ApiDnaTeamDnaTeam;
+      'api::fixture.fixture': ApiFixtureFixture;
       'api::league.league': ApiLeagueLeague;
       'api::player.player': ApiPlayerPlayer;
       'api::team.team': ApiTeamTeam;
+      'api::venue.venue': ApiVenueVenue;
     }
   }
 }

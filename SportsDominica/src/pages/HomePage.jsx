@@ -44,7 +44,7 @@ const HomePage = () => {
       <MainNews />
       <TrendingSection />
       {/* {leagueNames[counter] === 'dfa'? <Points_Table leagueName='dfa'/>: leagueNames[counter] === 'daba'? <Points_Table leagueName='daba'/>: ''} */}
-      {/* <FixturesData leagueName='dfa' /> */}
+      <FixturesData />
 
 
     </Box>

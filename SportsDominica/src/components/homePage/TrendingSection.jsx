@@ -26,9 +26,10 @@ const TrendingSection = () => {
 
 
 
+
   return (
     
-    <Box sx={{ backgroundColor: {xs: 'white', sm: 'white'}}} marginBottom={4}>  
+    <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4}>  
 
       <Stack marginBottom={{xs: 2}}>
 
@@ -44,32 +45,40 @@ const TrendingSection = () => {
 
       
 
-      <Box marginTop={5}>
+      <Box marginTop={2}>
 
         <Stack direction='column' spacing={4} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
 
 
 
-          {articles && articles.map((item, idx) => {
+          {articles && articles.slice(0,5).map((item, idx) => {
 
           return (
           <Box key={idx}>
             
-            <Card >
+            <Card sx={{ boxShadow: 'none', border: {xs: '1px solid #D3E1FF'}}}>
 
               <CardActions>
-                <Typography sx={{ color: 'green', fontSize: {xs: 15}, textDecoration: 'underline'}}>{item.league}</Typography>
+
+                <Stack>
+
+                  <Typography sx={{ color: 'green', fontSize: {xs: 13}, textDecoration: 'underline'}}>{item.league}</Typography>
+
+                  <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.time}</Typography>
+
+                </Stack>
+
               </CardActions>
 
-              <CardHeader title={item.title} subheader={item.time}/>
+              <CardHeader titleTypographyProps={{variant:'body1', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
 
               <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
 
-              {/* <CardContent>
-                <Typography sx={{ color: 'black'}}>
-                  {item.Body_Content.length < 25? item.Body_Content: (item.Body_Content.substr(0, 75) + "...")}
+              <CardContent>
+                <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
+                  {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 80) + "...")}
                 </Typography>
-              </CardContent> */}
+              </CardContent>
               
             </Card>
 
