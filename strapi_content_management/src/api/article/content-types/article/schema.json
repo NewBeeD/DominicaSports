@@ -41,6 +41,31 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::league.league"
+    },
+    "daba_leagues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::daba-league.daba-league"
+    },
+    "dava_leagues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dava-league.dava-league"
+    },
+    "dca_leagues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dca-league.dca-league"
+    },
+    "dna_league": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::dna.dna"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
     }
   }
 }

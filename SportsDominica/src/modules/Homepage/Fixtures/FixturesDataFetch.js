@@ -6,18 +6,16 @@ import { useState } from 'react';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux'
-import { populate } from '../../../features/TrendingArticles/TrendingArticlesSilce';
+import { populate } from '../../../features/Fixtures/FixturesSlice'
+
+import fixturesSetup from '../Fixtures/FixturesDisplay'
 
 
 
-import ArticlesStructuredDisplay from '../TrendingSection/TrendingSectionDataRestructure'
 
-
-
-export default function GetArticles(){
+export default function GetFixtures(){
 
   const dispatch = useDispatch()
-  
   
 
   let structured_data;
@@ -25,7 +23,7 @@ export default function GetArticles(){
 
   const fetchDataFromStrapi = async (queryParams) => {
     const queryString = qs.stringify(queryParams);
-    const apiUrl = `http://localhost:1337/api/articles?${queryString}`;
+    const apiUrl = `http://localhost:1337/api/fixtures?${queryString}`;
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -35,11 +33,11 @@ export default function GetArticles(){
   const queryParams = {
   
     populate: {
-      Article_img: {
+      venue: {
         populate: true
       },
 
-      dfa_leagues: {
+      all_league: {
         populate: true
       }
 
@@ -47,23 +45,18 @@ export default function GetArticles(){
   }
 
   const { isLoading, data, error} = useQuery({
-    queryKey: ['first-Query'], 
+    queryKey: ['Second-Query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
-      // Learn redux
-      structured_data = ArticlesStructuredDisplay(value)
 
-      // console.log("data",structured_data);
-
-      dispatch(populate(structured_data))
-
+      let fixtures_dat_structured = fixturesSetup(value)
       
 
+      dispatch(populate(fixtures_dat_structured))
       return value
     })
   })
   
-  
-  // return structured_data;
+
 }
 

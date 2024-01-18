@@ -13,6 +13,12 @@ const HomePage = () => {
   // const [leagueNames, setLeagueNames] = useState(['dfa', 'daba'])
   const [counter, setCounter] = useState(0)
 
+  let first = 'first';
+  let second = 'second';
+
+
+  
+
   
   
   
@@ -42,9 +48,10 @@ const HomePage = () => {
 
       <NavBar />
       <MainNews />
-      <TrendingSection />
+      <TrendingSection props={first}/>
       {/* {leagueNames[counter] === 'dfa'? <Points_Table leagueName='dfa'/>: leagueNames[counter] === 'daba'? <Points_Table leagueName='daba'/>: ''} */}
-      {/* <FixturesData leagueName='dfa' /> */}
+      <FixturesData />
+      <TrendingSection props={second}/>
 
 
     </Box>
