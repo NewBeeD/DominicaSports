@@ -20,6 +20,8 @@ const FixturesData = () => {
   let fixtures_raw = useSelector((state) => state.fixtures)
   fixtures_raw = fixtures_raw[0]
 
+  // console.log(fixtures_raw);
+
 
 
   return(
@@ -46,8 +48,9 @@ const FixturesData = () => {
                 </Stack>
 
                 <Stack direction='column' spacing={0.5}>
-                  <Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Date}</Typography>
-                  <Typography variant="subtitle2" fontStyle={{ fontWeight: 400}}>{item.Time} pm</Typography>
+                  {item.HomeScore? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Date}</Typography>)}
+
+                  {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography variant="subtitle2" fontStyle={{ fontWeight: 400}}>{item.Time} pm</Typography>)}
                 </Stack>
 
               </Stack>

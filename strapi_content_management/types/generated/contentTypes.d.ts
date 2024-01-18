@@ -1408,7 +1408,7 @@ export interface ApiFixtureFixture extends Schema.CollectionType {
       Attribute.Required &
       Attribute.DefaultTo<'No'>;
     Home_Team_Score: Attribute.Integer;
-    Away_team_Score: Attribute.Integer;
+    Away_Team_Score: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

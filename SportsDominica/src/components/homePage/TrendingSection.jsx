@@ -24,8 +24,6 @@ const TrendingSection = (props) => {
   const articles = articles_raw[0]
   // let total_articles = articles.length
 
-  console.log(articles);
-
   let first = 0;
   let second = 0;
 

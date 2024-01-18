@@ -10,6 +10,8 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
   let articles_data = league_fixtures_data.data
 
+  articles_data = upcomingFixtures(articles_data)
+
 
   for (var item of articles_data){
 
@@ -21,7 +23,7 @@ export default function GroupingFixturesByDate(league_fixtures_data){
       Venue: item.attributes['venue'].data['attributes']['Name'],
       League: leagueNameChange(item.attributes['all_league'].data['attributes']['name']),
       HomeScore:item.attributes['Home_Team_Score'],
-      AwayScore: item.attributes['Away_team_Score']
+      AwayScore: item.attributes['Away_Team_Score']
     }
 
     final_data.push(required_data_fields)
@@ -121,6 +123,15 @@ function leagueNameChange(leagueName){
       return '';
 
   }
+}
+
+function upcomingFixtures(fixtures){
+
+  let today_date = new Date().toISOString()
+
+  let upcoming_fixtures = fixtures.filter(item => item['attributes']['Date'] > today_date)
+
+  return upcoming_fixtures
 }
 
 
