@@ -15,13 +15,35 @@ import { useSelector } from 'react-redux';
 
 
 
-const TrendingSection = () => {
+const TrendingSection = (props) => {
 
   // This function fetches the data on strapi and then structures it, then passes it to redux state
   GetArticles()
 
   const articles_raw = useSelector((state) => state.articles)
   const articles = articles_raw[0]
+  // let total_articles = articles.length
+
+  console.log(articles);
+
+  let first = 0;
+  let second = 0;
+
+
+  if(props.props == 'first'){
+
+    first = 0;
+    second = 5;
+  }
+  if (props.props == 'second'){
+    
+    first = 5;
+    second = 10;
+
+  }
+
+
+  
 
 
 
@@ -31,7 +53,7 @@ const TrendingSection = () => {
     
     <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4}>  
 
-      <Stack marginBottom={{xs: 2}}>
+      {props.props == 'second'? '':(<Stack marginBottom={{xs: 2}}>
 
         <Typography width={85} marginLeft={2} marginTop={{xs: 2.5, sm: 3}}  fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: {xs: '900', sm: '900'}, color: 'black' }}>
           WHAT'S 
@@ -41,17 +63,17 @@ const TrendingSection = () => {
           NEW
         </Typography>
 
-      </Stack>
+      </Stack>)}
 
       
 
       <Box marginTop={2}>
 
-        <Stack direction='column' spacing={4} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
+        <Stack direction='column' spacing={2} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
 
 
 
-          {articles && articles.slice(0,5).map((item, idx) => {
+          {articles && articles.slice(first, second).map((item, idx) => {
 
           return (
           <Box key={idx}>
@@ -64,13 +86,18 @@ const TrendingSection = () => {
 
                   <Typography sx={{ color: 'green', fontSize: {xs: 13}, textDecoration: 'underline'}}>{item.league}</Typography>
 
-                  <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.time}</Typography>
+                  <Stack direction='row' spacing={0.5}>
+                    <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.author}</Typography>
+                    <Divider orientation='vertical' flexItem />
+                    <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.time}</Typography>
+                  </Stack>
+
 
                 </Stack>
 
               </CardActions>
 
-              <CardHeader titleTypographyProps={{variant:'body1', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
+              <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
 
               <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
 

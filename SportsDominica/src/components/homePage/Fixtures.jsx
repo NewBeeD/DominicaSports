@@ -24,23 +24,56 @@ const FixturesData = () => {
 
   return(
 
-    <Box marginTop={5}>
+    <Box marginTop={0} width={{ xs: '90%'}} margin='auto' sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}, border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
 
-      {fixtures_raw && fixtures_raw.map((item, idx) => {
+      <Typography variant="h6" sx={{ textAlign: 'center', color: 'blue'}}>Game Fixtures</Typography>
+
+      {fixtures_raw && fixtures_raw.slice(0,4).map((item, idx) => {
 
         return(
           
-          <Box key={idx}>
+          <Box key={idx} width={{xs: '100%'}} margin={{xs:'auto'}}>
 
-            <Card>
+            <Card sx={{ marginY: {xs: 0}, height: 'auto', boxShadow: 'none', borderBottom: {xs: '1px solid #D3E1FF'}, borderRadius: {xs: '4px'}}}>
 
-              <CardHeader title={item.Date} />
+              <Stack direction={{xs: 'row'}} justifyContent='space-between' marginX={2} paddingTop={1}>
+
+                <Stack direction='column' spacing={0.5}>
+
+                  <Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Home}</Typography>
+                  <Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Away}</Typography>
+
+                </Stack>
+
+                <Stack direction='column' spacing={0.5}>
+                  <Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Date}</Typography>
+                  <Typography variant="subtitle2" fontStyle={{ fontWeight: 400}}>{item.Time} pm</Typography>
+                </Stack>
+
+              </Stack>
+
+              <Box >
+
+                <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.League}</Typography>
+
+              </Box>
+
+              
 
             </Card>
             
           </Box>
 
         )})}
+
+        <Box>
+          <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}}}>
+
+            View All Fixtures
+
+          </Typography>
+        </Box>
+
      
 
 

@@ -18,6 +18,7 @@ export default function ArticlesStructuredDisplay(data){
     required_data_fields ={
       title: item.attributes['Title'],
       time: daysElapsed(item.attributes['publishedAt']),
+      author: item.attributes['Author'],
       body_content: item.attributes['Body_Content'],
       url: `http://localhost:1337${item.attributes['Article_img'].data[0].attributes['formats']['medium'].url}`,
       league: leagueNameChange(item.attributes['dfa_leagues'].data[0].attributes['League_Name'])

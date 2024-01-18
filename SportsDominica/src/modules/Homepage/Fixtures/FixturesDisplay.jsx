@@ -19,15 +19,14 @@ export default function GroupingFixturesByDate(league_fixtures_data){
       Date: getOnlyDate(item.attributes['Date']),
       Time: getTimeOnly(item.attributes['Date']),
       Venue: item.attributes['venue'].data['attributes']['Name'],
-      League: item.attributes['all_league'].data['attributes']['name'],
+      League: leagueNameChange(item.attributes['all_league'].data['attributes']['name']),
       HomeScore:item.attributes['Home_Team_Score'],
       AwayScore: item.attributes['Away_team_Score']
     }
 
     final_data.push(required_data_fields)
   }
-
-  let data_ready = fixtureDisplayStructure(final_data)
+  // let data_ready = fixtureDisplayStructure(final_data)
 
   return final_data
 }
@@ -52,7 +51,7 @@ function getTimeOnly(fixture_date){
 
   let new_Time = new Date(fixture_date)
 
-  new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -2);
+  new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -3);
 
   return new_Time
 }
@@ -98,4 +97,30 @@ function right_month(month){
       return '';
   }
 }
+
+
+function leagueNameChange(leagueName){
+
+  switch(leagueName){
+
+    case 'DFA_First_Division':     
+    case 'DFA_Women':
+    case 'DFA_Premier_League':
+      return 'DFA';
+    
+    case 'DABA_First_Division':
+    case 'DABA_Premier_League':
+    case 'DABA_Women':
+      return 'DABA';
+
+    case 'DAVA_MEN':
+    case 'DAVA_WOMEN':
+        return 'DAVA'
+    
+    default:
+      return '';
+
+  }
+}
+
 
