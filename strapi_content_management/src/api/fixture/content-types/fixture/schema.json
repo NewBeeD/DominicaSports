@@ -46,7 +46,7 @@
     "Home_Team_Score": {
       "type": "integer"
     },
-    "Away_team_Score": {
+    "Away_Team_Score": {
       "type": "integer"
     }
   }
