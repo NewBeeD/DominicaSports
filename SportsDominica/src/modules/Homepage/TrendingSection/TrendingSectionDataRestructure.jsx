@@ -1,31 +1,33 @@
 
 
 
-let required_data_fields = {title: '', time: 0, body_content: '', url: '', league: ''};
 
-let final_data = []
+
+
 
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function ArticlesStructuredDisplay(data){
 
-  // console.log('Im inside here',data.data);
+  let articles_data = data.data 
 
-  let articles_data = data.data
+  let final_data = articles_data.map(item => {
+
+    
+
+    let required_data_fields = {}
+
+    required_data_fields['title'] = item.attributes['Title']
+    required_data_fields['time'] = daysElapsed(item.attributes['publishedAt'])
+    required_data_fields['author'] = item.attributes['Author']
+    required_data_fields['body_content'] = item.attributes['Body_Content']
+    required_data_fields['league'] = leagueNameChange(articles_data[0].attributes['all_league'].data.attributes['name'])
+
+    required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
 
 
-  for (var item of articles_data){
+    return required_data_fields
+  })
 
-    required_data_fields ={
-      title: item.attributes['Title'],
-      time: daysElapsed(item.attributes['publishedAt']),
-      author: item.attributes['Author'],
-      body_content: item.attributes['Body_Content'],
-      url: `http://localhost:1337${item.attributes['Article_img'].data[0].attributes['formats']['medium'].url}`,
-      league: leagueNameChange(item.attributes['dfa_leagues'].data[0].attributes['League_Name'])
-    }
-
-    final_data.push(required_data_fields)
-  }
 
   return final_data
 }
@@ -35,7 +37,7 @@ function leagueNameChange(leagueName){
     switch(leagueName){
 
       case 'DFA_Division_One':     
-      case 'DFA_League_Women':
+      case 'DFA_Women':
       case 'DFA_Premier_League_Men':
         return 'DFA';
       
@@ -52,6 +54,8 @@ function leagueNameChange(leagueName){
         return '';
 
     }
+
+    
 }
 
 function daysElapsed(datePublished){

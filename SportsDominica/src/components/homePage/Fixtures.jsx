@@ -50,7 +50,7 @@ const FixturesData = () => {
                 <Stack direction='column' spacing={0.5}>
                   {item.HomeScore? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 'bold' }}>{item.Date}</Typography>)}
 
-                  {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography variant="subtitle2" fontStyle={{ fontWeight: 400}}>{item.Time} pm</Typography>)}
+                  {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography  fontStyle={{ fontWeight: 400, fontSize: 12.5}}>{item.Time}</Typography>)}
                 </Stack>
 
               </Stack>

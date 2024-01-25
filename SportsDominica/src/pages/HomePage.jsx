@@ -49,9 +49,9 @@ const HomePage = () => {
       <NavBar />
       <MainNews />
       <TrendingSection props={first}/>
-      {/* {leagueNames[counter] === 'dfa'? <Points_Table leagueName='dfa'/>: leagueNames[counter] === 'daba'? <Points_Table leagueName='daba'/>: ''} */}
       <FixturesData />
       <TrendingSection props={second}/>
+      <Points_Table leagueName='dfa'/>
 
 
     </Box>

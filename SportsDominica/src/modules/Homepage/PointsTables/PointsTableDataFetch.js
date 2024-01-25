@@ -6,26 +6,25 @@ import { useState } from 'react';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux'
-import { populate } from '../../../features/TrendingArticles/TrendingArticlesSilce';
+import { populate } from '../../../features/PointsTable/PointsSlice';
 
 
 
-import ArticlesStructuredDisplay from '../TrendingSection/TrendingSectionDataRestructure'
+import PointsTableStructureDisplay from '../PointsTables/PointsTableStructuredDisplay'
 
 
 
-export default function GetArticles(){
+export default function GetPoints(){
 
-  const dispatch = useDispatch()
-  
+  const dispatch = useDispatch() 
   
 
   let structured_data;
-  const [structuredDataFinal, setStructuredDataFinal]= useState(null)
+  // const [structuredDataFinal, setStructuredDataFinal]= useState(null)
 
   const fetchDataFromStrapi = async (queryParams) => {
     const queryString = qs.stringify(queryParams);
-    const apiUrl = `http://localhost:1337/api/articles?${queryString}`;
+    const apiUrl = `http://localhost:1337/api/dfa-premier-league-men-tables?${queryString}`;
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -35,15 +34,7 @@ export default function GetArticles(){
   const queryParams = {
   
     populate: {
-      Article_img: {
-        populate: true
-      },
-
-      all_league: {
-        populate: true
-      },
-
-      Article_Img: {
+      dfa_team: {
         populate: true
       }
 
@@ -51,18 +42,13 @@ export default function GetArticles(){
   }
 
   const { isLoading, data, error} = useQuery({
-    queryKey: ['first-Query'], 
+    queryKey: ['third-query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
       // Learn redux
-      structured_data = ArticlesStructuredDisplay(value)
-
-      // console.log("data",structured_data);
+      structured_data = PointsTableStructureDisplay(value)
 
       dispatch(populate(structured_data))
-
-      
-
       return value
     })
   })
