@@ -17,15 +17,12 @@ import ArticlesStructuredDisplay from '../TrendingSection/TrendingSectionDataRes
 export default function GetArticles(){
 
   const dispatch = useDispatch()
-  
-  
 
   let structured_data;
-  const [structuredDataFinal, setStructuredDataFinal]= useState(null)
 
   const fetchDataFromStrapi = async (queryParams) => {
     const queryString = qs.stringify(queryParams);
-    const apiUrl = `http://localhost:1337/api/articles?${queryString}`;
+    const apiUrl = `https://strapi-dominica-sport.onrender.com/api/articles?${queryString}`;
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -50,24 +47,15 @@ export default function GetArticles(){
     }   
   }
 
-  const { isLoading, data, error} = useQuery({
-    queryKey: ['first-Query'], 
+  const { isLoading, data, error, isFetching} = useQuery({
+    queryKey: ['Articles-Query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
-      // Learn redux
       structured_data = ArticlesStructuredDisplay(value)
-
-      // console.log("data",structured_data);
-
       dispatch(populate(structured_data))
-
-      
-
       return value
-    })
+    }), 
   })
   
-  
-  // return structured_data;
 }
 

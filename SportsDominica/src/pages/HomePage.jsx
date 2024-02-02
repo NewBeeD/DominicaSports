@@ -5,41 +5,15 @@ import TrendingSection from "../components/homePage/TrendingSection"
 import Points_Table from "../components/homePage/Points_Table"
 import FixturesData from "../components/homePage/Fixtures"
 
-import { useState, useEffect } from "react"
 
 const HomePage = () => {
 
   
   // const [leagueNames, setLeagueNames] = useState(['dfa', 'daba'])
-  const [counter, setCounter] = useState(0)
 
   let first = 'first';
   let second = 'second';
-
-
-  
-
-  
-  
-  
-  // useEffect(()=>{ 
-
-  //   const intervalId = setInterval(()=> {
-
-    
-  //     setCounter((prevCount) => {
-
-  //       if(prevCount < leagueNames.length-1){return prevCount + 1}
-  //       else{return 0}
-  //     })
-      
-  //   }, 4000)
-
-  //   // Clean up the interval when components unmounts
-  //   return () => clearInterval(intervalId)
-  // }, [])
-
-
+  let third = 'third';
 
 
   return (
@@ -51,7 +25,8 @@ const HomePage = () => {
       <TrendingSection props={first}/>
       <FixturesData />
       <TrendingSection props={second}/>
-      <Points_Table leagueName='dfa'/>
+      <Points_Table page='Homepage'/>
+      <TrendingSection props={third}/>
 
 
     </Box>

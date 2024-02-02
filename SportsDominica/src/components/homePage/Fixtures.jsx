@@ -1,14 +1,9 @@
-import { Paper, Box, Stack, Typography, Card, CardHeader, CardContent, CardMedia, CardActions } from "@mui/material"
+import { Paper, Box, Stack, Typography, Card, CardHeader, CardContent, CardMedia, CardActions, Skeleton } from "@mui/material"
 
 
 import GetFixtures from "../../modules/Homepage/Fixtures/FixturesDataFetch";
 
 import { useSelector } from 'react-redux';
-
-
-function SortPoints(a, b) {
-  return b.Points - a.Points;
-}
 
 
 
@@ -30,7 +25,7 @@ const FixturesData = () => {
 
       <Typography variant="h6" sx={{ textAlign: 'center', color: 'blue'}}>Game Fixtures</Typography>
 
-      {fixtures_raw && fixtures_raw.slice(0,4).map((item, idx) => {
+      {fixtures_raw ? (fixtures_raw.slice(0,4).map((item, idx) => {
 
         return(
           
@@ -67,7 +62,7 @@ const FixturesData = () => {
             
           </Box>
 
-        )})}
+        )})): <Skeleton variant="rectangular" width={310} height={60} />}
 
         <Box>
           <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}}}>
