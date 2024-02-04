@@ -8,6 +8,8 @@ let final_data = []
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function GroupingFixturesByDate(league_fixtures_data){
 
+  
+
   let articles_data = league_fixtures_data.data
 
   articles_data = upcomingFixtures(articles_data)

@@ -14,7 +14,7 @@ import PointsTableStructureDisplay from '../PointsTables/PointsTableStructuredDi
 
 
 
-export default function GetPoints(){
+export default function GetPoints(league){
 
   const dispatch = useDispatch() 
   
@@ -23,8 +23,15 @@ export default function GetPoints(){
   // const [structuredDataFinal, setStructuredDataFinal]= useState(null)
 
   const fetchDataFromStrapi = async (queryParams) => {
+
     const queryString = qs.stringify(queryParams);
-    const apiUrl = `http://localhost:1337/api/dfa-premier-league-men-tables?${queryString}`;
+    let apiUrl;
+
+   
+
+    // TODO: Have a conditional statement here to change the apiUrl for different league tables
+
+    apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -42,7 +49,7 @@ export default function GetPoints(){
   }
 
   const { isLoading, data, error} = useQuery({
-    queryKey: ['third-query'], 
+    queryKey: ['Points-query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
       // Learn redux

@@ -16,14 +16,11 @@ import fixturesSetup from '../Fixtures/FixturesDisplay'
 export default function GetFixtures(){
 
   const dispatch = useDispatch()
-  
 
-  let structured_data;
-  const [structuredDataFinal, setStructuredDataFinal]= useState(null)
 
   const fetchDataFromStrapi = async (queryParams) => {
     const queryString = qs.stringify(queryParams);
-    const apiUrl = `http://localhost:1337/api/fixtures?${queryString}`;
+    const apiUrl = `https://strapi-dominica-sport.onrender.com/api/fixtures?${queryString}`;
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -45,7 +42,7 @@ export default function GetFixtures(){
   }
 
   const { isLoading, data, error} = useQuery({
-    queryKey: ['Second-Query'], 
+    queryKey: ['Fixture-Query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
 
