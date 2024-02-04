@@ -31,6 +31,28 @@ export default function GetPoints(league){
 
     // TODO: Have a conditional statement here to change the apiUrl for different league tables
 
+    switch (league) {
+      case 'dfa':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+        break;
+
+      case 'daba':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+        break;
+
+      case 'dna':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+        break;
+
+
+      case 'dava':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+        break;
+    
+      default:
+        break;
+    }
+
     apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;
   
     const response = await axios.get(apiUrl);
