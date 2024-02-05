@@ -8,6 +8,7 @@ import GetArticles from "../../modules/Homepage/TrendingSection/TrendingSectionD
 
 import DfaArticles from "../../components/DFAPage/DfaArticles";
 import Points_Table from "../../components/homePage/Points_Table";
+import MainNews from "../../components/homePage/MainNews";
 
 
 
@@ -25,7 +26,14 @@ const DFA = () => {
     <>
 
     <NavBar />
-    <DfaArticles/>
+    <Typography marginTop={{xs: 1}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', color: 'blue', fontWeight: 900}}>Dominica Football Association</Typography>
+    <MainNews />
+    <DfaArticles level='first' />
+    <Box marginY={2} />
+    <Points_Table page='Homepage'/>
+    <DfaArticles level='second' />
+
+    
     
     </>
   )

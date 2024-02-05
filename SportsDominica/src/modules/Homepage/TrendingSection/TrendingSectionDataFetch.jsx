@@ -42,7 +42,7 @@ export default function GetArticles(){
 
       Article_Img: {
         populate: true
-      }
+      },
 
     }   
   }

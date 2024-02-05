@@ -10,9 +10,7 @@ export default function ArticlesStructuredDisplay(data){
 
   let articles_data = data.data 
 
-  let final_data = articles_data.map(item => {
-
-    
+  let final_data = articles_data.map(item => {    
 
     let required_data_fields = {}
 
@@ -21,17 +19,22 @@ export default function ArticlesStructuredDisplay(data){
     required_data_fields['time'] = daysElapsed(item.attributes['publishedAt'])
     required_data_fields['author'] = item.attributes['Author']
     required_data_fields['body_content'] = item.attributes['Body_Content']
+    required_data_fields['headline'] = item.attributes['Headline']
     required_data_fields['league'] = leagueNameChange(articles_data[0].attributes['all_league'].data.attributes['name'])
 
     required_data_fields['league_name'] = SpecificleagueName(articles_data[0].attributes['all_league'].data.attributes['name'])
 
     required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
 
+    // required_data_fields['mediaType'] = item.attributes['Article_Img'].data[0].attributes['ext']
+
     required_data_fields['date'] = formatDate(item.attributes['publishedAt'])
 
 
     return required_data_fields
   })
+
+  console.log(final_data);
 
 
   return final_data

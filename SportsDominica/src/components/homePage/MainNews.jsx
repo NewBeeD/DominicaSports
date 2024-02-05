@@ -1,4 +1,5 @@
-import {  Box, Typography, Stack, Button } from '@mui/material'
+import {  Box, Typography, Stack, Button, Skeleton } from '@mui/material'
+import { Link } from 'react-router-dom';
 
 
 import {slides} from '../../assets/imageData.json'
@@ -6,9 +7,18 @@ import '../../css/MainNewsCss.css'
 
 import { useState, useEffect } from 'react';
 
+import { useSelector } from 'react-redux';
+
+
 const MainNews = () => {
 
-  const [headline, setHeadline] = useState(slides)
+  let articles = useSelector((state) => state.articles)
+  articles = articles && articles[0] ? articles[0]: '';
+  let headline = articles && articles[0] ? articles.filter(item => item.headline == 'Yes' && item.league == 'DFA'): '';
+
+
+
+  // const [headline, setHeadline] = useState(slides)
   const [newsCounter, setNewsCounter] = useState(0)
 
 
@@ -38,17 +48,19 @@ const MainNews = () => {
     <Box height={{sm: 500}} sx={{ display: 'flex', justifyContent: 'center'}} marginTop={{xs: 0, sm: 4}}>
 
 
+      {headline != '' ? <Box width={{xs: '100%', sm: '90%'}} height={{xs: 330, sm: 400}} sx={{ position: {xs: 'relative', sm: 'static'}}}>
 
-      <Box width={{xs: '100%', sm: '90%'}} height={{xs: 330, sm: 400}} sx={{ position: {xs: 'relative', sm: 'static'}}}>
+        <Link to={`/${headline[newsCounter].id}`}>
+          <img src={headline[newsCounter].url} className='mainImage'/>
+        </Link>
 
-        <img src={headline[newsCounter].src} className='mainImage'/>
 
         <Box sx={{ position: {xs: 'absolute', sm: 'static'},  bottom: {xs: 18, sm: 'inherit'}, left: {xs: 12, sm: 'inherit'}, display: {sm: 'flex'}, justifyContent: {sm: 'center'} }}>
 
           <Stack direction='column'>
 
             <Box>
-              <Typography fontSize={{xs: 8, sm: 14}} sx={{ color: 'green', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none', sm: 'center', fontFamily: ''}}}>{headline[newsCounter].category}</Typography>
+              <Typography fontSize={{xs: 8, sm: 14}} sx={{ color: 'green', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none', sm: 'center', fontFamily: ''}}}>{headline[newsCounter].league}</Typography>
             </Box>
 
             <Box>
@@ -71,7 +83,7 @@ const MainNews = () => {
           
         </Stack>  
 
-      </Box>
+      </Box>: <Skeleton />}
 
       
 
