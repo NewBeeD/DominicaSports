@@ -32,28 +32,55 @@ export default function GetPoints(league){
     // TODO: Have a conditional statement here to change the apiUrl for different league tables
 
     switch (league) {
-      case 'dfa':
+
+
+      case 'homepage':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;
+        break;
+
+      case 'dfa_premier_league':
         apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
         break;
 
-      case 'daba':
-        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+      case 'dfa_division_one':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-division-one-men-tables?${queryString}`;       
         break;
 
-      case 'dna':
-        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+      case 'dfa_women':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-women-tables?${queryString}`;       
+        break;
+
+      case 'daba_premier_league':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/daba-premier-league-men-tables?${queryString}`;       
         break;
 
 
-      case 'dava':
-        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;       
+      case 'daba_division_one':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/daba-division-one-men-tables?${queryString}`;
+        break;
+
+      case 'daba_women':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/daba-women-tables?${queryString}`;       
+        break;
+
+      case 'dava_division_one_men':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dava-division-one-men-tables?${queryString}`;       
+        break;
+
+      case 'dava_division_two_men':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dava-division-two-men-tables?${queryString}`;       
+        break;
+
+      case 'dava_women':
+        apiUrl = `https://strapi-dominica-sport.onrender.com/api/dava-women-tables?${queryString}`;       
         break;
     
       default:
         break;
     }
 
-    apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;
+    // apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-premier-league-men-tables?${queryString}`;
+
   
     const response = await axios.get(apiUrl);
     return response.data;
@@ -65,6 +92,9 @@ export default function GetPoints(league){
     populate: {
       dfa_team: {
         populate: true
+      },
+      daba_team: {
+        populate: true
       }
 
     }   
@@ -75,7 +105,7 @@ export default function GetPoints(league){
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
       // Learn redux
-      structured_data = PointsTableStructureDisplay(value)
+      structured_data = PointsTableStructureDisplay(value, league)
 
       dispatch(populate(structured_data))
       return value

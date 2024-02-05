@@ -17,7 +17,7 @@ function SortPoints(a, b) {
 
 const Points_Table = ({ page }) => {
 
-  GetPoints();
+  GetPoints(page);
 
   const premierTable_raw = useSelector((state) => state.points)
   const premierTable = premierTable_raw[0]
@@ -26,7 +26,7 @@ const Points_Table = ({ page }) => {
 
 
 
-  if(page === 'Homepage'){
+  if(page === 'homepage'){
 
     return (
     
@@ -34,7 +34,7 @@ const Points_Table = ({ page }) => {
       <Box marginTop={8} marginBottom={2} width={{xs: '90%'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
 
 
-        <Typography>League Standings</Typography>
+        <Typography>DFA Premier League Standings</Typography>
   
        {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
@@ -96,13 +96,13 @@ const Points_Table = ({ page }) => {
 
 }
 
-else if(page === 'dfa'){
+else if(page === 'dfa_premier_league'){
 return (
 
   <Box marginTop={8} marginBottom={2} width={{xs: '90%'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
 
 
-  <Typography>DFA Premier League Standings</Typography>
+  <Typography sx={{ fontWeight: 'bold'}}>DFA Premier League Standings</Typography>
 
 
   {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
@@ -151,13 +151,13 @@ return (
 )
   }
 
-else if(page === 'daba'){
+else if(page === 'daba_premier_league'){
   return (
   
     <Box marginTop={8} marginBottom={2} width={{xs: '90%'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
   
   
-    <Typography>DFA Premier League Standings</Typography>
+    <Typography>DABA Premier League Standings</Typography>
   
   
     {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
@@ -166,14 +166,10 @@ else if(page === 'daba'){
   
           <TableHead >
             <TableRow >
-              <TableCell sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Team</TableCell>
               <TableCell sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Played</TableCell>
               <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Wins</TableCell>
               <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Drawn</TableCell>
               <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Lost</TableCell>
-              <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>GF</TableCell>
-              <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>GA</TableCell>
-              <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>GD</TableCell>
               <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Points</TableCell>
             </TableRow>
           </TableHead>
@@ -186,11 +182,7 @@ else if(page === 'daba'){
                 <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Team}</TableCell>
                 <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Played}</TableCell>
                 <TableCell align="center">{row.Won}</TableCell>
-                <TableCell align="center">{row.Drawn}</TableCell>
                 <TableCell align="center">{row.Lost}</TableCell>
-                <TableCell align="center">{row.GF}</TableCell>
-                <TableCell align="center">{row.GA}</TableCell>
-                <TableCell align="center">{row.GD}</TableCell>
                 <TableCell align="center" sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Points}</TableCell>
                 
               </TableRow>

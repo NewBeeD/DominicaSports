@@ -25,7 +25,7 @@ const HomePage = () => {
       <TrendingSection props={first}/>
       <FixturesData />
       <TrendingSection props={second}/>
-      <Points_Table page='Homepage'/>
+      <Points_Table page='homepage'/>
       <TrendingSection props={third}/>
 
 
