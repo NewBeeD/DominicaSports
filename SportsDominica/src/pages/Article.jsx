@@ -47,7 +47,7 @@ const Article = () => {
               </Box>
 
               <Box marginY={2}>
-                <img width='100%' src={item.url}/>
+                <img width='100%' src={item.url[0]}/>
               </Box>
 
               <Box marginTop={1} sx={{ fontSize: {xs: '11px'}, fontWeight: 'bolder'}}>{item.league}</Box>
@@ -59,6 +59,20 @@ const Article = () => {
 
               <Box marginTop={3.5} sx={{ textAlign: 'left'}}>
                 <ParagraphsDisplay paragraphs={item.body_content} />
+              </Box>
+
+              {/* <Box marginTop={4} /> */}
+
+              <Divider orientation='vertical' sx={{ marginY: 3}} />
+
+              <Box>
+                {item.url.length > 1? item.url.map((item, idx) => {
+
+                  return(
+                      <img key={idx} width='100%' src={item}/>
+                  )
+
+                }): ''}
               </Box>
 
               

@@ -22,11 +22,11 @@ const HomePage = () => {
 
       <NavBar />
       <MainNews />
-      <TrendingSection props={first}/>
+      <TrendingSection level={first}/>
       <FixturesData />
-      <TrendingSection props={second}/>
+      <TrendingSection level={second}/>
       <Points_Table page='Homepage'/>
-      <TrendingSection props={third}/>
+      <TrendingSection level={third}/>
 
 
     </Box>
