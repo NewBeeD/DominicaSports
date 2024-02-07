@@ -88,7 +88,7 @@ const DfaArticles = ({ level }) => {
 
 
 
-         <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
+         <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
           <CardContent>
             <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
               {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 80) + "...")}

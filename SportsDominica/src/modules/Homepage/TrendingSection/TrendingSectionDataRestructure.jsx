@@ -24,15 +24,18 @@ export default function ArticlesStructuredDisplay(data){
 
     required_data_fields['league_name'] = SpecificleagueName(articles_data[0].attributes['all_league'].data.attributes['name'])
 
-    required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
+    // required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
 
-    // required_data_fields['mediaType'] = item.attributes['Article_Img'].data[0].attributes['ext']
+     required_data_fields['url'] = getAllImages(item.attributes['Article_Img'].data)
+
 
     required_data_fields['date'] = formatDate(item.attributes['publishedAt'])
 
 
     return required_data_fields
   })
+
+  console.log(final_data);
 
   return final_data
 }
@@ -174,3 +177,21 @@ function formatDate(date) {
   return dayWithSuffix;
 }
 
+function getAllImages(data){
+
+  let data_length = data.length;
+
+  if(data_length == 1){
+    return [data[0].attributes['formats']['small']['url']]
+  }
+  else {
+
+    let all_imgs = data.map(item => {
+
+      return item.attributes['formats']['small']['url']
+    })
+
+    return all_imgs
+  }
+
+}

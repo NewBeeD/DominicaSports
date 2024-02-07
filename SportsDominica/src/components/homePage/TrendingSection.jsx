@@ -15,34 +15,36 @@ import { useSelector } from 'react-redux';
 
 
 
-const TrendingSection = (props) => {
+const TrendingSection = ({ level }) => {
 
   // This function fetches the data on strapi and then structures it, then passes it to redux state
   GetArticles()
 
   const articles_raw = useSelector((state) => state.articles)
-  const articles = articles_raw[0]
+  let articles = articles_raw[0]
 
 
-  let first = 0;
-  let second = 0;
-  // let total_articles = articles.length ?? 0;
+  let articles_length = articles && articles_raw[0] ? articles.length: 0;
+  let part_size = articles_length ? Math.ceil(articles_length/3): 0;
 
 
-  if(props.props == 'first'){
+  // TODO: Set up articles in slices
 
-    first = 0;
-    second = 3;
-  }
-  if (props.props == 'second'){
+
+  switch(level){
+
+    case 'first':
+      articles = articles ? articles.slice(0, part_size): null;
+      break;
     
-    first = 3;
-    second = 6;
+    case 'second':
+      articles = articles ? articles.slice(part_size, 2*part_size): null;
+      break;
+    
+    case 'third':
+      articles = articles ? articles.slice(2*part_size): null;
   }
-  if(props.props == 'third'){
-    first = 6;
-    second = 10;
-  }
+
 
 
   
@@ -55,7 +57,7 @@ const TrendingSection = (props) => {
     
     <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4}>  
 
-      {props.props == 'second'? '':props.props == 'third'? '':(<Stack marginBottom={{xs: 2}}>
+      {level == 'second'? '':level == 'third'? '':(<Stack marginBottom={{xs: 2}}>
 
         <Typography width={85} marginLeft={2} marginTop={{xs: 2.5, sm: 3}}  fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: {xs: '900', sm: '900'}, color: 'black' }}>
           WHAT'S 
@@ -75,7 +77,7 @@ const TrendingSection = (props) => {
 
 
 
-          {articles ? articles.slice(first, second).map((item, idx) => {
+          {articles ? articles.map((item, idx) => {
 
           return (
           <Box key={idx}>
@@ -88,7 +90,7 @@ const TrendingSection = (props) => {
 
                   {/* TODO: Link this page to the premiere league home page */}
 
-                  <Link>
+                  <Link to='/DFA/Home'>
                    <Typography sx={{ color: 'green', fontSize: {xs: 13}, textDecoration: 'underline'}}>{item.league}</Typography>
                   </Link>
 
@@ -109,7 +111,7 @@ const TrendingSection = (props) => {
               </Link>
 
 
-              <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
+              <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
 
               <CardContent>
                 <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
@@ -123,33 +125,6 @@ const TrendingSection = (props) => {
 
         }): <Skeleton variant="rectangular" width='100%' height={60} />}
                    
-
-        {/* {data?.data.map((item, idx) => {
-
-          return (
-          <Box key={idx}>
-            
-            <Card >
-
-              <CardActions>
-                <Typography sx={{ color: 'green', fontSize: {xs: 15}, textDecoration: 'underline'}}>{item.attributes['dfa_leagues'].data[0].attributes['League_Name']}</Typography>
-              </CardActions>
-
-              <CardHeader title={item.attributes['Title']} subheader={item.attributes['publishedAt']} />
-
-              <CardMedia component='img' height={200} src={item.attributes['Article_img'].data[0].attributes['formats']['small'].url} alt={item.alt}/>
-
-              <CardContent>
-                <Typography sx={{ color: 'black'}}>
-                  {item.attributes['Body_Content'].length < 25? item.attributes['Body_Content']: (item.attributes['Body_Content'].substr(0, 75) + "...")}
-                </Typography>
-              </CardContent>
-              
-            </Card>
-
-          </Box>)
-
-        })} */}
 
         </Stack>
 
