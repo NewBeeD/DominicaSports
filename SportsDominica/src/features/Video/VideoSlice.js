@@ -16,5 +16,4 @@ export const VideoSlice = createSlice({
 })
 
 export const { populate } = VideoSlice.actions
-
 export default VideoSlice.reducer;

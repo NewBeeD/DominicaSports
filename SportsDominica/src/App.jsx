@@ -35,7 +35,7 @@ function App() {
         <Route path='/DFA/Premier-League' element={<DFA />} />
         <Route path='/DFA/First-Division' element={<DFA />} />
         <Route path='/DFA/Women-League' element={<DFA />} />
-        <Route path='/DFA/Tables' element={<DFA />} />
+        <Route path='/DFA/Tables' element={<LeagueStanding />} />
         <Route path='/DFA/Teams' element={<DFA />} />
         <Route path='/DFA/Stats' element={<DFA />} />
         {/* End of DFA Pages */}
@@ -62,7 +62,7 @@ function App() {
 
       </Routes>
 
-      <ReactQueryDevtools initialIsOpen={false} />     
+      {/* <ReactQueryDevtools initialIsOpen={false} />      */}
     </div>
   )
 }

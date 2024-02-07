@@ -4,6 +4,8 @@ import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMed
 // Function to fetch article data and structured data
 import GetArticles from '../../modules/Homepage/TrendingSection/TrendingSectionDataFetch'
 
+import { Link } from "react-router-dom";
+
 // Redux
 import { useSelector } from 'react-redux';
 
@@ -80,12 +82,13 @@ const DfaArticles = ({ level }) => {
           </CardActions>
 
 
+          <Link to={`/${item.id}`}>
             <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
+          </Link>
 
 
 
-          {item.mediaType == '.jpg'? <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>: <CardMedia component='iframe' height={200} src={item.url} alt={item.alt}/>}
-
+         <CardMedia component='img' height={200} src={item.url} alt={item.alt}/>
           <CardContent>
             <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
               {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 80) + "...")}

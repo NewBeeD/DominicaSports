@@ -4,7 +4,7 @@ import axios from 'axios'
 
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { populate } from '../../features/Video/VideoSlice';
 import VideoStructure from './VideoStructure';
 
@@ -13,7 +13,7 @@ import VideoStructure from './VideoStructure';
 
 
 
-export default function GetFixtures(){
+export default function GetVideos(){
 
   const dispatch = useDispatch()
 
@@ -30,7 +30,7 @@ export default function GetFixtures(){
   const queryParams = {
   
     populate: {
-      venue: {
+      Video: {
         populate: true
       },
 
@@ -38,14 +38,12 @@ export default function GetFixtures(){
   }
 
   const { isLoading, data, error} = useQuery({
+    
     queryKey: ['Video-Query'], 
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
-
-      let fixtures_dat_structured = VideoStructure(value)
-      
-
-      dispatch(populate(fixtures_dat_structured))
+      let video_data_structured = VideoStructure(value)
+      dispatch(populate(video_data_structured))
       return value
     })
   })

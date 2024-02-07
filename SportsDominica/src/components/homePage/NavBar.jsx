@@ -17,7 +17,6 @@ const NavBar = () => {
   const open = Boolean(anchorEl)
 
   const menuDisplay = (event) => {
-    console.log(event.currentTarget);
     setAnchorEl(event.currentTarget)
   }
 
