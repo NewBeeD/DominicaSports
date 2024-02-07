@@ -27,6 +27,8 @@ const DFA = () => {
   // let articles = useSelector((state) => state.articles)
   // articles = articles[0]
 
+  // 6mfXc8gw9mA
+
   return (
     <>
 
@@ -41,6 +43,7 @@ const DFA = () => {
     <Box marginY={1.5} />
     <FixturesData />
     <DfaArticles level='third' />
+    <Video video_id ='DUFpVvH-4CY'/>
     <Box height={{xs:50}} marginY={1} />
     <BottomNav />
     

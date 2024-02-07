@@ -14,14 +14,28 @@ const BottomNav = () => {
 
 
   return (
-    <BottomNavigation sx={{ width: '100%', position: 'fixed', bottom: 0, display: {sm: 'none'}}}>
-        <BottomNavigationAction label='Home' icon={<HomeIcon sx={{ color: 'blue'}}/>} />
+    <BottomNavigation showLabels sx={{ width: '100%', position: 'fixed', bottom: 0, display: {sm: 'none'}}}>
+
+
+        <Link to='/'>
+          <BottomNavigationAction label='Home' icon={<HomeIcon sx={{ color: 'blue'}}/>} />
+        </Link>
+        
 
         <Link to='/DFA/Tables'>
           <BottomNavigationAction label='Standings' icon={<LeaderboardIcon sx={{ color: 'blue'}}/>} />
         </Link>
-        <BottomNavigationAction label='Stats' icon={<AnalyticsIcon sx={{ color: 'blue'}}/>} />
-        <BottomNavigationAction label='More' icon={<MoreVertIcon sx={{ color: 'blue'}}/>} />
+
+        <Link>
+          <BottomNavigationAction label='Stats' icon={<AnalyticsIcon sx={{ color: 'blue'}}/>} />
+        </Link>
+
+
+        <Link>
+          <BottomNavigationAction label='More' icon={<MoreVertIcon sx={{ color: 'blue'}}/>} />
+        </Link>
+
+
     </BottomNavigation>
   )
 }
