@@ -51,7 +51,7 @@ const MainNews = () => {
       {headline != '' ? <Box width={{xs: '100%', sm: '90%'}} height={{xs: 330, sm: 400}} sx={{ position: {xs: 'relative', sm: 'static'}}}>
 
         <Link to={`/${headline[newsCounter].id}`}>
-          <img src={headline[newsCounter].url} className='mainImage'/>
+          <img src={headline[newsCounter].url[0]} className='mainImage'/>
         </Link>
 
 

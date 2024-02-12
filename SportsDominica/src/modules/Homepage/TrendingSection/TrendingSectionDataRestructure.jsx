@@ -35,8 +35,6 @@ export default function ArticlesStructuredDisplay(data){
     return required_data_fields
   })
 
-  console.log(final_data);
-
   return final_data
 }
 
