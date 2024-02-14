@@ -13,10 +13,7 @@ const FixturesData = () => {
   GetFixtures()
 
   let fixtures_raw = useSelector((state) => state.fixtures)
-  fixtures_raw = fixtures_raw[0]
-
-  // console.log(fixtures_raw);
-
+  fixtures_raw = fixtures_raw && fixtures_raw[0]? fixtures_raw[0]: [];
 
 
   return(
@@ -64,13 +61,13 @@ const FixturesData = () => {
 
         )})): <Skeleton variant="rectangular" width={310} height={60} />}
 
-        <Box>
+        {/* <Box>
           <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}}}>
 
             View All Fixtures
 
           </Typography>
-        </Box>
+        </Box> */}
 
      
 

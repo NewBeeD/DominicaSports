@@ -12,7 +12,9 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
   let articles_data = league_fixtures_data.data
 
-  articles_data = upcomingFixtures(articles_data)
+  // articles_data = upcomingFixtures(articles_data)
+
+  
 
 
   for (var item of articles_data){

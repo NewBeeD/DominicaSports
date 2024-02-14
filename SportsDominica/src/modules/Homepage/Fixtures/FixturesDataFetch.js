@@ -46,8 +46,7 @@ export default function GetFixtures(){
     queryFn: () => fetchDataFromStrapi(queryParams).then((value) =>{
 
 
-      let fixtures_dat_structured = fixturesSetup(value)
-      
+      let fixtures_dat_structured = fixturesSetup(value)    
 
       dispatch(populate(fixtures_dat_structured))
       return value
