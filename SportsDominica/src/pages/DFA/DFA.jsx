@@ -410,13 +410,11 @@ const DFA = () => {
       <>
   
       <NavBar />
-
-      
        
 
-        {player_stats ? 
+        {player_stats && player_stats.length > 0 ? 
 
-          <Box>
+          (<Box>
 
             <Stack spacing={1} justifyContent='center' direction='row' marginTop={2}>
 
@@ -530,9 +528,10 @@ const DFA = () => {
 
             </Stack>
             
-          </Box>
+          </Box>)
         
-        : <Skeleton width={300} height={300} />}
+          : <Skeleton width={300} height={300} />
+        }
 
             
   
