@@ -9,6 +9,7 @@ import PremTeamReducer from '../features/Prem_Team/PremTeamSlice'
 import DivOneTeamReducer from '../features/Div_One_Team/DivOneTeamSlice'
 import DivOneTableReducer from '../features/Div_One_Table/DivOneTableSlice'
 import DfaPlayersReducer from '../features/DFA_Players/DfaPlayersSlice'
+import DfaPremPlayerStatsReducer from '../features/DfaPlayerStats/DfaPlayerStatsSlice'
 
 const rootReducer = combineReducers({
 
@@ -22,6 +23,7 @@ const rootReducer = combineReducers({
   DivOneTeam: DivOneTeamReducer,
   DivOneTable: DivOneTableReducer,
   DfaPlayers: DfaPlayersReducer,
+  DfaPlayerStats: DfaPremPlayerStatsReducer,
 
 })
 

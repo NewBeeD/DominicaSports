@@ -74,5 +74,13 @@ export const fetchData_players = async (queryParams) => {
   return response.data;
 }
 
+export const fetchData_players_stats = async (queryParams) => {
+  const queryString = qs.stringify(queryParams);
+  const apiUrl = `https://strapi-dominica-sport.onrender.com/api/player-stats?${queryString}`;
+
+  const response = await axios.get(apiUrl);
+  return response.data;
+}
+
 
 

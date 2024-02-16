@@ -38,10 +38,8 @@ const DFA = () => {
   let women_table = useSelector((state) => state.WomenTable)
   let prem_table = useSelector((state) => state.points)
   let players = useSelector((state) => state.DfaPlayers)
+  let player_stats = useSelector((state) => state.DfaPlayerStats)
 
-  let data_player = players? players: 'null';
-
-  // console.log(data_player);
 
 
 
@@ -412,7 +410,131 @@ const DFA = () => {
       <>
   
       <NavBar />
+
       
+       
+
+        {player_stats ? 
+
+          <Box>
+
+            <Stack spacing={1} justifyContent='center' direction='row' marginTop={2}>
+
+                  <Paper sx={{ marginTop: {xs: 10}}}>
+                  
+                    <Card>
+                      
+                      <CardMedia
+                      component="img"
+                      image={player_stats[0].top_scorer_prem_url} 
+                      sx={{ width: {xs: 150} }}
+                      />
+
+                      <CardContent style={{ textAlign: 'center'}}>
+
+                        <Typography>
+                          Goals
+                        </Typography>
+
+                        <Typography>
+                          {player_stats[0].top_scorer_prem_goals}
+                        </Typography>
+
+                      </CardContent>
+
+                    </Card>
+                  </Paper>
+
+
+                <Paper sx={{ marginTop: {xs: 10}}}>
+
+                <Card>
+                  
+                  <CardMedia
+                  component="img"
+                  image={player_stats[0].top_assist_prem_url} 
+                  sx={{ width: {xs: 150} }}
+                  />
+
+                  <CardContent style={{ textAlign: 'center'}}>
+
+                    <Typography>
+                      Assists
+                    </Typography>
+
+                    <Typography>
+                      {player_stats[0].top_assist_prem_assist}
+                    </Typography>
+
+                  </CardContent>
+
+                </Card>
+
+                </Paper>
+                
+            </Stack>
+
+            <Stack spacing={1} justifyContent='center' direction='row' marginTop={2}>
+
+            <Paper sx={{ marginTop: {xs: 10}}}>
+            
+              <Card>
+                
+                <CardMedia
+                component="img"
+                image={player_stats[0].top_scorer_prem_url} 
+                sx={{ width: {xs: 150} }}
+                />
+
+                <CardContent style={{ textAlign: 'center'}}>
+
+                  <Typography>
+                    Goals
+                  </Typography>
+
+                  <Typography>
+                    {player_stats[0].top_scorer_prem_goals}
+                  </Typography>
+
+                </CardContent>
+
+              </Card>
+            </Paper>
+
+
+            <Paper sx={{ marginTop: {xs: 10}}}>
+
+            <Card>
+
+            <CardMedia
+            component="img"
+            image={player_stats[0].top_assist_prem_url} 
+            sx={{ width: {xs: 150} }}
+            />
+
+            <CardContent style={{ textAlign: 'center'}}>
+
+              <Typography>
+                Assists
+              </Typography>
+
+              <Typography>
+                {player_stats[0].top_assist_prem_assist}
+              </Typography>
+
+            </CardContent>
+
+            </Card>
+
+            </Paper>
+
+            </Stack>
+            
+          </Box>
+        
+        : <Skeleton width={300} height={300} />}
+
+            
   
       <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
   

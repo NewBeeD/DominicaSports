@@ -82,6 +82,25 @@ export const queryParams_prem_players = {
 }
 
 
+export const queryParams_prem_players_stats = {
+  
+  populate: {
+    dfa_player: {
+      populate: true
+    },
+    all_league:{
+      populate: true
+    },
+    Profile_Pic:{
+      populate: true
+    },
+    dfa_team:{
+      populate: true
+    }
+  }   
+}
+
+
 
 
 
