@@ -530,7 +530,7 @@ const DFA = () => {
             
           </Box>)
         
-          : <Skeleton width={300} height={300} />
+          : <Skeleton width={300} height={300} sx={{ margin: 'auto'}}/>
         }
 
             
