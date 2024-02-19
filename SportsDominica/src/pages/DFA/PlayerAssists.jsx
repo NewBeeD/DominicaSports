@@ -21,7 +21,7 @@ const PlayerAssists = () => {
 
 
   return (
-    <Box>
+    <Box >
 
       <NavBar />
 
@@ -34,11 +34,11 @@ const PlayerAssists = () => {
       </Box>
 
       
-      <Paper marginBottom={4} >
+      <Paper marginBottom={4} sx={{ width: {xs: '98%'}, margin: 'auto'}}>
         {players_data && (
 
           <Stack direction='row' justifyContent='space-between'>
-            <Stack direction='column'>
+            <Stack direction='column' paddingLeft={{xs: 1}}>
               <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
               <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].First_Name}</Typography></Box>
               <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].Last_Name}</Typography></Box>
@@ -56,7 +56,7 @@ const PlayerAssists = () => {
         )}
       </Paper>
 
-      <Paper>
+      <Paper sx={{ width: {xs: '98%'}, margin: 'auto'}}>
 
         <Table sx={{ marginTop: {xs: 2}}}>
 
@@ -77,10 +77,10 @@ const PlayerAssists = () => {
                 
                 <TableRow key={idx}>
 
-                  <TableCell sx={{ fontWeight: 'bold'}}>{idx+2}</TableCell>
-                  <TableCell>{item.Last_Name} {item.First_Name}</TableCell>
-                  <TableCell>{item.team}</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold'}}>{item.Assists}</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', paddingY: 0}}>{idx+2}</TableCell>
+                  <TableCell sx={{ paddingY: 0}}>{item.Last_Name} {item.First_Name}</TableCell>
+                  <TableCell sx={{ paddingY: 0}}>{item.team}</TableCell>
+                  <TableCell sx={{ fontWeight: 'bold', paddingY: 0}}>{item.Assists}</TableCell>
                 </TableRow>
               )
             })}
@@ -89,8 +89,6 @@ const PlayerAssists = () => {
         </Table>
 
       </Paper>
-
-
 
     </Box>
   )

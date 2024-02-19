@@ -143,11 +143,11 @@ const NavBar = () => {
           >
             <Link to='/'><MenuItem onClick={closeMenu}>Home</MenuItem></Link>
             <Link to='/DFA/Home'><MenuItem onClick={closeMenu}>DFA</MenuItem></Link>
-            <Link to='/DABA/Home'><MenuItem onClick={closeMenu}>DABA</MenuItem></Link>
-            <Link to='/DAVA/Home'><MenuItem onClick={closeMenu}>DAVA</MenuItem></Link>
-            <Link to='/DNA/Home'><MenuItem onClick={closeMenu}>DNA</MenuItem></Link>
-            <Link to='/Media'><MenuItem onClick={closeMenu}>MEDIA</MenuItem></Link>
-            <Link to='/Profile'><MenuItem onClick={closeMenu}>PROFILE</MenuItem></Link>
+            <Link to='/'><MenuItem onClick={closeMenu}>DABA</MenuItem></Link>
+            <Link to='/'><MenuItem onClick={closeMenu}>DAVA</MenuItem></Link>
+            <Link to='/'><MenuItem onClick={closeMenu}>DNA</MenuItem></Link>
+            <Link to='/'><MenuItem onClick={closeMenu}>MEDIA</MenuItem></Link>
+            <Link to='/'><MenuItem onClick={closeMenu}>PROFILE</MenuItem></Link>
 
           </Menu>
 

@@ -24,6 +24,7 @@ import BottomNav from "../../components/DFAPage/BottomNav";
 import FixturesData from "../../components/homePage/Fixtures"
 
 import playStatCleanUp from '../../modules/DFA/PlayerStats/PlayerStatsCleanUp'
+import TeamGoalsStructure from '../../modules/DFA/PlayerStats/MostTeamGoals'
 
 // Icons
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
@@ -47,7 +48,11 @@ const DFA = () => {
   let players = useSelector((state) => state.DfaPlayers)
   let player_stats = useSelector((state) => state.DfaPlayerStats)
 
+  let team_most_goals = player_stats ? TeamGoalsStructure(player_stats[0]): []
+
   player_stats = player_stats && player_stats[0] ? playStatCleanUp(player_stats[0]): [];
+
+  console.log(team_most_goals);
 
  
 
@@ -506,11 +511,11 @@ const DFA = () => {
                   <CardContent style={{ textAlign: 'center'}}>
 
                     <Typography sx={{ fontWeight: 'bold'}}>
-                      Goals
+                      Team Goals
                     </Typography>
 
                     <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                      {player_stats[0].top_scorer_prem_goals}
+                      {team_most_goals[0].totalGoals}
                     </Typography>
 
                   </CardContent>
