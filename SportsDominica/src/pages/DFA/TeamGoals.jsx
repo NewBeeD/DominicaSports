@@ -13,8 +13,6 @@ const TeamGoals = () => {
   let players_data = player_stats ? player_stats[0]: []
   let players_data_final = players_data ? TeamGoalsStructure(players_data): []
 
-  // console.log('Inside Comp',players_data);
-
 
   let current_season = players_data[0] ? players_data[0].Season.substring(1).replace('-', '/'): '';
 

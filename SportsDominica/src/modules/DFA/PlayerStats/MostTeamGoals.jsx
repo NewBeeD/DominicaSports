@@ -2,8 +2,9 @@
 
 export default function TeamGoalsStructure(players_data){
 
+
   // Calculate total goals for each team
-  let teamGoals = players_data.reduce((goalsByTeam, player) => {
+  let teamGoals =   players_data.reduce((goalsByTeam, player) => {
     goalsByTeam[player.team] = (goalsByTeam[player.team] || 0) + player.Goals;
     return goalsByTeam;
   }, {});

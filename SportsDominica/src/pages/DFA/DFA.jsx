@@ -48,11 +48,9 @@ const DFA = () => {
   let players = useSelector((state) => state.DfaPlayers)
   let player_stats = useSelector((state) => state.DfaPlayerStats)
 
-  let team_most_goals = player_stats ? TeamGoalsStructure(player_stats[0]): []
+  let team_most_goals = player_stats && player_stats.length > 0 ? TeamGoalsStructure(player_stats[0]): []
 
-  player_stats = player_stats && player_stats[0] ? playStatCleanUp(player_stats[0]): [];
-
-  console.log(team_most_goals);
+  player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];
 
  
 
@@ -77,6 +75,7 @@ const DFA = () => {
   const handleMenuItemClick = (choice) => {
     setSelectedChoice(choice);
     setAnchorEl(null);
+
   };
 
   const handleClose = () => {
@@ -185,7 +184,7 @@ const DFA = () => {
       <Box height={{xs:50}} marginY={1} />
       {/* <BottomNav /> */}
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
+      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
   
@@ -766,7 +765,7 @@ const DFA = () => {
       <Box marginTop={7} />
       
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
+      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
   
@@ -797,8 +796,10 @@ const DFA = () => {
               }}
             >
               <MenuItem onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
+              {/* <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem> */}
+              <MenuItem >Women</MenuItem>
+              {/* <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem> */}
+              <MenuItem >Division 1</MenuItem>
             </Menu>
           </Box>
   

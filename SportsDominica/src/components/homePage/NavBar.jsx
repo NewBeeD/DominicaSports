@@ -56,7 +56,7 @@ const NavBar = () => {
 
     <Box >
 
-      <AppBar position='static' elevation={2} sx={{ backgroundColor: {xs: '#26249B', sm: 'black'} }}>
+      <AppBar position='static' elevation={2} sx={{ backgroundColor: {xs: '#060506', sm: 'black'} }}>
 
         <Toolbar sx={{ display: {xs: 'flex'}, justifyContent: {xs:'space-between', sm: 'center'}}}>
 
@@ -141,13 +141,13 @@ const NavBar = () => {
             }
           }}          
           >
-            <Link to='/'><MenuItem onClick={closeMenu}>Home</MenuItem></Link>
-            <Link to='/DFA/Home'><MenuItem onClick={closeMenu}>DFA</MenuItem></Link>
-            <Link to='/'><MenuItem onClick={closeMenu}>DABA</MenuItem></Link>
-            <Link to='/'><MenuItem onClick={closeMenu}>DAVA</MenuItem></Link>
-            <Link to='/'><MenuItem onClick={closeMenu}>DNA</MenuItem></Link>
-            <Link to='/'><MenuItem onClick={closeMenu}>MEDIA</MenuItem></Link>
-            <Link to='/'><MenuItem onClick={closeMenu}>PROFILE</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>Home</MenuItem></Link>
+            <Link to='/DFA/Home' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DFA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DABA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DAVA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DNA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>MEDIA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>PROFILE</MenuItem></Link>
 
           </Menu>
 
