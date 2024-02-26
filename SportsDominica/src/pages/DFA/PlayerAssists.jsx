@@ -71,7 +71,7 @@ const PlayerAssists = () => {
 
           <TableBody>
 
-            {players_data && players_data.slice(1).map((item, idx) => {
+            {players_data && players_data.filter(item => item.Assists > 0).slice(1).map((item, idx) => {
 
               return (
                 
