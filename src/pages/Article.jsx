@@ -20,7 +20,7 @@ import GetArticles from "../modules/Homepage/TrendingSection/TrendingSectionData
 
 const Article = () => {
 
-  // GetArticles()
+  GetArticles()
   const { id } = useParams()
 
 

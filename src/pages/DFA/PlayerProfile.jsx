@@ -12,11 +12,6 @@ const PlayerProfile = () => {
 
   let current_player = players ? players[0].filter(item => item.FirstName === id): [];
 
-  console.log(current_player);
-
-
-
-  // console.log(truth)
 
 
   return (

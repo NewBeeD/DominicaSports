@@ -38,9 +38,6 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
     final_data.push(required_data_fields)
   }
-  // let data_ready = fixtureDisplayStructure(final_data)
-
-  console.log('final Data', final_data);
 
   return final_data
 }
