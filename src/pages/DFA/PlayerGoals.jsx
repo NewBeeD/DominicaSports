@@ -21,8 +21,7 @@ const PlayerGoals = () => {
 
   let current_season = players_data[0] ? players_data[0].Season.substring(1).replace('-', '/'): '';
 
-  console.log(players_data); 
-  
+ 
   
   return (
     <Box>

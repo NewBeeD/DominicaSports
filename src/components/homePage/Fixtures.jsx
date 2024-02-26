@@ -15,8 +15,6 @@ const FixturesData = ({ page, type }) => {
   let fixtures_raw = useSelector((state) => state.fixtures)
   fixtures_raw = fixtures_raw && fixtures_raw[0]? fixtures_raw[0].filter(item => item.League == 'DFA'): [];
 
-  console.log(fixtures_raw);
-
 
   if( page === 'home'){
 
