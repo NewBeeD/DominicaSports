@@ -55,7 +55,7 @@ const TrendingSection = ({ level }) => {
 
   return (
     
-    <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4}>  
+    <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4} >  
 
       {level == 'second'? '':level == 'third'? '':(<Stack marginBottom={{xs: 2}}>
 
@@ -106,7 +106,7 @@ const TrendingSection = ({ level }) => {
 
               </CardActions>
 
-              <Link to={`/${item.id}`}>
+              <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
                 <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
               </Link>
 

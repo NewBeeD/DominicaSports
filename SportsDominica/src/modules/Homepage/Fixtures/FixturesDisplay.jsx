@@ -12,12 +12,16 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
   let articles_data = league_fixtures_data.data
 
+  let fixtures_orderedByDate = DateOrder(articles_data)
+
   // articles_data = upcomingFixtures(articles_data)
+
+  // console.log('Fixtures Data', fixtures_orderedByDate);
 
   
 
 
-  for (var item of articles_data){
+  for (var item of fixtures_orderedByDate){
 
     required_data_fields ={
       Home: item.attributes['Home_Team'],
@@ -26,6 +30,8 @@ export default function GroupingFixturesByDate(league_fixtures_data){
       Time: getTimeOnly(item.attributes['Date']),
       Venue: item.attributes['venue'].data['attributes']['Name'],
       League: leagueNameChange(item.attributes['all_league'].data['attributes']['name']),
+      Complete: item.attributes['Complete'],
+      Cancelled: item.attributes['Cancelled'],
       HomeScore:item.attributes['Home_Team_Score'],
       AwayScore: item.attributes['Away_Team_Score']
     }
@@ -34,7 +40,30 @@ export default function GroupingFixturesByDate(league_fixtures_data){
   }
   // let data_ready = fixtureDisplayStructure(final_data)
 
+  console.log('final Data', final_data);
+
   return final_data
+}
+
+function DateOrder(data_points){
+
+  let new_arr = data_points.sort(compareByDate);
+
+  return new_arr
+}
+
+function compareByDate(obj1, obj2) {
+
+  const date1 = new Date(obj1.attributes['Date']);
+  const date2 = new Date(obj2.attributes['Date']);
+
+  if (date1 < date2) {
+    return -1;
+  } else if (date1 > date2) {
+    return 1;
+  } else {
+    return 0;
+  }
 }
 
 
@@ -113,9 +142,9 @@ function leagueNameChange(leagueName){
 
   switch(leagueName){
 
-    case 'DFA_First_Division':     
+    case 'DFA_Division_One':     
     case 'DFA_Women':
-    case 'DFA_Premier_League':
+    case 'DFA_Premier_League_Men':
       return 'DFA';
     
     case 'DABA_First_Division':

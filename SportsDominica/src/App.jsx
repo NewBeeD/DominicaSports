@@ -7,9 +7,15 @@ import DFA from './pages/DFA/DFA'
 import DABA from './pages/DABA/DABA'
 import DAVA from './pages/DAVA/DAVA'
 import DNA from './pages/DNA/DNA'
+
+import PlayerProfile from './pages/DFA/PlayerProfile'
+
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import LeagueStanding
- from './pages/Tables/LeagueStanding'
+import LeagueStanding from './pages/Tables/LeagueStanding'
+import PlayerGoals from './pages/DFA/PlayerGoals'
+import PlayerAssists from './pages/DFA/PlayerAssists'
+import TeamGoals from './pages/DFA/TeamGoals'
+import TeamCleanSheets from './pages/DFA/TeamCleanSheets'
 
 function App() {
 
@@ -22,22 +28,29 @@ function App() {
 
         <Route path='/' element={<HomePage />} />
         <Route path='/:id' element={<Article />} />
+        <Route path='/DFA/Home/Player/:id' element={<PlayerProfile />}/>
+        <Route path='/Table' element={<LeagueStanding />} />
+        <Route path='/DFA/Home/PlayerGoals' element={<PlayerGoals />} />
+        <Route path='/DFA/Home/PlayerAssists' element={<PlayerAssists />} />
+        <Route path='/DFA/Home/TeamGoals' element={<TeamGoals />} />
+        <Route path='/DFA/Home/TeamCleanSheets' element={<TeamCleanSheets />} />
+
 
         {/* Home Pages for each Sport */}
         
-        <Route path='/DABA/Home' element={<DABA />} />
+        {/* <Route path='/DABA/Home' element={<DABA />} />
         <Route path='/DAVA/Home' element={<DAVA />} />
-        <Route path='/DNA/Home' element={<DNA />} />
+        <Route path='/DNA/Home' element={<DNA />} /> */}
         {/* End of Home Pages for each Sport */}
 
         {/* DFA PAGES */}
         <Route path='/DFA/Home' element={<DFA />} />
-        <Route path='/DFA/Premier-League' element={<DFA />} />
+        {/* <Route path='/DFA/Premier-League' element={<DFA />} />
         <Route path='/DFA/First-Division' element={<DFA />} />
         <Route path='/DFA/Women-League' element={<DFA />} />
         <Route path='/DFA/Tables' element={<LeagueStanding />} />
         <Route path='/DFA/Teams' element={<DFA />} />
-        <Route path='/DFA/Stats' element={<DFA />} />
+        <Route path='/DFA/Stats' element={<DFA />} /> */}
         {/* End of DFA Pages */}
 
         {/* DABA PAGES */}
@@ -54,7 +67,7 @@ function App() {
 
         {/* Tables and Fixtures */}
 
-        <Route path='/Table' element={<LeagueStanding />} />
+       
 
         {/* End of Tables and Fixtures */}
 

@@ -2,7 +2,7 @@
 
 export default function PlayerDisplayStructure(data){
 
-  // console.log('Try',data[0].attributes['Profile_Pic'].data.attributes.formats['small']['url']);
+  // console.log('Try',data[0].id);
 
 
 
@@ -10,12 +10,14 @@ export default function PlayerDisplayStructure(data){
 
     let player = {};
 
+    player['id'] = item.id
     player['FirstName'] = item.attributes['First_Name']
     player['Last_Name'] = item.attributes['Last_Name']
     player['BirthDate'] = item.attributes['Birth_Date']
     player['Age'] = item.attributes['Age']
     player['Gender'] = item.attributes['Gender']
     player['Position'] = item.attributes['Position']
+    player['Appearances'] = item.attributes['Appearances']
     player['Goals'] = item.attributes['Goals']
     player['Assists'] = item.attributes['Assists']
     player['YellowCards'] = item.attributes['Yellow_Cards']
