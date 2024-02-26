@@ -75,7 +75,7 @@ const PlayerGoals = () => {
 
           <TableBody>
 
-            {players_data && players_data.slice(1).map((item, idx) => {
+            {players_data && players_data.filter(item => item.Goals > 0).slice(1).map((item, idx) => {
 
               return (
                 

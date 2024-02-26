@@ -56,8 +56,9 @@ const DFA = () => {
 
   const navigate = useNavigate()  
   const [page, setPage] = useState('home')
-
   const [team, setTeam] = useState('CCCUL Dublanc FC');
+
+  const [type, setType] = useState('now')
   
   const handleChange = (event) => {
 
@@ -261,10 +262,24 @@ const DFA = () => {
       <>
   
       <NavBar />
-      <FixturesData />
+      <FixturesData page='dfa' type={type}/>
+
       
+      <Stack justifyContent='center' direction='row' marginTop={7} >
+
+        {type != 'now' ? <Button variant="outlined" onClick={() => setType('now')} size="small">
+          Upcoming Fixtures
+        </Button>: ''}
+
+        {type != 'past' ? <Button variant="outlined" onClick={() => setType('past')} size="small">
+          Past Results
+        </Button>: ''}
+      </Stack>
+
+      <Box marginTop={8} />
+     
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
+      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
   
@@ -345,7 +360,7 @@ const DFA = () => {
       <Points_Table page='dfa' />
       
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
+      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
   
@@ -582,7 +597,7 @@ const DFA = () => {
 
             
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#26249B'}}>
+      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
   

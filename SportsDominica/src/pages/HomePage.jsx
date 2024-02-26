@@ -23,7 +23,7 @@ const HomePage = () => {
       <NavBar />
       <MainNews />
       <TrendingSection level={first}/>
-      <FixturesData />
+      <FixturesData page='home' />
       <TrendingSection level={second}/>
       <Points_Table page='Homepage'/>
       <TrendingSection level={third}/>
