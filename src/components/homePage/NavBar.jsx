@@ -119,9 +119,9 @@ const NavBar = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true': undefined}
           onClick={menuDisplay}
-          sx={{ display: {sm: 'none'} }}
+          sx={{ display: {sm: 'none'}}}
           >
-            <MenuIcon style={{ color: 'white'}}/>
+            <MenuIcon style={{ color: 'white', fontSize: '28px'}}/>
 
           </Button>
 
