@@ -101,6 +101,25 @@ export const queryParams_prem_players_stats = {
 }
 
 
+export const queryParams_articles = {
+  
+  populate: {
+    Article_img: {
+      populate: true
+    },
+
+    all_league: {
+      populate: true
+    },
+
+    Article_Img: {
+      populate: true
+    },
+
+  }   
+}
+
+
 
 
 

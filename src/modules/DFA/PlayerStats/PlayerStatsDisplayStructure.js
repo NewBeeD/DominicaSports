@@ -2,7 +2,7 @@
 
 export default function PlayerStatsDisplayStructure(data){
 
-  // console.log(data[0].attributes['dfa_team']);
+
 
   // let final_data = {};
   
@@ -30,6 +30,8 @@ export default function PlayerStatsDisplayStructure(data){
     stat['Red_Cards'] = item.attributes['Red_Cards']
     
     stat['Clean_Sheets'] = item.attributes['Clean_Sheets']
+
+    stat['Foot'] = item.attributes['dfa_player'].data.attributes['Foot']
 
     stat['url'] = item.attributes['Profile_Pic'].data.attributes['formats']['medium']['url']
 

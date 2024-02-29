@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 // Redux
 import { useSelector } from 'react-redux';
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel } from '@mui/material'
+import HomeIcon from '@mui/icons-material/Home';
 
 import GetDFA from "../../modules/DFA/AllDfaData";
 
@@ -51,6 +52,8 @@ const DFA = () => {
   let team_most_goals = player_stats && player_stats.length > 0 ? TeamGoalsStructure(player_stats[0]): []
 
   player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];
+
+
 
  
 
@@ -172,7 +175,8 @@ const DFA = () => {
   
       <NavBar />
       <Typography marginTop={{xs: 1}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', color: 'blue', fontWeight: 900}}>Dominica Football Association</Typography>
-      <MainNews />
+      {/* <MainNews /> */}
+      <Box marginTop={5} />
       <DfaArticles level='first' />
       <Video video_id ='XbVCw17Ks6E'/>
       <Box marginY={1.5} />
@@ -188,6 +192,7 @@ const DFA = () => {
       <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+
   
           <Box>
             <Button 
@@ -677,6 +682,7 @@ const DFA = () => {
 
       <Stack marginTop={2} direction='row' justifyContent='center' alignContent='center'>
 
+        {/* Choose team */}
         <Box>
           
           {selectedChoice == 'Men'? 
@@ -728,18 +734,16 @@ const DFA = () => {
           
         </Box>
 
-
-
       </Stack>
 
       
 
-      {players ? players[0].filter(item => item.Current_Team == team && item.League === 'DFA').map((item, idx) => {
+      {players.length > 0 ? players[0].filter(item => item.Current_Team == team && item.League === 'DFA').map((item, idx) => {
 
         return (
           <Paper  key={idx} sx={{ width: {xs: '93%'}, height: {xs: '100px'}, margin: 'auto', textDecoration: 'none'}}>
 
-            <Link to={`/DFA/Home/Player/${item.FirstName}`} style={{ textDecoration: 'none'}}>
+            <Link to={`/DFA/Home/Player/${item.id}`} style={{ textDecoration: 'none'}}>
 
               <Card style={{ height: '100%'}}  sx={{ display: 'flex', justifyContent: 'space-between', marginY: 2}}>
               

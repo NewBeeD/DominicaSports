@@ -1,16 +1,109 @@
 import { useParams } from "react-router-dom"
 import { useSelector } from "react-redux"
 
+import { useState, useEffect } from "react"
+
+import qs from 'qs'
+import axios from "axios"
+
+import { queryParams_prem_players } from "../../modules/DFA/QueryParams"
+
+import SinglePlayerDisplay from "../../modules/DFA/PlayerStats/SinglePlayerDispl/SinglePlayerDisplay"
+
+
+
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel } from '@mui/material'
 
+// import getPlayInfo from "../../modules/DFA/PlayerStats/PlayerProfileReload"
+
 import NavBar from "../../components/homePage/NavBar"
+
+
 
 const PlayerProfile = () => {
 
   const { id } = useParams()
-  let players = useSelector((state) => state.DfaPlayers)
 
-  let current_player = players ? players[0].filter(item => item.FirstName === id): [];
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Set loading to true when starting the fetch
+        setLoading(true);
+
+        const queryString = qs.stringify(queryParams_prem_players);
+
+        // Your API endpoint URL
+        const apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-players/${id}?${queryString}`;
+  
+
+        // Make the fetch request
+        const response = await axios.get(apiUrl);
+
+        // Check if the request was successful (status code 2xx)
+        if (response.status !== 200) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        // Parse the JSON data
+        const result = await response.data.data;
+
+        let final_data = SinglePlayerDisplay(result)
+        
+        // Set the data state
+        setData(final_data);
+      } catch (error) {
+        // Set the error state if there's an issue
+        setError(error.message);
+      } finally {
+        // Set loading to false regardless of success or failure
+        setLoading(false);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
+  // if (loading) {
+  //   return (
+  //     <>
+
+  //     <NavBar />
+
+  //     <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+  //       <Skeleton width={200} height={400} />;
+  //     </Box>
+      
+  //     </>
+      
+  //   )
+  // }
+
+  // if (error) {
+  //   return (
+  //     <>
+
+  //     <NavBar />
+
+  //     <Box sx={{ display: 'flex', justifyContent: 'center'}}>
+  //       <Skeleton width={200} height={400} />;
+  //     </Box>
+      
+  //     </>
+      
+  //   )
+  // }
+
+  
+
+
 
 
 
@@ -19,23 +112,25 @@ const PlayerProfile = () => {
 
       <NavBar />
 
+      {/* {data.id} */}
 
-      {current_player && (
+
+      {data ? (
         <Box>
 
-          <Typography>{current_player[0].FirstName} {current_player[0].Last_Name}</Typography>
+          <Typography paddingLeft={{ xs: 2}} marginTop={{ xs: 1}} sx={{ fontWeight: 900}}>{data.FirstName} {data.Last_Name}</Typography>
 
-          <Stack marginTop={2} direction='row' justifyContent='center'>
+          <Stack paddingX={{ xs:2}} marginTop={2} marginBottom={{xs:1}} direction='row' justifyContent='space-between'>
 
             <Box width={{xs:150}} height={170}>
 
-              {current_player[0].Position == 'CM' || current_player[0].Position == 'CDM'? 'Midfielder': current_player[0].Position == 'LW' || current_player[0].Position == 'RW' || current_player[0].Position == 'ST' || current_player[0].Position == 'CF' || current_player[0].Position == 'CAM'? 'Forward': current_player[0].Position == 'GK'? 'Goalkeeper' :'Defender'}
+              {data.Position == 'CM' || data.Position == 'CDM'? 'Midfielder': data.Position == 'LW' || data.Position == 'RW' || data.Position == 'ST' || data.Position == 'CF' || data.Position == 'CAM'? 'Forward': data.Position == 'GK'? 'Goalkeeper' :'Defender'}
 
             </Box>
 
             <Box width={{xs:150}} height={170}>
 
-              <img src={current_player[0].url} width='100%' />
+              <img src={data.url} width='100%' />
 
             </Box>
 
@@ -48,42 +143,47 @@ const PlayerProfile = () => {
             <Stack paddingX={{xs: 2}} marginTop={2}>
               <Stack justifyContent='space-between' direction='row'>
                 <Typography>Date of Birth:</Typography>
-                <Typography>{current_player[0].BirthDate}</Typography>
+                <Typography>{data.BirthDate}</Typography>
               </Stack>
 
               <Stack justifyContent='space-between' direction='row'>
                 <Typography>Age:</Typography>
-                <Typography>{current_player[0].Age}</Typography>
+                <Typography>{data.Age}</Typography>
               </Stack>
 
               <Stack justifyContent='space-between' direction='row'>
                 <Typography>Club:</Typography>
-                <Typography>{current_player[0].Current_Team}</Typography>
+                <Typography>{data.Current_Team}</Typography>
               </Stack>
 
               <Stack justifyContent='space-between' direction='row'>
                 <Typography>Position:</Typography>
-                <Typography>{current_player[0].Position}</Typography>
+                <Typography>{data.Position}</Typography>
+              </Stack>
+
+              <Stack justifyContent='space-between' direction='row'>
+                <Typography>Foot:</Typography>
+                <Typography>{data.Foot}</Typography>
               </Stack>
 
             </Stack>
           
           </Box>
 
-          <Box marginTop={4} paddingLeft={{ xs: 2}}>
+          <Box marginTop={4} paddingX={{ xs: 2}}>
             <Typography>Premier League Record</Typography>
 
             <Stack marginTop={2} direction='row' justifyContent='space-between'>
 
-              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black'}}>
+              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black', textAlign: 'center'}}>
                 <Typography>Appearances</Typography>
-                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{current_player[0].Appearances}</Typography>
+                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{data.Appearances}</Typography>
                 
               </Stack>
 
-              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black'}}>
+              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black', textAlign: 'center'}}>
                 <Typography>Goals</Typography>
-                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{current_player[0].Goals}</Typography>
+                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{data.Goals}</Typography>
                 
               </Stack>
 
@@ -91,15 +191,15 @@ const PlayerProfile = () => {
 
             <Stack marginTop={1} direction='row' justifyContent='space-between'>
 
-              <Stack width={150} height={80} justifyContent='space-between' direction='column' sx={{ border: '1px solid black'}}>
+              <Stack width={150} height={80} justifyContent='space-between' direction='column' sx={{ border: '1px solid black', textAlign: 'center'}}>
                 <Typography>Assists</Typography>
-                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{current_player[0].Assists}</Typography>
+                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{data.Assists}</Typography>
                 
               </Stack>
 
-              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black'}}>
+              <Stack width={150} height={80} direction='column' sx={{ border: '1px solid black', textAlign: 'center'}}>
                 <Typography>Yellow Cards</Typography>
-                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{current_player[0].YellowCards}</Typography>
+                <Typography variant="h3" sx={{ fontWeight: 'bold'}}>{data.YellowCards}</Typography>
                 
               </Stack>
 
@@ -109,7 +209,8 @@ const PlayerProfile = () => {
 
           
         </Box>
-      )}
+      ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
+
     </Box>
   )
 }

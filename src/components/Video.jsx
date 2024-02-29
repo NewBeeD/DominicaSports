@@ -28,7 +28,7 @@ const Video = ({ video_id }) => {
     } else if (windowWidth >= 768) {
       return { width: '900', height: '480' };
     }else if (windowWidth >= 300) {
-      return { width: '285', height: '195' };
+      return { width: '340', height: '200' };
     } 
     else {
       return { width: '250', height: '200' };
