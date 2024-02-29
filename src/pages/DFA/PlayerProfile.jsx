@@ -116,29 +116,40 @@ const PlayerProfile = () => {
 
 
       {data ? (
-        <Box>
+        <Box sx={{ display: 'flex' , flexDirection: 'column' ,justifyContent: 'center'}}>
 
           <Typography paddingLeft={{ xs: 2}} marginTop={{ xs: 1}} sx={{ fontWeight: 900}}>{data.FirstName} {data.Last_Name}</Typography>
 
-          <Stack paddingX={{ xs:2}} marginTop={2} marginBottom={{xs:1}} direction='row' justifyContent='space-between'>
+          <Box paddingLeft={{ xs: 2}} marginBottom={1}>
 
-            <Box width={{xs:150}} height={170}>
+                <Typography>
 
-              {data.Position == 'CM' || data.Position == 'CDM'? 'Midfielder': data.Position == 'LW' || data.Position == 'RW' || data.Position == 'ST' || data.Position == 'CF' || data.Position == 'CAM'? 'Forward': data.Position == 'GK'? 'Goalkeeper' :'Defender'}
+                  {data.Position == 'CM' || data.Position == 'CDM'? 'Midfielder': data.Position == 'LW' || data.Position == 'RW' || data.Position == 'ST' || data.Position == 'CF' || data.Position == 'CAM'? 'Forward': data.Position == 'GK'? 'Goalkeeper' :'Defender'}
 
-            </Box>
+                </Typography>
 
-            <Box width={{xs:150}} height={170}>
-
-              <img src={data.url} width='100%' />
 
             </Box>
 
-          </Stack>
+          <Box margin='auto'>
+            
+
+            <Stack direction='column' justifyContent='center'  >
+
+              <Box width={{xs:280}} height='auto' >
+
+                <img src={data.url} width='100%' />
+
+              </Box>
+
+            </Stack>
+
+          </Box>
+
 
           <Box>
 
-            <Typography marginLeft={2}>Personal Details</Typography>
+            <Typography marginLeft={2} marginTop={5}>Personal Details</Typography>
 
             <Stack paddingX={{xs: 2}} marginTop={2}>
               <Stack justifyContent='space-between' direction='row'>
