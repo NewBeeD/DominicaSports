@@ -7,6 +7,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
+import theme from '../../css/theme';
+
 
 
 
@@ -129,20 +131,19 @@ const NavBar = () => {
           transitionDuration={250}
           MenuListProps={{
             'aria-labelledby': 'menu-button',
-          }}
-          slotProps={{
-            paper: {
-
+            style: {
+              width: '120px'
             }
-          }}          
+          }}
+                   
           >
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>Home</MenuItem></Link>
-            <Link to='/DFA/Home' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DFA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DABA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DAVA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>DNA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>MEDIA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem onClick={closeMenu}>PROFILE</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>Home</MenuItem></Link>
+            <Link to='/DFA/Home' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DFA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DABA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DAVA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DNA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>MEDIA</MenuItem></Link>
+            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>PROFILE</MenuItem></Link>
 
           </Menu>
 
