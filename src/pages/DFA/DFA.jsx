@@ -286,17 +286,18 @@ const DFA = () => {
       <Box marginTop={8} />
      
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
+      <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+
   
-          <Box>
+          <Box >
             <Button 
             aria-controls="simple-menu" 
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: 'white', padding: '0px'}}
+            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -316,15 +317,15 @@ const DFA = () => {
                 horizontal: 'left',
               }}
             >
-              <MenuItem onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white' }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -332,19 +333,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Tables</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Stats</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Players</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   
@@ -367,17 +368,18 @@ const DFA = () => {
       <Points_Table page='dfa' />
       
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
+      <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+
   
-          <Box>
+          <Box >
             <Button 
             aria-controls="simple-menu" 
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: 'white', padding: '0px'}}
+            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -397,15 +399,15 @@ const DFA = () => {
                 horizontal: 'left',
               }}
             >
-              <MenuItem onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white' }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -413,19 +415,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Tables</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Stats</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Players</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   
@@ -604,72 +606,73 @@ const DFA = () => {
 
             
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
+        <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
-        <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
-  
-          <Box>
-            <Button 
-            aria-controls="simple-menu" 
-            aria-haspopup="true" 
-            onClick={handleClick}
-            endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: 'white', padding: '0px'}}
-            size='small'>
-              {selectedChoice}
-            </Button>
-  
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-              anchorOrigin={{
-                vertical: 'top', // Position of the anchor element
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'bottom', // Position of the menu
-                horizontal: 'left',
-              }}
-            >
-              <MenuItem onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
-            </Menu>
-          </Box>
-  
-          <Box>
-            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white' }}>Fixtures</Typography>
-            </Button>
-          </Box>
-  
-          
-  
-          <Box>
-            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Tables</Typography>
-            </Button>
-          </Box>
+  <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
 
-          <Box>
-            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Stats</Typography>
-            </Button>
-          </Box>
-  
-          <Box>
-            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Players</Typography>
-            </Button>
-          </Box>
-  
-  
-        </Stack>
-  
-      </Paper>
+
+    <Box >
+      <Button 
+      aria-controls="simple-menu" 
+      aria-haspopup="true" 
+      onClick={handleClick}
+      endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
+      style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+      size='small'>
+        {selectedChoice}
+      </Button>
+
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'top', // Position of the anchor element
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'bottom', // Position of the menu
+          horizontal: 'left',
+        }}
+      >
+        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
+        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
+        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
+      </Menu>
+    </Box>
+
+    <Box>
+      <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
+        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+      </Button>
+    </Box>
+
+    
+
+    <Box>
+      <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
+        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+      </Button>
+    </Box>
+
+    <Box>
+      <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
+        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+      </Button>
+    </Box>
+
+    <Box>
+      <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
+        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+      </Button>
+    </Box>
+
+
+  </Stack>
+
+</Paper>
       
       </>
     )
@@ -752,15 +755,15 @@ const DFA = () => {
               <Box sx={{ display: 'flex', flexDirection: 'column'}}>
 
                 <CardContent sx={{ flex: '1 0 auto' }}>
-                  <Typography component="div" variant="h5">
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} component="div" variant="h5">
                     {item.FirstName}
                   </Typography>
 
-                  <Typography variant="subtitle1" color="text.secondary" component="div">
+                  <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}}  variant="subtitle1" color="text.secondary" component="div">
                     {item.Last_Name}
                   </Typography>
 
-                  <Typography variant="caption" color="text.secondary" component="div">
+                  <Typography style={{ color: `var(--color-color1, ${theme.colors.color1})`}}  variant="caption" color="text.secondary" component="div">
                     {item.Position}
                   </Typography>
 
@@ -786,17 +789,18 @@ const DFA = () => {
       <Box marginTop={7} />
       
   
-      <Paper sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center', backgroundColor: '#060506'}}>
+      <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
         <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+
   
-          <Box>
+          <Box >
             <Button 
             aria-controls="simple-menu" 
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: 'white', padding: '0px'}}
+            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -816,17 +820,15 @@ const DFA = () => {
                 horizontal: 'left',
               }}
             >
-              <MenuItem onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-              {/* <MenuItem onClick={() => handleMenuItemClick('Women')}>Women</MenuItem> */}
-              <MenuItem >Women</MenuItem>
-              {/* <MenuItem onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem> */}
-              <MenuItem >Division 1</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white' }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -834,19 +836,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Tables</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Stats</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: 'white'}}>Players</Typography>
+              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   

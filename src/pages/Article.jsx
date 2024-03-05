@@ -18,6 +18,7 @@ import ParagraphsDisplay from "../components/Article/ParagraphsDisplay";
 
 import GetArticles from "../modules/Homepage/TrendingSection/TrendingSectionDataFetch";
 
+import theme from "../css/theme"
 
 
 
@@ -100,16 +101,16 @@ const Article = () => {
             <Box>
 
               <Box marginTop={4}>
-                <Typography variant="h4" sx={{ textAlign: 'left'}}>{articles.title}</Typography>
+                <Typography style={{ color: `var(--color-color1, ${theme.colors.color1})`}} variant="h4" sx={{ textAlign: 'left'}}>{articles.title}</Typography>
               </Box>
 
               <Box marginY={2}>
                 <img width='100%' src={articles.url[0]}/>
               </Box>
 
-              <Box marginTop={1} sx={{ fontSize: {xs: '11px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
-              <Box marginTop={0.5} sx={{ fontSize: {xs: '11px'}}}>{articles.author}</Box>
-              <Box marginTop={0.5} sx={{ fontSize: {xs: '11px'}}}>{articles.date}</Box>
+              <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={1} sx={{ fontSize: {xs: '12px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
+              <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.author}</Box>
+              <Box style={{ color: `var(--color-color1, ${theme.colors.color1})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.date}</Box>
 
 
               <Divider sx={{ marginTop: 1}} />
