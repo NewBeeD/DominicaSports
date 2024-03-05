@@ -10,6 +10,8 @@ import PlayerStatsDisplayStructure from '../../modules/DFA/PlayerStats/PlayerSta
 
 import MostTeamGoals from '../../modules/DFA/PlayerStats/MostTeamGoals'
 
+import theme from '../../css/theme';
+
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
 
@@ -91,7 +93,7 @@ const TeamGoals = () => {
     <Paper marginBottom={4} sx={{ width: {xs: '98%'}, margin: 'auto'}}>
       {players_data && (
 
-        <Stack paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{ backgroundColor: 'blue', color: 'white'}}>
+        <Stack style={{ backgroundColor: `var(--color-color4, ${theme.colors.color4})`}} paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{ color: 'white'}}>
           <Stack direction='column' paddingLeft={{xs: 1}}>
 
             <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
