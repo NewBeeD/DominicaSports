@@ -56,24 +56,19 @@ const NavBar = () => {
 
     <Box >
 
-      <AppBar position='static' elevation={2} sx={{ backgroundColor: {xs: '#060506', sm: 'black'} }}>
+      <AppBar position='static' elevation={2} sx={{ backgroundColor: {xs: '#222629', sm: 'black'} }}>
 
         <Toolbar sx={{ display: {xs: 'flex'}, justifyContent: {xs:'space-between', sm: 'center'}}}>
 
           <Link to='/'>
             <IconButton sx={{ marginRight: {xs: '0', sm: '90px'}}}>
-              <SportsIcon sx={{ color: 'white', fontSize: {xs:'40px'}, padding: 0}}/>
+              <SportsIcon sx={{ color: '#86C232', fontSize: {xs:'40px'}, padding: 0}}/>
             </IconButton>
           </Link>
 
 
           <Stack direction='row' sx={{ display: {xs: 'none', sm: 'flex'}}} spacing={2}>
 
-            {/* <Button sx={{ color: 'white' }}endIcon={<KeyboardArrowDownIcon />}>DFA</Button>
-            <Button sx={{ color: 'white' }} endIcon={<KeyboardArrowDownIcon />}>DABA</Button>
-            <Button sx={{ color: 'white' }} endIcon={<KeyboardArrowDownIcon />}>DAVA</Button>
-            <Button sx={{ color: 'white' }} endIcon={<KeyboardArrowDownIcon />}>DNA</Button>
-            <Button sx={{ color: 'white' }}>MEDIA</Button> */}
 
             {buttonData.map((button) => (
 
@@ -108,7 +103,7 @@ const NavBar = () => {
           <Stack>
 
             <IconButton sx={{ marginLeft: {xs: '0', sm: '90px'}}}>
-              <AccountCircleIcon sx={{ color: 'white', fontSize: {xs:'30px'}, padding: 0, display: {xs:'none', sm: 'initial'} }}/>
+              <AccountCircleIcon style={{ color: 'white'}} sx={{ fontSize: {xs:'30px'}, padding: 0, display: {xs:'none', sm: 'initial'} }}/>
             </IconButton>
             
           </Stack>
@@ -121,7 +116,7 @@ const NavBar = () => {
           onClick={menuDisplay}
           sx={{ display: {sm: 'none'}}}
           >
-            <MenuIcon style={{ color: 'white', fontSize: '28px'}}/>
+            <MenuIcon style={{ color: '#86C232', fontSize: '28px'}}/>
 
           </Button>
 

@@ -28,11 +28,11 @@ const Slide = ({ headline }) => {
           <Stack direction='column'>
 
             <Box>
-              <Typography fontSize={{xs: 10, sm: 14}} sx={{ color: 'yellow', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none', sm: 'center', fontWeight: 900}}}>{headline.league}</Typography>
+              <Typography fontSize={{xs: 10, sm: 14}} sx={{ color: 'white', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none', sm: 'center', fontWeight: 900}}}>{headline.league}</Typography>
             </Box>
 
             <Box>
-              <Typography fontSize={{xs: 12, sm: 25}} sx={{ color: {xs:'white', sm: 'white'}}}>{headline.title}</Typography>
+              <Typography fontSize={{xs: 12, sm: 25}} sx={{ color: {xs:'#86C232', sm: 'white'}}}>{headline.title}</Typography>
             </Box>
 
           </Stack>      

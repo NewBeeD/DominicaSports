@@ -9,6 +9,8 @@ import '../../css/DfaMainPage.css'
 
 import { Link } from "react-router-dom";
 
+import theme from "../../css/theme";
+
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -174,7 +176,7 @@ const DFA = () => {
       <>
   
       <NavBar />
-      <Typography marginTop={{xs: 1}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', color: 'blue', fontWeight: 900}}>Dominica Football Association</Typography>
+      <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} marginTop={{xs: 1}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', fontWeight: 900}}>Dominica Football Association</Typography>
       {/* <MainNews /> */}
       <Box marginTop={5} />
       <DfaArticles level='first' />
@@ -446,9 +448,9 @@ const DFA = () => {
 
         {player_stats && player_stats.length > 0 ? 
 
-          (<Box>
+          (<Box sx={{ backgroundColor: '#3C4552'}}>
 
-            <Stack spacing={1} justifyContent='center' direction='row' marginTop={2}>
+            <Stack spacing={1} justifyContent='center' direction='row' paddingTop={2}>
 
             
                   <Paper sx={{ marginTop: {xs: 10}}}>
@@ -460,7 +462,7 @@ const DFA = () => {
                         <CardMedia
                         component="img"
                         image={player_stats[0].top_scorer_prem_url} 
-                        sx={{ width: {xs: 150} }}
+                        sx={{ width: {xs: 165} }}
                         />
 
                         <CardContent style={{ textAlign: 'center'}}>
@@ -490,7 +492,7 @@ const DFA = () => {
                       <CardMedia
                       component="img"
                       image={player_stats[0].top_assist_prem_url} 
-                      sx={{ width: {xs: 150} }}
+                      sx={{ width: {xs: 165} }}
                       />
 
                       <CardContent style={{ textAlign: 'center'}}>
@@ -514,65 +516,65 @@ const DFA = () => {
                 
             </Stack>
 
-            <Stack spacing={1} justifyContent='center' direction='row' marginTop={2}>
+            <Stack spacing={1} justifyContent='center' direction='row' marginTop={2} paddingBottom={1}>
 
-            <Paper sx={{ marginTop: {xs: 10}}}>
+              <Paper sx={{ marginTop: {xs: 10}}}>
 
-              <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
-                <Card>
-                  
+                <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
+                  <Card>
+                    
+                    <CardMedia
+                    component="img"
+                    image={player_stats[0].top_scorer_prem_url} 
+                    sx={{ width: {xs: 165} }}
+                    />
+
+                    <CardContent style={{ textAlign: 'center'}}>
+
+                      <Typography sx={{ fontWeight: 'bold'}}>
+                        Team Goals
+                      </Typography>
+
+                      <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
+                        {team_most_goals[0].totalGoals}
+                      </Typography>
+
+                    </CardContent>
+
+                  </Card>
+                </Link>
+              
+              </Paper>
+
+
+              <Paper sx={{ marginTop: {xs: 10}}}>
+
+                <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
+                  <Card>
+
                   <CardMedia
                   component="img"
-                  image={player_stats[0].top_scorer_prem_url} 
-                  sx={{ width: {xs: 150} }}
+                  image={player_stats[0].top_clean_sheet_prem_url} 
+                  sx={{ width: {xs: 165} }}
                   />
 
                   <CardContent style={{ textAlign: 'center'}}>
 
                     <Typography sx={{ fontWeight: 'bold'}}>
-                      Team Goals
+                      Clean Sheets
                     </Typography>
 
                     <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                      {team_most_goals[0].totalGoals}
+                      {player_stats[0].top_clean_sheet_prem_clean_sheets}
                     </Typography>
 
                   </CardContent>
 
-                </Card>
-              </Link>
-            
-            </Paper>
+                  </Card>
+                </Link>
 
 
-            <Paper sx={{ marginTop: {xs: 10}}}>
-
-              <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
-                <Card>
-
-                <CardMedia
-                component="img"
-                image={player_stats[0].top_clean_sheet_prem_url} 
-                sx={{ width: {xs: 150} }}
-                />
-
-                <CardContent style={{ textAlign: 'center'}}>
-
-                  <Typography sx={{ fontWeight: 'bold'}}>
-                    Clean Sheets
-                  </Typography>
-
-                  <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                    {player_stats[0].top_clean_sheet_prem_clean_sheets}
-                  </Typography>
-
-                </CardContent>
-
-                </Card>
-              </Link>
-
-
-            </Paper>
+              </Paper>
 
             </Stack>
             

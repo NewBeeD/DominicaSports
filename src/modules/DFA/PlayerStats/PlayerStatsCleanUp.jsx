@@ -8,14 +8,9 @@ export default function PlayerStatsDisplayStructure(playerData){
 
   let dfa_prem_league_stats = playerData.filter(item => item.league == 'DFA_Premier_League_Men')
 
-  
-
   let dfa_division_one_stats = playerData.filter(item => item.league == 'DFA_Division_One')
 
   let dfa_women_stats = playerData.filter(item => item.league == 'DFA_Women')
-
-  // console.log(dfa_prem_league_stats, dfa_division_one_stats, dfa_women_stats);
-
 
   // Prem league top
   let topScorer_prem = dfa_prem_league_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer);

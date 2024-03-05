@@ -9,6 +9,8 @@ import GetArticles from '../../modules/Homepage/TrendingSection/TrendingSectionD
 // Redux
 import { useSelector } from 'react-redux';
 
+import theme from '../../css/theme';
+
 
 
 
@@ -55,15 +57,15 @@ const TrendingSection = ({ level }) => {
 
   return (
     
-    <Box sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}}} marginBottom={4} >  
+    <Box sx={{ backgroundColor: {xs: 'F7F8FA', sm: 'white'}}} marginBottom={4} >  
 
       {level == 'second'? '':level == 'third'? '':(<Stack marginBottom={{xs: 2}}>
 
-        <Typography width={85} marginLeft={2} marginTop={{xs: 2.5, sm: 3}}  fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: {xs: '900', sm: '900'}, color: 'black' }}>
+        <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} width={85} marginLeft={2} marginTop={{xs: 2.5, sm: 3}}   fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: {xs: '900', sm: '900'}}}>
           WHAT'S 
         </Typography>
 
-        <Typography width={85} marginTop={{xs:-1.2, sm:-2.5}} marginLeft={{xs: 4, sm: 6.5}} fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: 900, color: 'Blue' }}>
+        <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} width={85} marginTop={{xs:-1.2, sm:-2.5}} marginLeft={{xs: 4, sm: 6.5}} fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: 900 }}>
           NEW
         </Typography>
 
@@ -82,7 +84,7 @@ const TrendingSection = ({ level }) => {
           return (
           <Box key={idx}>
             
-            <Card sx={{ boxShadow: 'none', border: {xs: '1px solid #D3E1FF'}}}>
+            <Card sx={{ boxShadow: 'none', backgroundColor: 'white', border: '1px solid #86C232'}}>
 
               <CardActions>
 
@@ -91,14 +93,14 @@ const TrendingSection = ({ level }) => {
                   {/* TODO: Link this page to the premiere league home page */}
 
                   <Link to='/DFA/Home'>
-                   <Typography sx={{ color: 'green', fontSize: {xs: 13}, textDecoration: 'underline'}}>{item.league}</Typography>
+                   <Typography style={{ color: `var(--color-color5, ${theme.colors.color5})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
                   </Link>
 
 
                   <Stack direction='row' spacing={0.5}>
-                    <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.author}</Typography>
+                    <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
                     <Divider orientation='vertical' flexItem />
-                    <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.time}</Typography>
+                    <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
                   </Stack>
 
 
@@ -107,7 +109,7 @@ const TrendingSection = ({ level }) => {
               </CardActions>
 
               <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
-                <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
+                <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
               </Link>
 
 
@@ -115,7 +117,7 @@ const TrendingSection = ({ level }) => {
 
               <CardContent>
                 <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
-                  {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 80) + "...")}
+                  {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
                 </Typography>
               </CardContent>
               

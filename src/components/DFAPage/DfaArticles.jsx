@@ -4,6 +4,8 @@ import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMed
 // Function to fetch article data and structured data
 import GetArticles from '../../modules/Homepage/TrendingSection/TrendingSectionDataFetch'
 
+import theme from '../../css/theme';
+
 import { Link } from "react-router-dom";
 
 // Redux
@@ -57,7 +59,7 @@ const DfaArticles = ({ level }) => {
       return (
       <Box key={idx}>
         
-        <Card sx={{ boxShadow: 'none', border: {xs: '1px solid #D3E1FF'}}}>
+        <Card sx={{ boxShadow: 'none', border: {xs: '1px solid #86C232'}}}>
 
           <CardActions>
 
@@ -66,14 +68,14 @@ const DfaArticles = ({ level }) => {
               {/* TODO: Link this page to the premiere league home page */}
 
 
-               <Typography sx={{ color: 'green', fontSize: {xs: 13}, textDecoration: 'underline'}}>{item.league}</Typography>
+               <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
 
 
 
               <Stack direction='row' spacing={0.5}>
-                <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.author}</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
                 <Divider orientation='vertical' flexItem />
-                <Typography sx={{ color: 'blue', fontSize: {xs: 9}}}>{item.time}</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
               </Stack>
 
 
@@ -82,8 +84,8 @@ const DfaArticles = ({ level }) => {
           </CardActions>
 
 
-          <Link to={`/${item.id}`}>
-            <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} sx={{ color: {xs: 'blue'}}}/>
+          <Link style={{ textDecoration: 'none'}} to={`/${item.id}`}>
+            <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
           </Link>
 
 

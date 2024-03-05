@@ -1,20 +1,77 @@
 import { useSelector } from 'react-redux';
 
+import qs from 'qs'
+import axios from "axios"
+
+import { useState, useEffect } from 'react';
+
+import { queryParams_prem_players_stats } from '../../modules/DFA/QueryParams';
+import PlayerStatsDisplayStructure from '../../modules/DFA/PlayerStats/PlayerStatsDisplayStructure';
+
+import MostTeamGoals from '../../modules/DFA/PlayerStats/MostTeamGoals'
+
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+
+
 
 import NavBar from "../../components/homePage/NavBar"
 
-import TeamGoalsStructure from '../../modules/DFA/PlayerStats/MostTeamGoals'
+
 
 
 const TeamGoals = () => {
 
-  let player_stats = useSelector((state) => state.DfaPlayerStats)
-  let players_data = player_stats ? player_stats[0]: []
-  let players_data_final = players_data ? TeamGoalsStructure(players_data): []
+
+  const [players_data, setPlayers_data] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const [currentSeason, setCurrentSeason] = useState(null)
 
 
-  let current_season = players_data[0] ? players_data[0].Season.substring(1).replace('-', '/'): '';
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Set loading to true when starting the fetch
+        setLoading(true);
+
+        const queryString = qs.stringify(queryParams_prem_players_stats);
+
+        // Your API endpoint URL
+        const apiUrl = `https://strapi-dominica-sport.onrender.com/api/player-stats?${queryString}`;
+  
+
+        // Make the fetch request
+        const response = await axios.get(apiUrl);
+
+        // Check if the request was successful (status code 2xx)
+        if (response.status !== 200) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        // Parse the JSON data
+        const result = await response.data.data;
+
+        let final_data = PlayerStatsDisplayStructure(result)
+        setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
+        final_data = MostTeamGoals(final_data)
+
+        console.log(final_data);
+
+        // Set the data state
+        setPlayers_data(final_data);
+      } catch (error) {
+        // Set the error state if there's an issue
+        setError(error.message);
+      } finally {
+        // Set loading to false regardless of success or failure
+        setLoading(false);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+  }, []);
 
 
   return (
@@ -22,11 +79,11 @@ const TeamGoals = () => {
 
     <NavBar />
 
-    <Box marginBottom={3}>
+    <Box marginBottom={3} paddingLeft={{ xs: 1}}>
       <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Goals</Typography>
 
       <Typography>
-        {current_season && current_season}
+        {currentSeason && currentSeason}
       </Typography>
     </Box>
 
@@ -34,19 +91,19 @@ const TeamGoals = () => {
     <Paper marginBottom={4} sx={{ width: {xs: '98%'}, margin: 'auto'}}>
       {players_data && (
 
-        <Stack direction='row' justifyContent='space-between'>
+        <Stack paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{ backgroundColor: 'blue', color: 'white'}}>
           <Stack direction='column' paddingLeft={{xs: 1}}>
 
             <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
 
-            <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data_final[0].teamName}</Typography></Box>
+            <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].teamName}</Typography></Box>
 
-            <Box marginTop={3}><Typography variant='h4' sx={{ fontWeight: 'bold'}}>{players_data_final[0].totalGoals}</Typography></Box>
+            <Box marginTop={3}><Typography variant='h4' sx={{ fontWeight: 'bold'}}>{players_data[0].totalGoals}</Typography></Box>
           </Stack>
 
-          {/* <Box width={{xs: 130}}>
+          <Box width={{xs: 130}}>
             <img src={players_data[0].url} width='100%' height='100%' />
-          </Box> */}
+          </Box>
 
 
         </Stack>
@@ -68,15 +125,15 @@ const TeamGoals = () => {
 
         <TableBody>
 
-          {players_data && players_data_final.slice(1).map((item, idx) => {
+          {players_data && players_data.slice(1).map((item, idx) => {
 
             return (
               
               <TableRow key={idx} sx={{ textAlign: 'center'}}>
 
-                <TableCell sx={{ fontWeight: 'bold', paddingY: 0, textAlign: 'center'}}>{idx+2}</TableCell>
-                <TableCell sx={{ paddingY: 0}}>{item.teamName}</TableCell>
-                <TableCell sx={{ fontWeight: 'bold', paddingY: 0, textAlign: 'center'}}>{item.totalGoals}</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', paddingY: 0.5, textAlign: 'center'}}>{idx+2}</TableCell>
+                <TableCell sx={{ paddingY: 0.5}}>{item.teamName}</TableCell>
+                <TableCell sx={{ fontWeight: 'bold', paddingY: 0.5, textAlign: 'center'}}>{item.totalGoals}</TableCell>
               </TableRow>
             )
           })}
