@@ -180,14 +180,21 @@ const DFA = () => {
       {/* <MainNews /> */}
       <Box marginTop={5} />
       <DfaArticles level='first' />
-      <Video video_id ='XbVCw17Ks6E'/>
+
+      <Divider sx={{ marginTop: 2}} />
+      <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center'>
+        <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>Weekend Highlights</Typography>
+        <Video VideoLocation='Dfa1'/>
+      </Box>
+      <Divider sx={{ marginTop: 2}} />
+
       <Box marginY={1.5} />
       {/* <Points_Table page='Homepage'/> */}
       <DfaArticles level='second' />
       <Box marginY={1.5} />
       {/* <FixturesData /> */}
       <DfaArticles level='third' />
-      <Video video_id ='DUFpVvH-4CY'/>
+      <Video VideoLocation='Dfa2'/>
       <Box height={{xs:50}} marginY={1} />
       {/* <BottomNav /> */}
   
@@ -202,7 +209,7 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -230,7 +237,7 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -238,19 +245,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   
@@ -297,7 +304,7 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -325,7 +332,7 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -333,19 +340,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   
@@ -379,7 +386,7 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -407,7 +414,7 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -415,19 +422,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   
@@ -617,7 +624,7 @@ const DFA = () => {
       aria-haspopup="true" 
       onClick={handleClick}
       endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-      style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+      style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
       size='small'>
         {selectedChoice}
       </Button>
@@ -645,7 +652,7 @@ const DFA = () => {
 
     <Box>
       <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
       </Button>
     </Box>
 
@@ -653,19 +660,19 @@ const DFA = () => {
 
     <Box>
       <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
       </Button>
     </Box>
 
     <Box>
       <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
       </Button>
     </Box>
 
     <Box>
       <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
       </Button>
     </Box>
 
@@ -800,7 +807,7 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{ textTransform: 'capitalize', fontSize: '12px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
             size='small'>
               {selectedChoice}
             </Button>
@@ -828,7 +835,7 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
             </Button>
           </Box>
   
@@ -836,19 +843,19 @@ const DFA = () => {
   
           <Box>
             <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
             </Button>
           </Box>
 
           <Box>
             <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
             </Button>
           </Box>
   
           <Box>
             <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '12px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
+              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
             </Button>
           </Box>
   

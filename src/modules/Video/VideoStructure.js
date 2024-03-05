@@ -3,14 +3,12 @@
 
 export default function VideoStructure(video_data){
 
-  let data = video_data.data
-
-  let videos = data.map(item => {
+  let videos = video_data.map(item => {
 
     let video = {}
 
-    video['title'] = item.attributes['Title']
-    video['url'] = item.attributes['Video'].data['attributes'].url
+    video['VideoId'] = item.attributes['VideoId']
+    video['Location'] = item.attributes['Page_Location']
 
     return video   
   })

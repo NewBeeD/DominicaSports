@@ -1,34 +1,60 @@
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton } from '@mui/material'
 
-import GetVideos from '../modules/Video/VideoDataFetch'
-
 import { useSelector } from "react-redux"
 import { useEffect, useRef, useState } from 'react';
 
+
+import axios from 'axios'
+
 import Youtube from 'react-youtube'
+
+import VideoStructure from '../modules/Video/VideoStructure';
 
 
 
 
 // TODO: Set up this component to recieve the video/media type (name) you want to use
 
-const Video = ({ video_id }) => {
+const Video = ({ VideoLocation }) => {
+
+  let videoLocate = VideoLocation
+
+  console.log(videoLocate);
+
+
+  const [video, setVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
 
   const getVideoDimensions = () => {
     const windowWidth = window.innerWidth;
 
+    let width = windowWidth-20;
+    let height;
+
+    // return {width: windowWidth-20, height: '290'}
+
     // Adjust these values based on your layout and design preferences
     if (windowWidth >= 1200) {
-      return { width: '800', height: '450' };
+      height= '300'
     } else if (windowWidth >= 768) {
-      return { width: '900', height: '480' };
-    }else if (windowWidth >= 300) {
-      return { width: '340', height: '200' };
+      height= '290'
+    }else if (windowWidth >= 530) {
+      height= '280'
+    }else if (windowWidth >= 400) {
+     height= '270'
+    }else if (windowWidth >= 350) {
+     height= '260'
+    }
+    else if (windowWidth >= 300) {
+     height= '250'
     } 
     else {
-      return { width: '250', height: '200' };
+      height= '450'
     }
+
+    return {width: width, height: height}
   };
 
 
@@ -39,8 +65,8 @@ const Video = ({ video_id }) => {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 0,
-      controls: 0,
-      fs: 0,
+      controls: 1,
+      fs: 1,
       iv_load_policy: 3,
       loop: 1,
 
@@ -52,21 +78,65 @@ const Video = ({ video_id }) => {
     event.target.seekTo(0);
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Set loading to true when starting the fetch
+        setLoading(true);
+
+        // Your API endpoint URL
+        const apiUrl = 'https://strapi-dominica-sport.onrender.com/api/videos';
+  
+
+        // Make the fetch request
+        const response = await axios.get(apiUrl);
+
+        // Check if the request was successful (status code 2xx)
+        if (response.status !== 200) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        // Parse the JSON data
+        const result = await response.data.data;
+
+        let final_data = VideoStructure(result)
+
+        // console.log(final_data);
+
+        final_data = final_data.filter(item => item.Location === videoLocate)
+
+        console.log(videoLocate ,final_data[0].VideoId);
+        
+        // Set the data state
+        setVideo(final_data[0].VideoId);
+      } catch (error) {
+        // Set the error state if there's an issue
+        setError(error.message);
+      } finally {
+        // Set loading to false regardless of success or failure
+        setLoading(false);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+  }, []);
+
 
 
   return(
 
     <Box display='flex' justifyContent='center' alignItems='center' marginTop={2} width={{xs: '100%'}} style={{ height: '100%'}}>
 
-        <Youtube
-        videoId={video_id}
+        {video && video.length > 0 ? <Youtube
+        videoId={video}
         opts={{ ...opts, width, height }}
         onReady={(event) => {
           event.target.pauseVideo();
         }}
         onEnd={onEnd}
 
-        />
+        />: ''}
 
     </Box>
 
