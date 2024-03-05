@@ -10,6 +10,9 @@ export default function ArticlesStructuredDisplay(data){
 
   let articles_data = data.data 
 
+  articles_data = articles_data.sort((a, b) => Date.parse(b.attributes['publishedAt']) - Date.parse(a.attributes['publishedAt']));
+
+
   let final_data = articles_data.map(item => {    
 
     let required_data_fields = {}
@@ -34,6 +37,8 @@ export default function ArticlesStructuredDisplay(data){
 
     return required_data_fields
   })
+
+
 
   return final_data
 }

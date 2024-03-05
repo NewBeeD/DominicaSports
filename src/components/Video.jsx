@@ -14,10 +14,6 @@ import Youtube from 'react-youtube'
 
 const Video = ({ video_id }) => {
 
-  // GetVideos()
-
-  const videos = useSelector((state) => state.video)
-  let raw_video = videos ? videos[0]: null;
 
   const getVideoDimensions = () => {
     const windowWidth = window.innerWidth;
