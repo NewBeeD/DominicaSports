@@ -8,3 +8,14 @@
 
   color: #26249B;
 }
+
+.css-cyxlny-MuiPaper-root-MuiDialog-paper {
+
+  margin: 2px !important;
+  width: calc(100% - 10px) !important;
+}
+
+.css-ypiqx9-MuiDialogContent-root{
+
+  padding: 10px 6px !important;
+}

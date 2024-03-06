@@ -9,10 +9,10 @@ const ParagraphsDisplay = ({ paragraphs }) => {
 
   return (
     <div>
-      {paragraph.map(item => {
+      {paragraph.map((item, idx) => {
          return (
 
-          <Box key={item} marginTop={2.5}> 
+          <Box key={idx} marginTop={2.5}> 
             <Typography>
               {item}
             </Typography>

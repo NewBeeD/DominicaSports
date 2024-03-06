@@ -176,7 +176,8 @@ const DFA = () => {
       <>
   
       <NavBar />
-      <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} marginTop={{xs: 1}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', fontWeight: 900}}>Dominica Football Association</Typography>
+
+      <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} marginTop={{xs: 2}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', fontWeight: 900}}>Dominica Football Association</Typography>
       {/* <MainNews /> */}
       <Box marginTop={5} />
       <DfaArticles level='first' />
@@ -276,6 +277,9 @@ const DFA = () => {
       <>
   
       <NavBar />
+
+      <Box paddingTop={1} />
+      
       <FixturesData page='dfa' type={type}/>
 
       
@@ -457,7 +461,7 @@ const DFA = () => {
 
         {player_stats && player_stats.length > 0 ? 
 
-          (<Box sx={{ backgroundColor: '#3C4552'}}>
+          (<Box paddingTop={3} sx={{ backgroundColor: '#3C4552'}}>
 
             <Stack spacing={1} justifyContent='center' direction='row' paddingTop={2}>
 
@@ -692,7 +696,7 @@ const DFA = () => {
   
       <NavBar />
 
-      <Stack marginTop={2} direction='row' justifyContent='center' alignContent='center'>
+      <Stack paddingTop={3} marginTop={2} direction='row' justifyContent='center' alignContent='center'>
 
         {/* Choose team */}
         <Box>
