@@ -19,7 +19,6 @@ const Video = ({ VideoLocation }) => {
 
   let videoLocate = VideoLocation
 
-  console.log(videoLocate);
 
 
   const [video, setVideo] = useState(null);
@@ -104,8 +103,6 @@ const Video = ({ VideoLocation }) => {
         // console.log(final_data);
 
         final_data = final_data.filter(item => item.Location === videoLocate)
-
-        console.log(videoLocate ,final_data[0].VideoId);
         
         // Set the data state
         setVideo(final_data[0].VideoId);
