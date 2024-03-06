@@ -14,7 +14,8 @@ export default function PointsTableStructuredDisplay(data){
 
     let teamPoints = {}
 
-    teamPoints['Team'] = TeamNameChange(item.attributes['dfa_team'].data.attributes['Name'])
+    // teamPoints['Team'] = TeamNameChange(item.attributes['dfa_team'].data.attributes['Name'])
+    teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     // teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     teamPoints['Played'] = item.attributes['Played']
     teamPoints['Won'] = item.attributes['Won']
@@ -69,34 +70,34 @@ function TeamNameChange(team_data_point){
   switch(team_data_point){
 
     case 'Blue Waters Bath Estate FC':
-      return 'BEFC';
+      return 'Bathestate FC';
 
     case 'Bombers FC':
-      return 'BFC';
+      return 'Bombers FC';
     
     case 'CCCUL Dublanc FC':
-      return 'DFC';
+      return 'Dublanc FC';
 
     case 'Connect 767 East Central FC':
-      return 'EFC';
+      return 'East Central FC';
     
     case 'Mahaut Soca Strikers FC':
-      return 'MFC';
+      return 'Mahaut FC';
 
     case 'Petro Caribe Point Michel FC':
-      return 'PMFC';
+      return 'PointMichel FC';
     
     case 'Promex Harlem FC':
-      return 'HFC';
+      return 'Harlem FC';
 
     case 'Sagicor South East FC':
-      return 'SSC';
+      return 'South East FC';
     
     case 'Tranquility Beach Middleham United FC':
-      return 'MIDFC';
+      return 'Middleham FC';
 
     case 'Valvoline We United FC':
-    return 'WEFC';
+    return 'We United FC';
     
     default:
       return team_data_point;
