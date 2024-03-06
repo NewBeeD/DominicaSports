@@ -9,14 +9,14 @@ import axios from "axios"
 import { queryParams_articles } from "../modules/DFA/QueryParams"
 import SingleStructuredDisplay from "../modules/Homepage/TrendingSection/SingleArticleDisplayStructure"
 
+import ImageSlideshow from "../components/Article/ImageSlideshow"
+
+
 // Redux
 import { useSelector } from 'react-redux';
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider } from '@mui/material'
 
 import ParagraphsDisplay from "../components/Article/ParagraphsDisplay";
-
-
-import GetArticles from "../modules/Homepage/TrendingSection/TrendingSectionDataFetch";
 
 import theme from "../css/theme"
 
@@ -32,14 +32,14 @@ const Article = () => {
   const { id } = useParams()
 
 
-  // let articles = useSelector((state) => state.articles)
-  // articles = articles[0]
-
-
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // ----Start of Modal SlideShow-----
+
+
+  // ----End of Modal Slideshow----
 
   
 
@@ -58,8 +58,6 @@ const Article = () => {
         // Make the fetch request
         const response = await axios.get(apiUrl);
 
-        console.log(response);
-
         // Check if the request was successful (status code 2xx)
         if (response.status !== 200) {
           throw new Error(`Error: ${response.statusText}`);
@@ -72,6 +70,7 @@ const Article = () => {
         
         // Set the data state
         setArticles(final_data);
+        // setModalIsOpen(true);
       } catch (error) {
         // Set the error state if there's an issue
         setError(error.message);
@@ -83,6 +82,7 @@ const Article = () => {
 
     // Call the fetchData function when the component mounts
     fetchData();
+
   }, []);
   
 
@@ -100,7 +100,7 @@ const Article = () => {
 
             <Box>
 
-              <Box marginTop={4}>
+              <Box marginTop={4} paddingTop={4}>
                 <Typography style={{ color: `var(--color-color1, ${theme.colors.color1})`}} variant="h4" sx={{ textAlign: 'left'}}>{articles.title}</Typography>
               </Box>
 
@@ -123,30 +123,27 @@ const Article = () => {
 
               <Divider orientation='vertical' sx={{ marginY: 3}} />
 
-              <Box>
+              <ImageSlideshow images={articles.url} />
+
+
+
+
+              {/* <Box>
                 {articles.url.length > 1? articles.url.map((articles, idx) => {
 
                   return(
-                      <img key={idx} width='100%' src={articles}/>
+                      <img key={idx} width='100%' src={articles} onClick={() => openModal(idx)} style={{ cursor: 'pointer'}}/>
                   )
 
                 }): ''}
-              </Box>
-
+              </Box> */}
               
             </Box>
           ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
 
       </Box>
 
-
-    
-    
-    
     </>
-
-    
-    
   )
 }
 

@@ -6,7 +6,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { Link } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import theme from '../../css/theme';
 
 
@@ -50,6 +50,26 @@ const NavBar = () => {
 
   // End of larger display set up
 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrolledDown = prevScrollPos < currentScrollPos;
+
+      setVisible(!isScrolledDown || currentScrollPos < 10);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevScrollPos]);
+
+
 
 
 
@@ -58,7 +78,7 @@ const NavBar = () => {
 
     <Box >
 
-      <AppBar position='static' elevation={2} sx={{ backgroundColor: {xs: '#222629', sm: 'black'} }}>
+      <AppBar elevation={2} sx={{backgroundColor: '#222629', position: 'fixed', top: 0, width: '100%',  display: visible ? 'block' : 'none' }} >
 
         <Toolbar sx={{ display: {xs: 'flex'}, justifyContent: {xs:'space-between', sm: 'center'}}}>
 
@@ -150,6 +170,7 @@ const NavBar = () => {
 
         </Toolbar>
       </AppBar>
+      <Box marginTop={7} />
 
 
 

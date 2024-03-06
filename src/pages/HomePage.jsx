@@ -21,6 +21,7 @@ const HomePage = () => {
     <Box >
 
       <NavBar />
+      <Box marginTop={7} />
       <MainNews />
       <TrendingSection level={first}/>
       <FixturesData page='home' />
