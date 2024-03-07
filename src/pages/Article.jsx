@@ -123,7 +123,7 @@ const Article = () => {
 
               <Divider orientation='vertical' sx={{ marginY: 3}} />
 
-              <ImageSlideshow images={articles.url} />
+              {articles.url.length > 2 ? <ImageSlideshow images={articles.url} />: ''}
 
 
 

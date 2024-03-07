@@ -14,7 +14,7 @@ export default function PointsTableStructuredDisplay(data){
 
     let teamPoints = {}
 
-    // teamPoints['Team'] = TeamNameChange(item.attributes['dfa_team'].data.attributes['Name'])
+    teamPoints['Team_Abbrev'] = TeamNameChange(item.attributes['dfa_team'].data.attributes['Name'])
     teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     // teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     teamPoints['Played'] = item.attributes['Played']
