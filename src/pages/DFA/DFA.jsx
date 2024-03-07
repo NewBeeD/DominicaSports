@@ -31,6 +31,11 @@ import TeamGoalsStructure from '../../modules/DFA/PlayerStats/MostTeamGoals'
 
 // Icons
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import NewspaperIcon from '@mui/icons-material/Newspaper'; //Articles
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'; //Fixtures
+import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered'; //Tables
+import AssessmentIcon from '@mui/icons-material/Assessment'; //Stats
+import GroupsIcon from '@mui/icons-material/Groups'; //Players
 
 
 
@@ -87,6 +92,25 @@ const DFA = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleNewsClick = () => {
+
+    switch(selectedChoice){
+
+      case 'Men':
+        setPage('home');
+        break;
+      
+      case 'Women':
+        setPage('home')
+        break;
+      
+      case 'div 1':
+        setPage('home')
+        break;
+      
+    }
+  }
 
   const handleFixturesClick = () => {
 
@@ -159,6 +183,35 @@ const DFA = () => {
     }
   }
 
+  // Identifying window width
+  const getVideoDimensions = () => {
+    const windowWidth = window.innerWidth;
+
+    // Adjust these values based on your layout and design preferences
+    if (windowWidth >= 500) {
+      return {window_width: 500}
+    } else if (windowWidth >= 420) {
+      return {window_width: 420}
+    }else if (windowWidth >= 400) {
+      return {window_width: 400}
+    }else if (windowWidth >= 390) {
+      return {window_width: 390}
+    }else if (windowWidth >= 350) {
+      return {window_width: 350}
+    }
+    else if (windowWidth >= 300) {
+      return {window_width: 300}
+    } 
+    else {
+      return {window_width: 280}
+    }
+    
+  };
+
+  const { window_width } = getVideoDimensions();
+
+
+
 
 
   
@@ -201,7 +254,7 @@ const DFA = () => {
   
       <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
-        <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+        <Stack justifyContent='center' alignItems='center' direction='row' spacing={window_width < 290? 1.8:window_width == 300? 2.5 : window_width == 350? 4: window_width == 390? 3.5: window_width == 400? 4.5: window_width == 420? 4.5: window_width == 500? 5: 2.5}>
 
   
           <Box >
@@ -210,8 +263,9 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
-            size='small'>
+            style={{fontWeight: 900, textTransform: 'capitalize', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            size='small'
+            sx={{ fontSize: {xs: '13px', sm: '15px'}}}>
               {selectedChoice}
             </Button>
   
@@ -235,31 +289,30 @@ const DFA = () => {
               <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
+
+          <Box>
+            <Button onClick={() => handleNewsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<NewspaperIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
   
           <Box>
-            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
-            </Button>
+            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<CalendarMonthIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           
   
           <Box>
-            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
-            </Button>
+            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<FormatListNumberedIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
           </Box>
 
           <Box>
-            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
-            </Button>
+            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<AssessmentIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           <Box>
-            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
-            </Button>
+            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<GroupsIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
   
@@ -299,7 +352,7 @@ const DFA = () => {
   
       <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
-        <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+      <Stack justifyContent='center' alignItems='center' direction='row' spacing={window_width < 290? 1.8:window_width == 300? 2.5 : window_width == 350? 4: window_width == 390? 3.5: window_width == 400? 4.5: window_width == 420? 4.5: window_width == 500? 5: 2.5}>
 
   
           <Box >
@@ -308,8 +361,9 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
-            size='small'>
+            style={{fontWeight: 900, textTransform: 'capitalize', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            size='small'
+            sx={{ fontSize: {xs: '13px', sm: '15px'}}}>
               {selectedChoice}
             </Button>
   
@@ -333,31 +387,30 @@ const DFA = () => {
               <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
+
+          <Box>
+            <Button onClick={() => handleNewsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<NewspaperIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
   
           <Box>
-            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
-            </Button>
+            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<CalendarMonthIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           
   
           <Box>
-            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
-            </Button>
+            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<FormatListNumberedIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
           </Box>
 
           <Box>
-            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
-            </Button>
+            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<AssessmentIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           <Box>
-            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
-            </Button>
+            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<GroupsIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
   
@@ -381,7 +434,7 @@ const DFA = () => {
   
       <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
-        <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+      <Stack justifyContent='center' alignItems='center' direction='row' spacing={window_width < 290? 1.8:window_width == 300? 2.5 : window_width == 350? 4: window_width == 390? 3.5: window_width == 400? 4.5: window_width == 420? 4.5: window_width == 500? 5: 2.5}>
 
   
           <Box >
@@ -390,8 +443,9 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
-            size='small'>
+            style={{fontWeight: 900, textTransform: 'capitalize', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            size='small'
+            sx={{ fontSize: {xs: '13px', sm: '15px'}}}>
               {selectedChoice}
             </Button>
   
@@ -415,31 +469,30 @@ const DFA = () => {
               <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
+
+          <Box>
+            <Button onClick={() => handleNewsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<NewspaperIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
   
           <Box>
-            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
-            </Button>
+            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<CalendarMonthIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           
   
           <Box>
-            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
-            </Button>
+            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<FormatListNumberedIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
           </Box>
 
           <Box>
-            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
-            </Button>
+            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<AssessmentIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           <Box>
-            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
-            </Button>
+            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<GroupsIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
   
@@ -466,38 +519,38 @@ const DFA = () => {
             <Stack spacing={1} justifyContent='center' direction='row' paddingTop={2}>
 
             
-                  <Paper sx={{ marginTop: {xs: 10}}}>
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}} >
 
-                    <Link to='/DFA/Home/PlayerGoals' style={{ textDecoration: 'none'}}>
+                  <Link to='/DFA/Home/PlayerGoals' style={{ textDecoration: 'none'}}>
 
-                      <Card>
-                        
-                        <CardMedia
-                        component="img"
-                        image={player_stats[0].top_scorer_prem_url} 
-                        sx={{ width: {xs: 165} }}
-                        />
+                    <Card >
+                      
+                      <CardMedia
+                      component="img"
+                      image={player_stats[0].top_scorer_prem_url} 
+                      sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
+                      />
 
-                        <CardContent style={{ textAlign: 'center'}}>
+                      <CardContent style={{ textAlign: 'center'}}>
 
-                          <Typography sx={{ fontWeight: 'bold'}}>
-                            Goals
-                          </Typography>
+                        <Typography sx={{ fontWeight: 'bold'}}>
+                          Goals
+                        </Typography>
 
-                          <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                            {player_stats[0].top_scorer_prem_goals}
-                          </Typography>
+                        <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
+                          {player_stats[0].top_scorer_prem_goals}
+                        </Typography>
 
-                        </CardContent>
+                      </CardContent>
 
-                      </Card>
+                    </Card>
 
-                    </Link>
-                  
-                  </Paper>
+                  </Link>
+                
+                </Paper>
 
 
-                <Paper sx={{ marginTop: {xs: 10}}}>
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
 
                   <Link to='/DFA/Home/PlayerAssists' style={{ textDecoration: 'none'}}>
                     <Card>
@@ -505,7 +558,7 @@ const DFA = () => {
                       <CardMedia
                       component="img"
                       image={player_stats[0].top_assist_prem_url} 
-                      sx={{ width: {xs: 165} }}
+                      sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
                       />
 
                       <CardContent style={{ textAlign: 'center'}}>
@@ -531,7 +584,7 @@ const DFA = () => {
 
             <Stack spacing={1} justifyContent='center' direction='row' marginTop={2} paddingBottom={1}>
 
-              <Paper sx={{ marginTop: {xs: 10}}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
 
                 <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
                   <Card>
@@ -539,7 +592,7 @@ const DFA = () => {
                     <CardMedia
                     component="img"
                     image={player_stats[0].top_scorer_prem_url} 
-                    sx={{ width: {xs: 165} }}
+                    sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
                     />
 
                     <CardContent style={{ textAlign: 'center'}}>
@@ -560,7 +613,7 @@ const DFA = () => {
               </Paper>
 
 
-              <Paper sx={{ marginTop: {xs: 10}}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
 
                 <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
                   <Card>
@@ -568,7 +621,7 @@ const DFA = () => {
                   <CardMedia
                   component="img"
                   image={player_stats[0].top_clean_sheet_prem_url} 
-                  sx={{ width: {xs: 165} }}
+                  sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
                   />
 
                   <CardContent style={{ textAlign: 'center'}}>
@@ -617,74 +670,74 @@ const DFA = () => {
 
             
   
-        <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
-  
-  <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+      <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
+
+      <Stack justifyContent='center' alignItems='center' direction='row' spacing={window_width < 290? 1.8:window_width == 300? 2.5 : window_width == 350? 4: window_width == 390? 3.5: window_width == 400? 4.5: window_width == 420? 4.5: window_width == 500? 5: 2.5}>
 
 
-    <Box >
-      <Button 
-      aria-controls="simple-menu" 
-      aria-haspopup="true" 
-      onClick={handleClick}
-      endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-      style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
-      size='small'>
-        {selectedChoice}
-      </Button>
+          <Box >
+            <Button 
+            aria-controls="simple-menu" 
+            aria-haspopup="true" 
+            onClick={handleClick}
+            endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
+            style={{fontWeight: 900, textTransform: 'capitalize', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            size='small'
+            sx={{ fontSize: {xs: '13px', sm: '15px'}}}>
+              {selectedChoice}
+            </Button>
 
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'top', // Position of the anchor element
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'bottom', // Position of the menu
-          horizontal: 'left',
-        }}
-      >
-        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
-        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
-        <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
-      </Menu>
-    </Box>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              keepMounted
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: 'top', // Position of the anchor element
+                horizontal: 'left',
+              }}
+              transformOrigin={{
+                vertical: 'bottom', // Position of the menu
+                horizontal: 'left',
+              }}
+            >
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Men')}>Men</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Women')}>Women</MenuItem>
+              <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
+            </Menu>
+          </Box>
 
-    <Box>
-      <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
-      </Button>
-    </Box>
+          <Box>
+            <Button onClick={() => handleNewsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<NewspaperIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
 
+          <Box>
+            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<CalendarMonthIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
+          </Box>
+
+          
+
+          <Box>
+            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<FormatListNumberedIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
+
+          <Box>
+            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<AssessmentIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
+          </Box>
+
+          <Box>
+            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<GroupsIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
+          </Box>
+
+
+        </Stack>
+
+      </Paper>
     
-
-    <Box>
-      <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
-      </Button>
-    </Box>
-
-    <Box>
-      <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
-      </Button>
-    </Box>
-
-    <Box>
-      <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-        <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
-      </Button>
-    </Box>
-
-
-  </Stack>
-
-</Paper>
-      
       </>
     )
 
@@ -802,7 +855,7 @@ const DFA = () => {
   
       <Paper style={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`}} sx={{ width: '100%', height: '50px', position: 'fixed', bottom: 0, display: {xs: 'flex', sm: 'none'}, justifyContent: 'center'}}>
   
-        <Stack justifyContent='center' alignItems='center' direction='row' spacing={1.8}>
+      <Stack justifyContent='center' alignItems='center' direction='row' spacing={window_width < 290? 1.8:window_width == 300? 2.5 : window_width == 350? 4: window_width == 390? 3.5: window_width == 400? 4.5: window_width == 420? 4.5: window_width == 500? 5: 2.5}>
 
   
           <Box >
@@ -811,8 +864,9 @@ const DFA = () => {
             aria-haspopup="true" 
             onClick={handleClick}
             endIcon={<KeyboardArrowUpIcon style={{ color: 'white'}} />}
-            style={{fontWeight: 900, textTransform: 'capitalize', fontSize: '15px', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
-            size='small'>
+            style={{fontWeight: 900, textTransform: 'capitalize', color: `var(--color-color3, ${theme.colors.color3})`, padding: '0px'}}
+            size='small'
+            sx={{ fontSize: {xs: '13px', sm: '15px'}}}>
               {selectedChoice}
             </Button>
   
@@ -836,31 +890,30 @@ const DFA = () => {
               <MenuItem style={{ color: `var(--color-color3, ${theme.colors.color3})`}} onClick={() => handleMenuItemClick('Div 1')}>Division 1</MenuItem>
             </Menu>
           </Box>
+
+          <Box>
+            <Button onClick={() => handleNewsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<NewspaperIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+          </Box>
   
           <Box>
-            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})` }}>Fixtures</Typography>
-            </Button>
+            <Button onClick={() => handleFixturesClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<CalendarMonthIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           
   
           <Box>
-            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Tables</Typography>
-            </Button>
+            <Button onClick={() => handleTableClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<FormatListNumberedIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
           </Box>
 
           <Box>
-            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Stats</Typography>
-            </Button>
+            <Button onClick={() => handleStatsClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<AssessmentIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
           <Box>
-            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }}>
-              <Typography style={{ fontSize: '16px', fontWeight: 'bold', color: `var(--color-color4, ${theme.colors.color3})`}}>Players</Typography>
-            </Button>
+            <Button onClick={() => handlePlayersClick()} size='small' style={{ textTransform: 'capitalize',  padding: 0, minWidth: 'inherit' }} startIcon={<GroupsIcon style={{ color: `var(--color-color4, ${theme.colors.color3})`, fontSize: '20px' }} />} />
+
           </Box>
   
   

@@ -23,6 +23,33 @@ const Points_Table = ({ page }) => {
   const premierTable = premierTable_raw[0]
 
 
+  const getVideoDimensions = () => {
+    const windowWidth = window.innerWidth;
+
+    // Adjust these values based on your layout and design preferences
+    if (windowWidth >= 500) {
+      return {window_width: 500}
+    } else if (windowWidth >= 420) {
+      return {window_width: 420}
+    }else if (windowWidth >= 400) {
+      return {window_width: 400}
+    }else if (windowWidth >= 390) {
+      return {window_width: 390}
+    }else if (windowWidth >= 350) {
+      return {window_width: 350}
+    }
+    else if (windowWidth >= 300) {
+      return {window_width: 300}
+    } 
+    else {
+      return {window_width: 280}
+    }
+    
+  };
+
+  const { window_width } = getVideoDimensions();
+
+
 
   // TODO: Set up this component to receive a page name and then do a request for the tables
 
@@ -100,9 +127,9 @@ return (
       <Table >
 
         <TableHead >
-          <TableRow >
+          <TableRow>
             {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-            <TableCell width={200} sx={{ fontSize: {xs: 8}, fontWeight: 900, textAlign:'left'}}>Club</TableCell>
+            <TableCell width={window_width < 290?110: 200} sx={{ fontSize: {xs: 8}, fontWeight: 900, textAlign:'left'}}>Club</TableCell>
             <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>P</TableCell>
             <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>W</TableCell>
             <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>D</TableCell>
@@ -115,9 +142,9 @@ return (
         <TableBody>
           {premierTable.map((row, idx) => (
 
-            <TableRow key={row.team} sx={{ border: 0}}>
+            <TableRow key={idx} sx={{ border: 0}}>
 
-              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>{row.Team}</TableCell>
+              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>{window_width < 290?row.Team_Abbrev: row.Team}</TableCell>
 
               <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>{row.Played}</TableCell>
 
