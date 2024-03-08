@@ -15,6 +15,8 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Slider from 'react-slick';
 
+import '../../css/responsivenessWebApp.css'
+
 
 const MainNews = () => {
 
@@ -35,37 +37,42 @@ const MainNews = () => {
 
   };
 
-
-
   // const [headline, setHeadline] = useState(slides)
   const [newsCounter, setNewsCounter] = useState(0)
 
 
-  // useEffect(()=>{ 
+  const getVideoDimensions = () => {
+    const windowWidth = window.innerWidth;
 
-  //   const intervalId = setInterval(()=> {
-
+    // Adjust these values based on your layout and design preferences
+    if (windowWidth >= 500) {
+      return {window_width: 500}
+    } else if (windowWidth >= 420) {
+      return {window_width: 420}
+    }else if (windowWidth >= 400) {
+      return {window_width: 400}
+    }else if (windowWidth >= 390) {
+      return {window_width: 390}
+    }else if (windowWidth >= 350) {
+      return {window_width: 350}
+    }
+    else if (windowWidth >= 300) {
+      return {window_width: 300}
+    } 
+    else {
+      return {window_width: 280}
+    }
     
-  //     setNewsCounter((prevCount) => {
+  };
 
-  //       if(prevCount < headline.length-1){return prevCount + 1}
-  //       else{return 0}
-  //     })
-      
-  //   }, 4000)
-
-  //   // Clean up the interval when components unmounts
-  //   return () => clearInterval(intervalId)
-  // }, [])
-
-
+  const { window_width } = getVideoDimensions();
 
 
 
   return (
 
     <div >
-      {headline.length > 0 ? <Slider {...settings}>
+      {headline.length > 0 ? <Slider  {...settings}>
         
         {headline.map((slideData, idx) => (
           <Slide key={idx} headline={slideData} />

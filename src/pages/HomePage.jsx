@@ -22,12 +22,17 @@ const HomePage = () => {
 
       <NavBar />
       <Box marginTop={7} />
-      <MainNews />
-      <TrendingSection level={first}/>
-      <FixturesData page='home' />
-      <TrendingSection level={second}/>
-      <Points_Table page='Homepage'/>
-      <TrendingSection level={third}/>
+
+      <Box width={{xs:500, sm: 800, md: 1200}} sx={{margin: {xs: 0, sm: 'auto'}}}>
+
+        <MainNews />
+        <TrendingSection level={first}/>
+        <FixturesData page='home' />
+        <TrendingSection level={second}/>
+        <Points_Table page='Homepage'/>
+        <TrendingSection level={third}/>
+
+      </Box>
 
 
     </Box>

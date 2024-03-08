@@ -12,7 +12,7 @@ const Slide = ({ headline }) => {
   return (
 
 
-    <Box height={{sm: 500}} sx={{ display: 'flex', justifyContent: 'center', overflow: 'hidden'}} marginTop={{xs: 0, sm: 4}}>
+    <Box width={{ xs:'100%'}}  sx={{ display: 'flex', justifyContent: 'center', overflow: 'hidden'}} marginTop={{xs: 0, sm: 4}}>
 
       
       
