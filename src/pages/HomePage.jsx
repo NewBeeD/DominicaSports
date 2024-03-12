@@ -23,7 +23,7 @@ const HomePage = () => {
       <NavBar />
       <Box marginTop={7} />
 
-      <Box width={{xs:500, sm: 800, md: 1200}} sx={{margin: {xs: 0, sm: 'auto'}}}>
+      <Box width={{xs:'100%', sm: 800, md: 1200}} sx={{margin: {xs: 0, sm: 'auto'}}}>
 
         <MainNews />
         <TrendingSection level={first}/>
