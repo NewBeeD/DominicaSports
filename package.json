@@ -22,6 +22,8 @@
     "@tanstack/react-query-devtools": "^5.17.21",
     "axios": "^1.6.5",
     "cloudinary-video-player": "^1.10.5",
+    "dotenv": "^16.4.5",
+    "firebase": "^10.8.1",
     "qs": "^6.11.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

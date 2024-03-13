@@ -20,6 +20,8 @@ import ParagraphsDisplay from "../components/Article/ParagraphsDisplay";
 
 import theme from "../css/theme"
 
+import Comments from "../components/Article/Comments"
+
 
 
 
@@ -35,12 +37,6 @@ const Article = () => {
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  // ----Start of Modal SlideShow-----
-
-
-  // ----End of Modal Slideshow----
-
   
 
   useEffect(() => {
@@ -89,7 +85,7 @@ const Article = () => {
 
   return (
 
-    <Box width={{xs: '100%', sm: 800, md: 1200}} margin='auto'>
+    <>
 
       <NavBar />
 
@@ -141,9 +137,13 @@ const Article = () => {
             </Box>
           ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
 
+          <Comments />
+
+        
+
       </Box>
 
-    </Box>
+    </>
   )
 }
 
