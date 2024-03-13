@@ -11,6 +11,8 @@ import { useSelector } from 'react-redux';
 
 import theme from '../../css/theme';
 
+import Video from '../../components/Video'
+
 
 
 
@@ -75,60 +77,116 @@ const TrendingSection = ({ level }) => {
 
       <Box marginTop={2}>
 
-        <Stack direction='column' spacing={2} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
+        <Box direction={{ xs: 'column', sm: 'row' }} sx={{ display: { sm: 'flex' }, flexDirection: 'row' }}>
+
+          <Stack display={{ sm:'none'}} direction='column' spacing={2} width={{xs: '90%'}} margin={{xs:'auto'}} divider={<Divider orientation='horizontal' flexItem />} >
+
+            {articles ? articles.map((item, idx) => {
+
+            return (
+            <Box key={idx}>
+              
+              <Card sx={{ boxShadow: 'none', backgroundColor: 'white', border: '1px solid #86C232'}}>
+
+                <CardActions>
+
+                  <Stack>
+
+                    {/* TODO: Link this page to the premiere league home page */}
+
+                    <Link to='/DFA/Home'>
+                    <Typography style={{ color: `var(--color-color5, ${theme.colors.color5})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
+                    </Link>
 
 
+                    <Stack direction='row' spacing={0.5}>
+                      <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
+                      <Divider orientation='vertical' flexItem />
+                      <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
+                    </Stack>
 
-          {articles ? articles.map((item, idx) => {
 
-          return (
-          <Box key={idx}>
-            
-            <Card sx={{ boxShadow: 'none', backgroundColor: 'white', border: '1px solid #86C232'}}>
+                  </Stack>
 
-              <CardActions>
+                </CardActions>
 
-                <Stack>
+                <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+                  <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
+                </Link>
 
-                  {/* TODO: Link this page to the premiere league home page */}
 
-                  <Link to='/DFA/Home'>
-                   <Typography style={{ color: `var(--color-color5, ${theme.colors.color5})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
+                <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+
+                <CardContent>
+                  <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
+                    {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
+                  </Typography>
+                </CardContent>
+                
+              </Card>
+
+            </Box>)
+
+          }): <Skeleton variant="rectangular" width='100%' height={60} />}
+                    
+
+          </Stack>
+
+
+          <Grid display={{ xs:'none', sm: 'inherit'}}  container spacing={2} direction={{ xs: 'column', sm: 'row' }} justifyContent="left" marginX={2} paddingRight={2} width={{sm:600, md:700, lg:800}} >
+
+            {articles ? articles.map((item, idx) => (
+              <Grid item key={idx} xs={12} sm={5} md={4} lg={4}>
+              
+                <Card sx={{ boxShadow: 'none', backgroundColor: 'white', border: '1px solid #86C232', height: 450}}>
+
+                  <CardActions>
+
+                    <Stack>
+
+                      {/* TODO: Link this page to the premiere league home page */}
+
+                      <Link to='/DFA/Home'>
+                      <Typography style={{ color: `var(--color-color5, ${theme.colors.color5})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
+                      </Link>
+
+
+                      <Stack direction='row' spacing={0.5}>
+                        <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
+                        <Divider orientation='vertical' flexItem />
+                        <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
+                      </Stack>
+
+
+                    </Stack>
+
+                  </CardActions>
+
+                  <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+                    <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
                   </Link>
 
 
-                  <Stack direction='row' spacing={0.5}>
-                    <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
-                    <Divider orientation='vertical' flexItem />
-                    <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
-                  </Stack>
+                  <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+
+                  <CardContent>
+                    <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
+                      {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
+                    </Typography>
+                  </CardContent>
+
+                </Card>
+              </Grid>
+            )) : <Skeleton variant="rectangular" width='100%' height={60} />}
+
+          </Grid>
+
+          <Box width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}} sx={{ border: '1px solid red'}}>
+            
+          </Box>
 
 
-                </Stack>
-
-              </CardActions>
-
-              <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
-                <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
-              </Link>
-
-
-              <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
-
-              <CardContent>
-                <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
-                  {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
-                </Typography>
-              </CardContent>
-              
-            </Card>
-
-          </Box>)
-
-        }): <Skeleton variant="rectangular" width='100%' height={60} />}
-                   
-
-        </Stack>
+        </Box>
 
       </Box>
 
