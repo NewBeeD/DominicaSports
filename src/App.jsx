@@ -16,6 +16,9 @@ import PlayerGoals from './pages/DFA/PlayerGoals'
 import PlayerAssists from './pages/DFA/PlayerAssists'
 import TeamGoals from './pages/DFA/TeamGoals'
 import TeamCleanSheets from './pages/DFA/TeamCleanSheets'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+import Profile from './pages/Profile'
 
 
 
@@ -36,6 +39,9 @@ function App() {
         <Route path='/DFA/Home/PlayerAssists' element={<PlayerAssists />} />
         <Route path='/DFA/Home/TeamGoals' element={<TeamGoals />} />
         <Route path='/DFA/Home/TeamCleanSheets' element={<TeamCleanSheets />} />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Profile' element={<Profile />} />
+        {/* <Route path='/Signup' element={<SignUp />} /> */}
 
 
         {/* Home Pages for each Sport */}

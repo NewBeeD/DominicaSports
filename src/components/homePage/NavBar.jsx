@@ -9,6 +9,10 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import theme from '../../css/theme';
 
+// Firebase
+import { auth } from '../../config/firebaseConfig';
+import { onAuthStateChanged } from 'firebase/auth'
+
 
 
 
@@ -30,7 +34,14 @@ const NavBar = () => {
   // Larger displays menu setup
   const [anchorEl_Large, setAnchorEl_Large] = useState(null);
   const [selectedButton, setSelectedButton] = useState(null);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
 
+  // Google Authentication
+  const [userSignedIn, setUserSignedIn] = useState(null)
+
+
+  
   const handleClick = (event, button) => {
     setAnchorEl_Large(event.currentTarget);
     setSelectedButton(button);
@@ -50,8 +61,7 @@ const NavBar = () => {
 
   // End of larger display set up
 
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +80,21 @@ const NavBar = () => {
   }, [prevScrollPos]);
 
 
+  useEffect(()=>{
 
+    onAuthStateChanged(auth, (user) =>{
+
+      if(user){
+
+        setUserSignedIn(true)
+      }
+      else{
+        setUserSignedIn(false)
+      }
+    })
+
+
+  }, [])
 
 
 
@@ -163,7 +187,7 @@ const NavBar = () => {
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DAVA</MenuItem></Link>
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DNA</MenuItem></Link>
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>MEDIA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>PROFILE</MenuItem></Link>
+            <Link to={userSignedIn?'/Profile': '/Login'} style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>{userSignedIn?'PROFILE': 'LOGIN'}</MenuItem></Link>
 
           </Menu>
 
