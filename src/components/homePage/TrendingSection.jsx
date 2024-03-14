@@ -181,7 +181,7 @@ const TrendingSection = ({ level }) => {
 
           </Grid>
 
-          <Box width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}} sx={{ border: '1px solid red'}}>
+          <Box width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}} >
             
           </Box>
 
