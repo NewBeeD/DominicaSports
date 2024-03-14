@@ -10,6 +10,11 @@ import { queryParams_articles } from "../modules/DFA/QueryParams"
 import SingleStructuredDisplay from "../modules/Homepage/TrendingSection/SingleArticleDisplayStructure"
 
 import ImageSlideshow from "../components/Article/ImageSlideshow"
+import Comments from "../components/Article/Comments"
+
+// Firebase setup
+import { auth } from "../config/firebaseConfig"
+import { onAuthStateChanged } from "@firebase/auth"
 
 
 // Redux
@@ -19,10 +24,6 @@ import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMed
 import ParagraphsDisplay from "../components/Article/ParagraphsDisplay";
 
 import theme from "../css/theme"
-
-
-
-
 
 
 
@@ -36,11 +37,9 @@ const Article = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ----Start of Modal SlideShow-----
 
 
-  // ----End of Modal Slideshow----
-
+  
   
 
   useEffect(() => {
@@ -84,6 +83,8 @@ const Article = () => {
     fetchData();
 
   }, []);
+
+
   
 
 
@@ -140,6 +141,8 @@ const Article = () => {
               
             </Box>
           ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
+
+          <Comments articleId={id} />
 
       </Box>
 

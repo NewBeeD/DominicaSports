@@ -120,6 +120,16 @@ export const queryParams_articles = {
 }
 
 
+export const queryParams_comments = {
+  
+  populate: {
+    article: {
+      populate: true
+    }
+  }   
+}
+
+
 
 
 
