@@ -25,8 +25,13 @@ const Video = ({ VideoLocation }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  let width;
+  let height;
+
+
 
   const getVideoDimensions = () => {
+    
     const windowWidth = window.innerWidth;
 
     let width = windowWidth-20;
@@ -56,8 +61,19 @@ const Video = ({ VideoLocation }) => {
     return {width: width, height: height}
   };
 
+  switch(VideoLocation){
 
-  const { width, height } = getVideoDimensions();
+    case 'Homepage1':
+    case 'Homepage2':
+    case 'Homepage3':
+      width = '100%'
+      height = '300px'
+      break;
+    
+    default:
+      ({width, height} = getVideoDimensions())
+    
+  }
 
 
   const opts = {

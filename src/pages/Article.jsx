@@ -89,7 +89,7 @@ const Article = () => {
 
   return (
 
-    <>
+    <Box width={{xs: '100%', sm: 800, md: 1200}} margin='auto'>
 
       <NavBar />
 
@@ -143,7 +143,7 @@ const Article = () => {
 
       </Box>
 
-    </>
+    </Box>
   )
 }
 
