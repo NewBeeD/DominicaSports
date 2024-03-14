@@ -34,8 +34,6 @@ const Comments = ({ articleId }) => {
 
   const submitComment = () => {
 
-    console.log(author, newComment, typeof(Number(articleId)));
-
     let payload = {data: {Author: author, content: newComment, article: Number(articleId), reaction: { thumbsUp: 0, heart: 0, smiley: 0 }}}
 
       axios.post('https://strapi-dominica-sport.onrender.com/api/comments', payload)
