@@ -115,13 +115,20 @@ const TrendingSection = ({ level }) => {
                 </Link>
 
 
-                <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+                <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+                 <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+                </Link>
 
-                <CardContent>
-                  <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
-                    {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
-                  </Typography>
-                </CardContent>
+                <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+                  <CardContent>
+                    <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
+                      {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
+                    </Typography>
+                  </CardContent>
+                </Link>
+
+
+
                 
               </Card>
 
