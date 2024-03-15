@@ -31,6 +31,12 @@ const FixturesData = ({ page, type }) => {
             <Box key={idx} width={{xs: '100%'}} margin={{xs:'auto'}}>
   
               <Card sx={{ marginY: {xs: 0}, height: 'auto', boxShadow: 'none', borderBottom: {xs: '1px solid #D3E1FF'}, borderRadius: {xs: '4px'}}}>
+
+              <Box >
+  
+                  <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.League}</Typography>
+
+              </Box>
   
                 <Stack direction={{xs: 'row'}} justifyContent='space-between' marginX={2} paddingTop={1}>
   
@@ -51,7 +57,7 @@ const FixturesData = ({ page, type }) => {
   
                 <Box >
   
-                  <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.League}</Typography>
+                  <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Venue}</Typography>
   
                 </Box>
   
@@ -114,7 +120,7 @@ const FixturesData = ({ page, type }) => {
   
                 <Box >
   
-                  <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League}</Typography>
+                  <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.Venue}</Typography>
   
                 </Box>
   

@@ -81,10 +81,11 @@ function getOnlyDate(fixture_date){
 
 function getTimeOnly(fixture_date){
 
+
   let new_Time = new Date(fixture_date)
 
   // Format the time portion in 12-hour format
-  new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+  new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'UTC' });
 
 
   // new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -3);
@@ -142,6 +143,7 @@ function leagueNameChange(leagueName){
     case 'DFA_Division_One':     
     case 'DFA_Women':
     case 'DFA_Premier_League_Men':
+    case 'President Cup':
       return 'DFA';
     
     case 'DABA_First_Division':
