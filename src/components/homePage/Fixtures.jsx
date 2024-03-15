@@ -111,7 +111,7 @@ const FixturesData = ({ page, type }) => {
                   </Stack>
   
                   <Stack direction='column' spacing={0.5}>
-                    {item.HomeScore? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Date}</Typography>)}
+                    {item.HomeScore ? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Date}</Typography>)}
   
                     {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
                   </Stack>
@@ -156,10 +156,12 @@ const FixturesData = ({ page, type }) => {
     
                     </Stack>
     
+
                     <Stack direction='column' spacing={0.5}>
-                      {item.HomeScore? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Date}</Typography>)}
+
+                      <Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>
     
-                      {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
+                      <Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>
                     </Stack>
     
                   </Stack>

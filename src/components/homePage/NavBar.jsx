@@ -133,7 +133,10 @@ const NavBar = () => {
                       
                       <MenuItem key={index} onClick={handleClose}>
 
-                        <Link to={`/${button.label}/${item}`}>
+                        {/* <Link to={`/${button.label}/${item}`}>
+                          {item}
+                        </Link> */}
+                        <Link to={`/`}>
                           {item}
                         </Link>
 
