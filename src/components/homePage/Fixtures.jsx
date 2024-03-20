@@ -20,7 +20,7 @@ const FixturesData = ({ page, type }) => {
 
     return(
 
-      <Box marginTop={0} width={{ xs: '90%'}} margin='auto' sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}, border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
+      <Box marginTop={0} width={{ xs: '90%', sm:'400px'}} margin='auto' sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}, border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}} >
   
         <Typography variant="h6" sx={{ textAlign: 'center', color: 'blue'}}>Game Fixtures</Typography>
   

@@ -11,7 +11,8 @@ import { useSelector } from 'react-redux';
 
 import theme from '../../css/theme';
 
-import Video from '../../components/Video'
+import VideoHighlights from '../WeekendHighlights/VideoHighlights';
+import FixturesData from './Fixtures';
 
 
 
@@ -39,6 +40,7 @@ const TrendingSection = ({ level }) => {
 
     case 'first':
       articles = articles ? articles.slice(0, part_size): null;
+      console.log(articles);
       break;
     
     case 'second':
@@ -48,13 +50,6 @@ const TrendingSection = ({ level }) => {
     case 'third':
       articles = articles ? articles.slice(2*part_size): null;
   }
-
-
-
-  
-
-
-
 
 
   return (
@@ -188,9 +183,26 @@ const TrendingSection = ({ level }) => {
 
           </Grid>
 
-          <Box width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}} >
+          {/* Side panel in the homepage */}
+          {level === 'first'?<Stack width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}}
+          direction='column'
+          justifyContent='center'
+          alignItems='center'
+          spacing={0}
+          sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}>
+
+            {/* <Typography  variant='h3'>Ad Space here</Typography> */}
+            <Typography variant='h4' color='white' padding={0}>The Video of The Day</Typography>
+
+            <VideoHighlights VideoLocation='Homepage1' />
             
+          </Stack>: level === 'second'?
+          
+          <Box>
+            <FixturesData page='home' type='sm' />
           </Box>
+          
+          : ''}
 
 
         </Box>

@@ -27,7 +27,9 @@ const HomePage = () => {
 
         <MainNews />
         <TrendingSection level={first}/>
-        <FixturesData page='home' />
+        <Box display={{ sm: 'none'}}>
+          <FixturesData page='home' />
+        </Box>
         <TrendingSection level={second}/>
         <Points_Table page='Homepage'/>
         <TrendingSection level={third}/>

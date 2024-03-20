@@ -10,6 +10,7 @@ export default function ArticlesStructuredDisplay(data){
 
   let articles_data = data.data 
 
+
   articles_data = articles_data.sort((a, b) => Date.parse(b.attributes['publishedAt']) - Date.parse(a.attributes['publishedAt']));
 
 
@@ -23,9 +24,11 @@ export default function ArticlesStructuredDisplay(data){
     required_data_fields['author'] = item.attributes['Author']
     required_data_fields['body_content'] = item.attributes['Body_Content']
     required_data_fields['headline'] = item.attributes['Headline']
-    required_data_fields['league'] = leagueNameChange(articles_data[0].attributes['all_league'].data.attributes['name'])
 
-    required_data_fields['league_name'] = SpecificleagueName(articles_data[0].attributes['all_league'].data.attributes['name'])
+    required_data_fields['league'] =  leagueNameChange(articles_data[0].attributes['all_league'].data.attributes['name'])
+    
+
+    required_data_fields['league_name'] =  SpecificleagueName(articles_data[0].attributes['all_league'].data.attributes['name'])
 
     // required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
 
@@ -37,8 +40,6 @@ export default function ArticlesStructuredDisplay(data){
 
     return required_data_fields
   })
-
-
 
   return final_data
 }
@@ -64,6 +65,9 @@ function leagueNameChange(leagueName){
       case 'DNA_Men':
       case 'DNA_Women':
         return 'DNA';
+
+      case null:
+        return 'DSport';
       
       default:
         return '';
@@ -105,7 +109,7 @@ function SpecificleagueName(league){
       return 'DNA Men';
         
     default:
-      return '';
+      return 'DSport';
 
   }
 
