@@ -57,15 +57,11 @@ const PlayerAssists = () => {
         // Parse the JSON data
         const result = await response.data.data;
 
-
-
         let final_data = PlayerStatsDisplayStructure(result)
         final_data = final_data.map(goals => goals).sort(Sort)
 
-        console.log(final_data);
-
         setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
-        
+      
         // Set the data state
         setPlayers_data(final_data);
       } catch (error) {

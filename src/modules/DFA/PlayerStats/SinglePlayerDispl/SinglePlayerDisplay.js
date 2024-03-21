@@ -2,7 +2,6 @@
 
 export default function SinglePlayerDisplay(data){
 
-  console.log('single player', data['data']);
   let player = {};
 
 
@@ -22,10 +21,6 @@ export default function SinglePlayerDisplay(data){
   player['Current_Team'] = data.attributes['dfa_team'].data.attributes['Name'] ?? 'Null'
   player['League'] = leagueNameChange(data.attributes['all_league'].data)
   player['url'] = data.attributes['Profile_Pic'].data.attributes.formats['small']['url']
-
-  console.log(player);
-
-
   
   return player
 }

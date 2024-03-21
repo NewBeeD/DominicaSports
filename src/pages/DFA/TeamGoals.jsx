@@ -57,9 +57,6 @@ const TeamGoals = () => {
         let final_data = PlayerStatsDisplayStructure(result)
         setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
         final_data = MostTeamGoals(final_data)
-
-        console.log(final_data);
-
         // Set the data state
         setPlayers_data(final_data);
       } catch (error) {
