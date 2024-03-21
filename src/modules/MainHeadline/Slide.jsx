@@ -23,12 +23,12 @@ const Slide = ({ headline }) => {
         </Link>
 
 
-        <Box sx={{ position: {xs: 'absolute', sm: 'static'},  bottom: {xs: 18, sm: 'inherit'}, left: {xs: 12, sm: 'inherit'}, display: {sm: 'flex'}, justifyContent: {sm: 'center'} }}>
+        <Box paddingLeft={{sm: 1.5}} sx={{ position: {xs: 'absolute', sm: 'absolute'},  bottom: {xs: 18, sm: 0}, left: {xs: 12, sm: 'inherit'}, display: {sm: 'flex'}, justifyContent: {sm: 'center'} }}>
 
           <Stack direction='column'>
 
             <Box>
-              <Typography fontSize={{xs: 10, sm: 14}} sx={{ color: 'white', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none', sm: 'center', fontWeight: 900}}}>{headline.league}</Typography>
+              <Typography fontSize={{xs: 10, sm: 14}} sx={{ color: 'white', fontFamily: 'Josefin Slab', letterSpacing: 2, textAlign: {xs: 'none'}, fontWeight: 900}}>{headline.league}</Typography>
             </Box>
 
             <Box>

@@ -28,8 +28,8 @@ export default function GroupingFixturesByDate(league_fixtures_data){
       Away: item.attributes['Away_Team'],
       Date: getOnlyDate(item.attributes['Date']),
       Time: getTimeOnly(item.attributes['Date']),
-      Venue: item.attributes['venue'].data['attributes']['Name'],
-      League: leagueNameChange(item.attributes['all_league'].data['attributes']['name']),
+      Venue: item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA',
+      League: leagueNameChange(item.attributes['all_league'].data),
       Complete: item.attributes['Complete'],
       Cancelled: item.attributes['Cancelled'],
       HomeScore:item.attributes['Home_Team_Score'],
@@ -138,27 +138,37 @@ function right_month(month){
 
 function leagueNameChange(leagueName){
 
-  switch(leagueName){
 
-    case 'DFA_Division_One':     
-    case 'DFA_Women':
-    case 'DFA_Premier_League_Men':
-    case 'President Cup':
-      return 'DFA';
-    
-    case 'DABA_First_Division':
-    case 'DABA_Premier_League':
-    case 'DABA_Women':
-      return 'DABA';
+  if(leagueName == null){return 'Dsport'}
 
-    case 'DAVA_MEN':
-    case 'DAVA_WOMEN':
-        return 'DAVA'
-    
-    default:
-      return '';
+  switch(leagueName.attributes['name']){
 
-  }
+      case 'DFA_Division_One':     
+      case 'DFA_Women':
+      case 'DFA_Premier_League_Men':
+      case 'President Cup':
+        return 'DFA';
+      
+      case 'DABA_Division_One':
+      case 'DABA_Premier_League_One':
+      case 'DABA_Women':
+        return 'DABA';
+
+      case 'DAVA_MEN':
+      case 'DAVA_WOMEN':
+          return 'DAVA';
+      
+      case 'DNA_Men':
+      case 'DNA_Women':
+        return 'DNA';
+
+      case null:
+        return 'DSport';
+      
+      default:
+        return '';
+
+    }
 }
 
 function upcomingFixtures(fixtures){

@@ -39,16 +39,15 @@ const TrendingSection = ({ level }) => {
   switch(level){
 
     case 'first':
-      articles = articles ? articles.slice(0, part_size): null;
-      console.log(articles);
+      articles = articles ? articles.slice(0, 3): null;
       break;
     
     case 'second':
-      articles = articles ? articles.slice(part_size, 2*part_size): null;
+      articles = articles ? articles.slice(3, 6): null;
       break;
     
     case 'third':
-      articles = articles ? articles.slice(2*part_size): null;
+      articles = articles ? articles.slice(6, 9): null;
   }
 
 
@@ -184,21 +183,22 @@ const TrendingSection = ({ level }) => {
           </Grid>
 
           {/* Side panel in the homepage */}
-          {level === 'first'?<Stack width={{ sm:'380px' }} display={{xs:'none', sm:'inherit'}}
+          {level === 'first'?<Stack width={{ sm:'380px', md: '400px' }} display={{xs:'none', sm:'inherit'}}
           direction='column'
           justifyContent='center'
           alignItems='center'
           spacing={0}
-          sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}>
+          sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}
+          height={{ sm: '450px'}}>
 
             {/* <Typography  variant='h3'>Ad Space here</Typography> */}
-            <Typography variant='h4' color='white' padding={0}>The Video of The Day</Typography>
+            <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>The Video of The Day</Typography>
 
             <VideoHighlights VideoLocation='Homepage1' />
             
           </Stack>: level === 'second'?
           
-          <Box>
+          <Box display={{ xs: 'none'}}>
             <FixturesData page='home' type='sm' />
           </Box>
           

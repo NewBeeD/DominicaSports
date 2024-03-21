@@ -24,33 +24,29 @@ export default function ArticlesStructuredDisplay(data){
     required_data_fields['author'] = item.attributes['Author']
     required_data_fields['body_content'] = item.attributes['Body_Content']
     required_data_fields['headline'] = item.attributes['Headline']
-
-    required_data_fields['league'] =  leagueNameChange(articles_data[0].attributes['all_league'].data.attributes['name'])
-    
-
-    required_data_fields['league_name'] =  SpecificleagueName(articles_data[0].attributes['all_league'].data.attributes['name'])
-
-    // required_data_fields['url'] = item.attributes['Article_Img'].data[0].attributes['formats']['small']['url']
-
-     required_data_fields['url'] = getAllImages(item.attributes['Article_Img'].data)
-
-
+    required_data_fields['league'] =  leagueNameChange(item.attributes['all_league'].data)
+    required_data_fields['league_name'] =  SpecificleagueName(item.attributes['all_league'].data)
+    required_data_fields['url'] = getAllImages(item.attributes['Article_Img'].data)
     required_data_fields['date'] = formatDate(item.attributes['publishedAt'])
-
 
     return required_data_fields
   })
+
+
 
   return final_data
 }
 
 function leagueNameChange(leagueName){
 
-    switch(leagueName){
+  if(leagueName == null){return 'Dsport'}
+
+  switch(leagueName.attributes['name']){
 
       case 'DFA_Division_One':     
       case 'DFA_Women':
       case 'DFA_Premier_League_Men':
+      case 'President Cup':
         return 'DFA';
       
       case 'DABA_Division_One':
@@ -73,13 +69,14 @@ function leagueNameChange(leagueName){
         return '';
 
     }
-
 }
 
 
 function SpecificleagueName(league){
 
-  switch(league){
+  if(league == null){return 'Dsport'}
+
+  switch(league.attributes['name']){
 
     case 'DFA_Division_One':
       return 'DFA Division One';
@@ -112,7 +109,6 @@ function SpecificleagueName(league){
       return 'DSport';
 
   }
-
 
 }
 
