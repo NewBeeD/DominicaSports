@@ -74,11 +74,11 @@ const TeamGoals = () => {
 
 
   return (
-    <Box>
+    <Box width={{xs:'100%', sm: 800}} sx={{margin: {xs: 0, sm: 'auto'}}}>
 
     <NavBar />
 
-    <Box marginBottom={3} paddingLeft={{ xs: 1}}>
+    <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={4}>
       <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Goals</Typography>
 
       <Typography>

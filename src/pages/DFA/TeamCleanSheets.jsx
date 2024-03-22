@@ -71,13 +71,13 @@ const TeamCleanSheets = () => {
 
   return (
 
-    <Box>
+    <Box width={{xs:'100%', sm: 800}} sx={{margin: {xs: 0, sm: 'auto'}}}>
 
       <NavBar />
 
 
       
-      <Box marginBottom={3} paddingLeft={{ xs: 1}}>
+      <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={4}>
         <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Goals</Typography>
 
         <Typography>
@@ -99,7 +99,7 @@ const TeamCleanSheets = () => {
               <Box marginTop={3}><Typography variant='h4' sx={{ fontWeight: 'bold'}}>{players_data[0].totalCleanSheets}</Typography></Box>
             </Stack>
 
-            <Box width={{xs: 130}}>
+            <Box width={{xs: 120}}>
               <img src={players_data[0].url} width='100%' height='100%' />
             </Box>
 

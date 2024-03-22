@@ -81,7 +81,7 @@ const PlayerProfile = () => {
 
 
   return (
-    <Box>
+    <Box width={{xs:'100%', sm: 800}} sx={{margin: {xs: 0, sm: 'auto'}}}>
 
       <NavBar />
 
