@@ -10,7 +10,7 @@ const TeamPlayer = () => {
   
   return (
 
-    <>
+    <Box width={{xs:'100%', sm: 800}} sx={{margin: {xs: 0, sm: 'auto'}}}>
     
     <Stack marginTop={2} direction='row' justifyContent='center' alignContent='center'>
 
@@ -183,7 +183,7 @@ const TeamPlayer = () => {
         </Stack>
   
       </Paper>
-    </>
+    </Box>
 
 
   )

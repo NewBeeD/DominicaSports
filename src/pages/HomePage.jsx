@@ -4,6 +4,7 @@ import MainNews from "../components/homePage/MainNews"
 import TrendingSection from "../components/homePage/TrendingSection"
 import Points_Table from "../components/homePage/Points_Table"
 import FixturesData from "../components/homePage/Fixtures"
+import Footer from "../components/Footer/Footer"
 
 
 const HomePage = () => {
@@ -36,7 +37,7 @@ const HomePage = () => {
 
       </Box>
 
-
+      <Footer />
     </Box>
     
   )

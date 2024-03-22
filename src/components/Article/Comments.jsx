@@ -12,7 +12,8 @@ import { auth } from '../../config/firebaseConfig'
 import { onAuthStateChanged } from "@firebase/auth"
 
 import CommentsStructure from '../../modules/DFA/Comments/CommentsStructure'
-import AddCommentIcon from '@mui/icons-material/AddComment';
+// import AddCommentIcon from '@mui/icons-material/AddComment';
+import SendIcon from '@mui/icons-material/Send';
 
 import '../../css/comments.css'
 import theme from '../../css/theme'
@@ -158,7 +159,7 @@ const Comments = ({ articleId }) => {
               endAdornment:(
               <InputAdornment position='end'>
                 <IconButton edge='start' onClick={submitComment} disabled={userSignedIn? false: true}>
-                  <AddCommentIcon />
+                  <SendIcon />
                 </IconButton>
               </InputAdornment>)
             }}
