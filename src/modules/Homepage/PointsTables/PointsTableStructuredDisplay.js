@@ -25,6 +25,7 @@ export default function PointsTableStructuredDisplay(data){
     teamPoints['GA'] = item.attributes['GA']
     teamPoints['GD'] = findGoalDifference(item)
     teamPoints['Points'] = findPoints(item)
+    teamPoints['ID'] = item.id
 
     return teamPoints    
   })
@@ -32,7 +33,6 @@ export default function PointsTableStructuredDisplay(data){
   // console.log(premierTable);
 
   premierTable = sortTablePoints(premierTable)
-
   return premierTable
 }
 

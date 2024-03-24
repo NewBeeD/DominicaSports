@@ -2,10 +2,6 @@
 
 export default function PlayerDisplayStructure(data){
 
-  console.log(data);
-
-
-
   let final_data = data.map(item => {
 
     let player = {};
@@ -24,37 +20,9 @@ export default function PlayerDisplayStructure(data){
     player['RedCards'] = item.attributes['Red_Cards']
     player['Foot'] = item.attributes['Foot']
 
-    player['Current_Team'] = item.attributes['dfa_team'].data.attributes['Name']
-    player['League'] = leagueNameChange(item.attributes['all_league'].data.attributes['name'])
-    player['url'] = item.attributes['Profile_Pic'].data.attributes.formats['small']['url']
-
     return player
   })
   
   return final_data
 }
 
-
-function leagueNameChange(leagueName){
-
-  switch(leagueName){
-
-    case 'DFA_Division_one':     
-    case 'DFA_Women':
-    case 'DFA_Premier_League_Men':
-      return 'DFA';
-    
-    case 'DABA_First_Division':
-    case 'DABA_Premier_League':
-    case 'DABA_Women':
-      return 'DABA';
-
-    case 'DAVA_MEN':
-    case 'DAVA_WOMEN':
-        return 'DAVA'
-    
-    default:
-      return '';
-
-  }
-}

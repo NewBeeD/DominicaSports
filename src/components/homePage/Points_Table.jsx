@@ -144,7 +144,13 @@ return (
 
             <TableRow key={idx} sx={{ border: 0}}>
 
-              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>{window_width < 290?row.Team_Abbrev: row.Team}</TableCell>
+              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>
+
+                <Link to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none'}}>
+                  {window_width < 290?row.Team_Abbrev: row.Team}
+                </Link>
+                                
+                </TableCell>
 
               <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>{row.Played}</TableCell>
 

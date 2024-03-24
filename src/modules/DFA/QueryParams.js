@@ -130,6 +130,25 @@ export const queryParams_comments = {
 }
 
 
+export const queryParams_dfa_teams = {
+  
+  populate: {
+    dfa_players: {
+      populate: true
+    },
+    dfa_league:{
+      populate: true
+    },
+    Team_Crest: {
+      populate: true
+    },
+    Staff: {
+      populate: true
+    }
+  }   
+}
+
+
 
 
 
