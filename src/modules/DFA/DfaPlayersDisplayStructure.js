@@ -2,10 +2,6 @@
 
 export default function PlayerDisplayStructure(data){
 
-  console.log(data);
-
-
-
   let final_data = data.map(item => {
 
     let player = {};

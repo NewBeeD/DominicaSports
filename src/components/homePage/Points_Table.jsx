@@ -22,6 +22,8 @@ const Points_Table = ({ page }) => {
   const premierTable_raw = useSelector((state) => state.points)
   const premierTable = premierTable_raw[0]
 
+  console.log(premierTable);
+
 
   const getVideoDimensions = () => {
     const windowWidth = window.innerWidth;
@@ -146,7 +148,7 @@ return (
 
               <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>
 
-                <Link to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none'}}>
+                <Link to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
                   {window_width < 290?row.Team_Abbrev: row.Team}
                 </Link>
                                 

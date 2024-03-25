@@ -25,7 +25,7 @@ export default function PointsTableStructuredDisplay(data){
     teamPoints['GA'] = item.attributes['GA']
     teamPoints['GD'] = findGoalDifference(item)
     teamPoints['Points'] = findPoints(item)
-    teamPoints['ID'] = item.id
+    teamPoints['ID'] = item.attributes['dfa_team'].data.id
 
     return teamPoints    
   })

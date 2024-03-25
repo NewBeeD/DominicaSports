@@ -2,6 +2,8 @@
 
 export default function PlayerDisplayStructure(data){
 
+  if(data == null){return []}
+
   let final_data = data.map(item => {
 
     let player = {};

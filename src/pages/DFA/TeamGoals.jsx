@@ -30,6 +30,8 @@ const TeamGoals = () => {
 
   const [currentSeason, setCurrentSeason] = useState(null)
 
+  console.log(players_data);
+
 
   useEffect(() => {
     const fetchData = async () => {
