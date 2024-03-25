@@ -19,6 +19,7 @@ import TeamCleanSheets from './pages/DFA/TeamCleanSheets'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
+import TeamPage from './pages/DFA/TeamPage'
 
 
 
@@ -41,6 +42,7 @@ function App() {
         <Route path='/DFA/Home/TeamCleanSheets' element={<TeamCleanSheets />} />
         <Route path='/Login' element={<Login />} />
         <Route path='/Profile' element={<Profile />} />
+        <Route path='/DFA/Home/Team/:id' element={<TeamPage />} />
         {/* <Route path='/Signup' element={<SignUp />} /> */}
 
 
