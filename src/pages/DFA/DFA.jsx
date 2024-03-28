@@ -229,9 +229,20 @@ const DFA = () => {
   
       <NavBar />
 
-      <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} marginTop={{xs: 2}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', fontWeight: 900}}>Dominica Football Association</Typography>
+      <Box sx={{display: 'flex', flexDirection: 'column', justify: 'center', alignItems: 'center'}}>
+        <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} marginTop={{xs: 2}} marginBottom={{xs: 2}} variant="h5" sx={{ textAlign: 'center', fontWeight: 900}}>Dominica Football Association</Typography>
+
+        <Box width={{xs: 100}} height={{xs: 100}}>
+
+          <img src="https://res.cloudinary.com/djrkottjd/image/upload/v1711418501/Dominica_national_football_team_600e878744.png" width='100%' />
+
+        </Box>
+
+
+      </Box>
+
       {/* <MainNews /> */}
-      <Box marginTop={5} />
+      <Box marginTop={2} />
       <DfaArticles level='first' />
 
       <Divider sx={{ marginTop: 2}} />
@@ -642,13 +653,36 @@ const DFA = () => {
               </Paper>
 
             </Stack>
+
+            <Stack marginTop={4} marginX={2} >
+
+              <Stack justifyContent='space-between' direction='row'>
+
+                <Typography>Season Stats</Typography>
+                <ArrowRightAltIcon />
+
+              </Stack>
+            </Stack>
             
-          </Box>)
+          </Box>) 
+          
+          
+
         
-          : <Skeleton width={300} height={300} sx={{ margin: 'auto'}}/>
+          :player_stats.length == 0 ? 
+          (<Box display='flex' justifyContent='center' alignItems='center' height={{ xs: 400}}>
+            <Typography variant="h4" textAlign='center'>
+              Soon to be Populated with both stats on players and team as the league progresses.
+            </Typography>
+          </Box>) 
+
+
+
+
+          :<Skeleton width={300} height={300} sx={{ margin: 'auto'}}/>
         }
 
-        <Stack marginTop={4} marginX={2} >
+        {/* <Stack marginTop={4} marginX={2} >
 
           <Stack justifyContent='space-between' direction='row'>
 
@@ -658,13 +692,9 @@ const DFA = () => {
           </Stack>
 
             
-        </Stack>
+        </Stack> */}
 
         <Box marginTop={8} />
-
-
-
-
 
 
             

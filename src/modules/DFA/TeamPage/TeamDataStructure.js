@@ -6,7 +6,7 @@ export default function TeamDataStructure(data){
 
    // Function to organize teams in proper order
 
-   console.log(data.attributes['Assistant_Coach']);
+
 
     let teamPoints = {}
 
@@ -17,7 +17,6 @@ export default function TeamDataStructure(data){
     teamPoints['Head_Coach'] = data.attributes['Head_Coach']
     teamPoints['Community'] = data.attributes['Community']
     teamPoints['Asst_Coach'] = data.attributes['Assistant_Coach'] ?? ''
-    console.log(teamPoints['Asst_Coach']);
     teamPoints['Gender'] = data.attributes['Gender']
     teamPoints['League'] = data.attributes['dfa_league']?.data.attributes['Name']
     teamPoints['Players'] = TeamPlayerDataStructure(data.attributes['dfa_players'].data)

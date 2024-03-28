@@ -2,6 +2,7 @@ import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Table
 
 import { useState } from "react"
 import { Link } from "react-router-dom";
+import '../../css/PointTable.css'
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -21,9 +22,6 @@ const Points_Table = ({ page }) => {
 
   const premierTable_raw = useSelector((state) => state.points)
   const premierTable = premierTable_raw[0]
-
-  console.log(premierTable);
-
 
   const getVideoDimensions = () => {
     const windowWidth = window.innerWidth;
@@ -148,7 +146,7 @@ return (
 
               <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>
 
-                <Link to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                <Link className="hyperlinkactive" to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black'}}>
                   {window_width < 290?row.Team_Abbrev: row.Team}
                 </Link>
                                 

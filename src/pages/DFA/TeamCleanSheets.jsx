@@ -5,10 +5,12 @@ import axios from "axios"
 
 import { useState, useEffect } from 'react';
 
-import { queryParams_prem_players_stats } from '../../modules/DFA/QueryParams';
+import { queryParams_prem_players_stats, queryParams_dfa_teams } from '../../modules/DFA/QueryParams';
 import PlayerStatsDisplayStructure from '../../modules/DFA/PlayerStats/PlayerStatsDisplayStructure';
 
 import theme from '../../css/theme';
+import Combine_Team_Crest from '../../modules/DFA/TeamPage/Combine_Team_Crest';
+import TeamGoalsAssists from '../../modules/DFA/TeamGoalsandAssist/TeamGoalsAssists_Img';
 
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
@@ -22,6 +24,12 @@ const TeamCleanSheets = () => {
   const [players_data, setPlayers_data] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const [team_data, setTeam_data] = useState(null);
+  const [teamLoading, setTeamLoading] = useState(true);
+  const [teamError, setTeamError] = useState(null);
+
+  const [combineData, setCombineData] = useState(null)
 
   const [currentSeason, setCurrentSeason] = useState(null)
 
@@ -68,6 +76,53 @@ const TeamCleanSheets = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Set loading to true when starting the fetch
+        setTeamLoading(true);
+
+        const queryString = qs.stringify(queryParams_dfa_teams);
+
+        // Your API endpoint URL
+        const apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-teams?${queryString}`;
+  
+
+        // Make the fetch request
+        const response = await axios.get(apiUrl);
+
+        // Check if the request was successful (status code 2xx)
+        if (response.status !== 200) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
+
+        // Parse the JSON data
+        const result = await response.data.data;
+
+        let final_data = TeamGoalsAssists(result)
+
+        // Set the data state
+        setTeam_data(final_data);
+      } catch (error) {
+        // Set the error state if there's an issue
+        setTeamError(error.message);
+      } finally {
+        // Set loading to false regardless of success or failure
+        setTeamLoading(false);
+      }
+    };
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+  }, []);
+  
+  useEffect(() => {
+
+    let final_data = Combine_Team_Crest(players_data, team_data)
+
+    setCombineData(final_data)    
+  }, [team_data, players_data]); 
+
 
   return (
 
@@ -78,7 +133,7 @@ const TeamCleanSheets = () => {
 
       
       <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={4}>
-        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Goals</Typography>
+        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Assists</Typography>
 
         <Typography>
           {currentSeason && currentSeason}
@@ -87,20 +142,20 @@ const TeamCleanSheets = () => {
 
       
       <Paper marginBottom={4} sx={{ width: {xs: '98%'}, margin: 'auto'}}>
-        {players_data && (
+        {combineData && (
 
           <Stack style={{ backgroundColor: `var(--color-color4, ${theme.colors.color4})`}} paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{ color: 'white'}}>
             <Stack direction='column' paddingLeft={{xs: 1}}>
 
               <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
 
-              <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].teamName}</Typography></Box>
+              <Box><Typography sx={{ fontWeight: 'bold'}}>{combineData[0].teamName}</Typography></Box>
 
-              <Box marginTop={3}><Typography variant='h4' sx={{ fontWeight: 'bold'}}>{players_data[0].totalCleanSheets}</Typography></Box>
+              <Box marginTop={3}><Typography variant='h4' sx={{ fontWeight: 'bold'}}>{combineData[0].totalCleanSheets}</Typography></Box>
             </Stack>
 
-            <Box width={{xs: 120}}>
-              <img src={players_data[0].url} width='100%' height='100%' />
+            <Box width={{xs: 130}}>
+              <img src={combineData[0].team_crest_url} width='100%' height='100%' />
             </Box>
 
 
@@ -123,7 +178,7 @@ const TeamCleanSheets = () => {
 
           <TableBody>
 
-            {players_data && players_data.slice(1).map((item, idx) => {
+            {combineData && combineData.slice(1).map((item, idx) => {
 
               return (
                 
