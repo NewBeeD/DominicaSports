@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import qs from 'qs'
 import axios from "axios";
 
+
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions,  Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Tab } from '@mui/material'
 
 import { TabContext, TabList, TabPanel } from "@mui/lab";
@@ -60,8 +61,6 @@ const TeamPage = () => {
         const result = await response.data.data;
 
         let final_data = TeamDataStructure(result)
-
-        console.log(final_data);
 
         // Set the data state
         setData(final_data);
