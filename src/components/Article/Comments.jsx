@@ -28,7 +28,7 @@ const Comments = ({ articleId }) => {
   const [author, setAuthor] = useState(null)
 
   const [newComment, setNewComment] = useState('')
-  const [comments, setComments] = useState(null)
+  const [comments, setComments] = useState([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);  
 
@@ -118,7 +118,7 @@ const Comments = ({ articleId }) => {
         Comments
       </Divider>
 
-      {comments && comments.length > 0 ?comments.filter(data_point => data_point.Article_id == articleId).map((item, idx) => {
+      {comments && comments.length > 0 ? comments.filter(data_point => data_point.Article_id == articleId).map((item, idx) => {
 
         return(
           <Box key={idx} marginBottom={1}>
