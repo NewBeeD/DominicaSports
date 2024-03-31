@@ -798,7 +798,7 @@ const DFA = () => {
                 <MenuItem value={'Bombers FC'}>Bombers FC</MenuItem>
                 <MenuItem value={'Blue Waters Bath Estate FC'}>Bathestate FC</MenuItem>
                 <MenuItem value={'Connect 767 East Central FC'}>East Central FC</MenuItem>
-                <MenuItem value={'We United FC'}>We United FC</MenuItem>
+                <MenuItem value={'Valvoline We United FC'}>We United FC</MenuItem>
                 <MenuItem value={'Mahaut Soca Strikers FC'}>Mahaut FC</MenuItem>
                 <MenuItem value={'Petro Caribe Point Michel FC'}>Point Michel FC</MenuItem>
                 <MenuItem value={'Promex Harlem FC'}>Harlem FC</MenuItem>
