@@ -3,7 +3,7 @@ import fixtureDisplayStructure from '../Fixtures/fixtureDisplayStructure'
 
 let required_data_fields = {Home: '', Away: '', Date: '', Time: '', Venue: '', League: '', HomeScore: 0, AwayScore: 0};
 
-let final_data = []
+// let final_data = []
 
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function GroupingFixturesByDate(league_fixtures_data){
@@ -12,32 +12,47 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
   let articles_data = league_fixtures_data.data
 
-  let fixtures_orderedByDate = DateOrder(articles_data)
-
-  // articles_data = upcomingFixtures(articles_data)
-
-  // console.log('Fixtures Data', fixtures_orderedByDate);
-
-  
+  let fixtures_orderedByDate = DateOrder(articles_data) 
 
 
-  for (var item of fixtures_orderedByDate){
+  let final_data = fixtures_orderedByDate.map(item => {
 
-    required_data_fields ={
-      Home: item.attributes['Home_Team'],
-      Away: item.attributes['Away_Team'],
-      Date: getOnlyDate(item.attributes['Date']),
-      Time: getTimeOnly(item.attributes['Date']),
-      Venue: item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA',
-      League: leagueNameChange(item.attributes['all_league'].data),
-      Complete: item.attributes['Complete'],
-      Cancelled: item.attributes['Cancelled'],
-      HomeScore:item.attributes['Home_Team_Score'],
-      AwayScore: item.attributes['Away_Team_Score']
-    }
+    let req_data = {}
 
-    final_data.push(required_data_fields)
-  }
+    req_data['Home'] = item.attributes['Home_Team']
+    req_data['Away'] = item.attributes['Away_Team']
+    req_data['Date'] = getOnlyDate(item.attributes['Date'])
+    req_data['Time'] = getTimeOnly(item.attributes['Date'])
+    req_data['Venue'] = item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA'
+    req_data['League'] = leagueNameChange(item.attributes['all_league'].data)
+    req_data['Complete'] = item.attributes['Complete']
+    req_data['Cancelled'] = item.attributes['Cancelled']
+    req_data['HomeScore'] = item.attributes['Home_Team_Score']
+    req_data['AwayScore'] = item.attributes['Away_Team_Score']
+
+    return req_data
+  })
+
+  // for (var item of fixtures_orderedByDate){
+
+  //   required_data_fields ={
+  //     Home: item.attributes['Home_Team'],
+  //     Away: item.attributes['Away_Team'],
+  //     Date: getOnlyDate(item.attributes['Date']),
+  //     Time: getTimeOnly(item.attributes['Date']),
+  //     Venue: item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA',
+  //     League: leagueNameChange(item.attributes['all_league'].data),
+  //     Complete: item.attributes['Complete'],
+  //     Cancelled: item.attributes['Cancelled'],
+  //     HomeScore:item.attributes['Home_Team_Score'],
+  //     AwayScore: item.attributes['Away_Team_Score']
+  //   }
+
+    
+
+  //   final_data.push(required_data_fields)
+  // }
+
 
   return final_data
 }

@@ -95,7 +95,7 @@ const Points_Table = ({ page }) => {
 
             <Box>
 
-              <Link to='/Table'>
+              <Link to='DFA/Table'>
                 <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}, backgroundColor: {xs: '#F9F9F9', sm: 'white'}, fontWeight: 900}}>
                   View Full Table
                 </Typography>

@@ -56,6 +56,8 @@ const DFA = () => {
   let players = useSelector((state) => state.DfaPlayers)
   let player_stats = useSelector((state) => state.DfaPlayerStats)
 
+  // console.log(player_stats);
+
   let team_most_goals = player_stats && player_stats.length > 0 ? TeamGoalsStructure(player_stats[0]): []
 
   player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];

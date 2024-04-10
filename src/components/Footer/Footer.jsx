@@ -33,9 +33,7 @@ const Footer = () => {
           <IconButton  color="inherit" aria-label="email" href="mailto:danieldanphil@gmail.com">
             <EmailIcon />
           </IconButton>
-          <IconButton  color="inherit" aria-label="phone" href="tel:+17676140626">
-            <PhoneIcon />
-          </IconButton>
+
         </Typography>
         <Typography variant="body2" color="textSecondary" align="center" >
           {'Site by '}

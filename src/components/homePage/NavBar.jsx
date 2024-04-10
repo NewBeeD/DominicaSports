@@ -13,6 +13,8 @@ import theme from '../../css/theme';
 import { auth } from '../../config/firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth'
 
+import '../../css/PointTable.css'
+
 
 
 
@@ -53,9 +55,9 @@ const NavBar = () => {
   };
 
   const buttonData = [
-    { id: 1, label: 'DFA', menuItems: ['Home', 'Premier League', 'First Division', 'Women League', 'Tables', 'Teams', 'Stats'] },
-    { id: 2, label: 'DABA', menuItems: ['Home', 'Premier League', 'First Division', 'Women League', 'Teams', 'Stats'] },
-    { id: 3, label: 'DAVA', menuItems: ['Home', 'Men League', 'Women League', 'Teams', 'Stats'] },
+    { id: 1, label: 'DFA', menuItems: ['Home', 'Fixtures' ,'Table', 'Teams', 'Stats'] },
+    { id: 2, label: 'DABA', menuItems: ['Home', 'Table', 'Teams', 'Stats'] },
+    { id: 3, label: 'DAVA', menuItems: ['Home', 'Teams', 'Stats'] },
     { id: 4, label: 'DNA', menuItems: ['Home', 'Teams', 'Stats'] },
   ];
 
@@ -136,7 +138,7 @@ const NavBar = () => {
                         {/* <Link to={`/${button.label}/${item}`}>
                           {item}
                         </Link> */}
-                        <Link to={`/`}>
+                        <Link className="hyperlinkactive" to={`/DFA/${item}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
                           {item}
                         </Link>
 
