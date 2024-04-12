@@ -62,7 +62,14 @@ function sortTablePoints(data){
 
 
 function SortPoints(a, b) {
-  return b.Points - a.Points;
+
+  if (a.Points !== b.Points) {
+    return b.Points - a.Points; // Sort by points descending
+} else {
+    // If points are equal, sort by goal difference
+    return b.GD - a.GD;
+}
+   
 }
 
 function TeamNameChange(team_data_point){

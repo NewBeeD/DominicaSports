@@ -1,4 +1,5 @@
 import { Route, Routes} from 'react-router-dom'
+import { useMediaQuery, useTheme } from '@mui/material';
 
 import HomePage from "./pages/HomePage"
 import Article from "./pages/Article"
@@ -20,10 +21,18 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Profile from './pages/Profile'
 import TeamPage from './pages/DFA/TeamPage'
+import AllTeamsPage from './pages/DFA/AllTeamsPage'
+import StatsPage from './pages/DFA/StatsPage'
+import FixturesPage from './pages/DFA/FixturesPage'
+import DfaPageLargeScreens from './pages/DFA/DfaPageLargeScreens'
 
 
 
 function App() {
+
+  const theme = useTheme();
+const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
+
 
 
   return (
@@ -34,8 +43,15 @@ function App() {
 
         <Route path='/' element={<HomePage />} />
         <Route path='/:id' element={<Article />} />
+        
+        <Route path="/DFA/Home" element={isAboveSM ? <DfaPageLargeScreens />: <DFA />} />
+           
+        <Route path='/DFA/Home' element={<DFA />} />
+        {/* <Route path='/DFA/Home' element={<DfaPageLargeScreens />} /> */}
+
+
         <Route path='/DFA/Home/Player/:id' element={<PlayerProfile />}/>
-        <Route path='/Table' element={<LeagueStanding />} />
+        <Route path='/DFA/Table' element={<LeagueStanding />} />
         <Route path='/DFA/Home/PlayerGoals' element={<PlayerGoals />} />
         <Route path='/DFA/Home/PlayerAssists' element={<PlayerAssists />} />
         <Route path='/DFA/Home/TeamGoals' element={<TeamGoals />} />
@@ -43,40 +59,13 @@ function App() {
         <Route path='/Login' element={<Login />} />
         <Route path='/Profile' element={<Profile />} />
         <Route path='/DFA/Home/Team/:id' element={<TeamPage />} />
+        <Route path='/DFA/Teams' element={<AllTeamsPage />} />
+        <Route path='/DFA/Stats' element={<StatsPage />} />
+        <Route path='/DFA/Fixtures' element={<FixturesPage />} />
         {/* <Route path='/Signup' element={<SignUp />} /> */}
 
 
-        {/* Home Pages for each Sport */}
         
-        {/* <Route path='/DABA/Home' element={<DABA />} />
-        <Route path='/DAVA/Home' element={<DAVA />} />
-        <Route path='/DNA/Home' element={<DNA />} /> */}
-        {/* End of Home Pages for each Sport */}
-
-        {/* DFA PAGES */}
-        <Route path='/DFA/Home' element={<DFA />} />
-        {/* <Route path='/DFA/Premier-League' element={<DFA />} />
-        <Route path='/DFA/First-Division' element={<DFA />} />
-        <Route path='/DFA/Women-League' element={<DFA />} />
-        <Route path='/DFA/Tables' element={<LeagueStanding />} />
-        <Route path='/DFA/Teams' element={<DFA />} />
-        <Route path='/DFA/Stats' element={<DFA />} /> */}
-        {/* End of DFA Pages */}
-
-        {/* DABA PAGES */}
-        {/* <Route path='/DABA/Home' element={<DFA />} />
-        <Route path='/DABA/Home' element={<DFA />} />
-        <Route path='/DABA/Premier-League' element={<DFA />} />
-        <Route path='/DABA/First-Division' element={<DFA />} />
-        <Route path='/DABA/Women-League' element={<DFA />} />
-        <Route path='/DABA/Tables' element={<DFA />} />
-        <Route path='/DABA/Teams' element={<DFA />} />
-        <Route path='/DABA/Stats' element={<DFA />} /> */}
-        {/* End of DABA Pages */}
-
-
-        {/* Tables and Fixtures */}
-
        
 
         {/* End of Tables and Fixtures */}
