@@ -123,6 +123,9 @@ function right_month(month){
     
     case "Apr":
       return 'April';
+
+    case "May":
+      return 'May';
     
     case 'Jun':
       return 'June';
