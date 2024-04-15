@@ -88,7 +88,7 @@ const PlayerGoals = () => {
       
 
       <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={4}>
-        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Goals</Typography>
+        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Most Goals</Typography>
 
         <Typography>
           {currentSeason && currentSeason}

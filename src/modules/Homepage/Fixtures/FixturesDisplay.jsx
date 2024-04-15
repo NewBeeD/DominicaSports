@@ -94,18 +94,30 @@ function getOnlyDate(fixture_date){
   return date_split
 }
 
+// function getTimeOnly(fixture_date){
+
+
+//   let new_Time = new Date(fixture_date)
+
+//   // Format the time portion in 12-hour format
+//   new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'UTC' });
+
+
+//   // new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -3);
+
+//   return new_Time
+// }
+
 function getTimeOnly(fixture_date){
+  let new_Time = new Date(fixture_date);
 
-
-  let new_Time = new Date(fixture_date)
+  // Set the timezone to UTC
+  // new_Time.setUTCHours(new_Time.getUTCHours() - 4); // Adjust for the 4-hour difference
 
   // Format the time portion in 12-hour format
-  new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'UTC' });
+  new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
-
-  // new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -3);
-
-  return new_Time
+  return new_Time;
 }
 
 function right_month(month){
@@ -123,6 +135,9 @@ function right_month(month){
     
     case "Apr":
       return 'April';
+
+    case "May":
+      return 'May';
     
     case 'Jun':
       return 'June';
