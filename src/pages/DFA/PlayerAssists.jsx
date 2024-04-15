@@ -86,7 +86,7 @@ const PlayerAssists = () => {
       <NavBar />
 
       <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={{ sm: 4}}>
-        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Assists</Typography>
+        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Most Assists</Typography>
 
         <Typography>
           {currentSeason && currentSeason}

@@ -176,13 +176,13 @@ function getAllImages(data){
   let data_length = data.length;
 
   if(data_length == 1){
-    return [data[0].attributes['formats']['small']['url']]
+    return [data[0].attributes['url']]
   }
   else {
 
     let all_imgs = data.map(item => {
 
-      return item.attributes['formats']['small']['url']
+      return item.attributes['url']
     })
 
     return all_imgs
