@@ -62,7 +62,7 @@ const Points_Table = ({ page }) => {
     return (
     
 
-      <Box marginTop={8} marginBottom={2} width={{xs: '90%'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
+      <Box marginTop={8} marginBottom={2} width={{xs: '98%', sm: '700px'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
 
 
         <Typography>League Standings</Typography>
