@@ -14,6 +14,7 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 
 import theme from '../../css/theme';
+import Footer from '../../components/Footer/Footer';
 
 import { queryParams_prem_players_stats } from '../../modules/DFA/QueryParams';
 
@@ -175,415 +176,419 @@ const StatsPage = () => {
 
     <Box>
 
-      <NavBar />
+      <NavBar />  
 
-      <Box marginTop={{ sm: 10}}>
-        <Typography variant='h2' fontWeight={900} textAlign='center'>Stats Centre</Typography>
-      </Box>
+      <Box width={{sm: 900}} margin='auto' height='100vh'>
 
-      <Box marginTop={{ sm: 7}}>
 
-      <TabContext value={value}>
+        <Box marginTop={{ sm: 10}}>
+          <Typography variant='h2' fontWeight={900} textAlign='center'>Stats Centre</Typography>
+        </Box>
+
+        <Box marginTop={{ sm: 7}} height='100%'>
+
+          <TabContext value={value}>
+          
+            <TabList onChange={handleChange} aria-label="tabs example" centered>
+                      <Tab label='Player Stats' value='1' />
+                      <Tab label='Club Stats' value='2' />
+            </TabList>
+
+
+            <TabPanel  value='1'>
+
+              <Stack direction='column' marginTop={3}>
+
+                <Button variant='contained' size='large' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} endIcon={<KeyboardArrowDownIcon style={{ color: 'white'}} />} sx={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`, width: {sm: 200} }}>
+                {selectedChoice}
+                </Button>
+
+                <Menu
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  keepMounted
+                  open={Boolean(anchorEl)}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={() => handleMenuItemClick("Goals")}>Goals</MenuItem>
+                  <MenuItem onClick={() => handleMenuItemClick("Assists")}>Assists</MenuItem>
+                  <MenuItem onClick={() => handleMenuItemClick("Clean Sheets")}>Clean Sheets</MenuItem>
+                  <MenuItem onClick={() => handleMenuItemClick("Yellow Cards")}>Yellow Cards</MenuItem>
+                  <MenuItem onClick={() => handleMenuItemClick("Red Cards")}>Red Cards</MenuItem>
+                </Menu>
+
+                <Box marginTop={5}>
+
+                  { selectedChoice === 'Goals'?  (
+                      
+                      <Box >
+
+                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+
+                          <Table >
+
+                            <TableHead >
+                              <TableRow>
+                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
+                                <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, paddingRight: {xs: 1, sm: 'inherit'}}}>Goals</TableCell>
+
+                              </TableRow>
+                            </TableHead>
+
+                            <TableBody>
+
+                              {players_Goals_data && players_Goals_data.sort(Sort).filter(playerGoals => playerGoals.Goals> 0).map((item, idx) => {
+
+                                return(
+
+
+
+                                <TableRow key={idx} sx={{ border: 0}}>
+
+
+
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
+                                  {idx + 1}.
+                                  </TableCell>
+                                  
+
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
+
+                                    <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                                      {item.First_Name} {item.Last_Name}
+                                    </Link>
+                                  </TableCell>
+
+                                  <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
+
+                                    <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
+                                      {item.team}
+                                    </Link>
+
+                                  </TableCell>
+
+                                  <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
+
+                                    {item.Goals }
+
+                                  </TableCell>
+                                  
+                                </TableRow>
+
+                                )
+
+
+
+                              })}
+
       
-        <TabList onChange={handleChange} aria-label="tabs example" centered>
-                  <Tab label='Player Stats' value='1' />
-                  <Tab label='Club Stats' value='2' />
-        </TabList>
+                            </TableBody>
 
 
-        <TabPanel  value='1'>
+                          </Table>
 
-          <Stack direction='column' marginTop={3}>
+                        </TableContainer>
 
-            <Button variant='contained' size='large' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} endIcon={<KeyboardArrowDownIcon style={{ color: 'white'}} />} sx={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`, width: {sm: 200} }}>
-            {selectedChoice}
-            </Button>
 
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={() => handleMenuItemClick("Goals")}>Goals</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick("Assists")}>Assists</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick("Clean Sheets")}>Clean Sheets</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick("Yellow Cards")}>Yellow Cards</MenuItem>
-              <MenuItem onClick={() => handleMenuItemClick("Red Cards")}>Red Cards</MenuItem>
-            </Menu>
 
-            <Box marginTop={5}>
+                      </Box>
+                    ): selectedChoice === 'Assists'?  (
+                      
+                      <Box >
 
-              { selectedChoice === 'Goals'?  (
-                  
-                  <Box >
+                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
-                    <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+                          <Table >
 
-                      <Table >
+                            <TableHead >
+                              <TableRow>
+                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
+                                <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Assists</TableCell>
 
-                        <TableHead >
-                          <TableRow>
-                            {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-                            <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
-                            <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Stat</TableCell>
+                              </TableRow>
+                            </TableHead>
 
-                          </TableRow>
-                        </TableHead>
+                            <TableBody>
 
-                        <TableBody>
+                              {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Assists > 0).map((item, idx) => {
 
-                          {players_Goals_data && players_Goals_data.sort(Sort).filter(playerGoals => playerGoals.Goals> 0).map((item, idx) => {
+                                return(
 
-                            return(
 
+                                <TableRow key={idx} sx={{ border: 0}}>
 
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
+                                  {idx + 1}.
+                                  </TableCell>
 
-                            <TableRow key={idx} sx={{ border: 0}}>
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
 
+                                    <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                                      {item.First_Name} {item.Last_Name}
+                                    </Link>
+                                  </TableCell>
 
+                                  <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
-                              {idx + 1}.
-                              </TableCell>
-                              
+                                    <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
+                                      {item.team}
+                                    </Link>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
+                                  </TableCell>
 
-                                <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
-                                  {item.First_Name} {item.Last_Name}
-                                </Link>
-                              </TableCell>
+                                  <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
 
-                              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
+                                    {item.Assists}
 
-                                <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
-                                  {item.team}
-                                </Link>
+                                  </TableCell>
+                                  
+                                </TableRow>
+                                )
 
-                              </TableCell>
 
-                              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
 
-                                {item.Goals }
+                              })}
 
-                              </TableCell>
-                              
-                            </TableRow>
+      
+                            </TableBody>
 
-                            )
 
+                          </Table>
 
+                        </TableContainer>
 
-                          })}
 
-  
-                        </TableBody>
 
+                      </Box>
+                    ):selectedChoice === 'Clean Sheets'?  (
+                      
+                      <Box >
 
-                      </Table>
+                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
-                    </TableContainer>
+                          <Table >
 
+                            <TableHead >
+                              <TableRow>
+                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
+                                <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Clean Sheets</TableCell>
 
+                              </TableRow>
+                            </TableHead>
 
-                  </Box>
-                ): selectedChoice === 'Assists'?  (
-                  
-                  <Box >
+                            <TableBody>
 
-                    <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+                              {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Clean_Sheets> 0).map((item, idx) => {
 
-                      <Table >
+                                return(
 
-                        <TableHead >
-                          <TableRow>
-                            {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-                            <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
-                            <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Stat</TableCell>
 
-                          </TableRow>
-                        </TableHead>
+                                <TableRow key={idx} sx={{ border: 0}}>
 
-                        <TableBody>
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
+                                  {idx + 1}.
+                                  </TableCell>
 
-                          {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Assists > 0).map((item, idx) => {
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
 
-                            return(
+                                    <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                                      {item.First_Name} {item.Last_Name}
+                                    </Link>
+                                  </TableCell>
 
+                                  <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
 
-                            <TableRow key={idx} sx={{ border: 0}}>
+                                    <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
+                                      {item.team}
+                                    </Link>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
-                              {idx + 1}.
-                              </TableCell>
+                                  </TableCell>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
+                                  <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
 
-                                <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
-                                  {item.First_Name} {item.Last_Name}
-                                </Link>
-                              </TableCell>
+                                    {item.Clean_Sheets}
 
-                              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
+                                  </TableCell>
+                                  
+                                </TableRow>
+                                )
 
-                                <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
-                                  {item.team}
-                                </Link>
 
-                              </TableCell>
 
-                              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
+                              })}
 
-                                {item.Assists}
+      
+                            </TableBody>
 
-                              </TableCell>
-                              
-                            </TableRow>
-                            )
 
+                          </Table>
 
+                        </TableContainer>
 
-                          })}
 
-  
-                        </TableBody>
 
+                      </Box>
+                    ):selectedChoice === 'Yellow Cards'?  (
+                      
+                      <Box >
 
-                      </Table>
+                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
-                    </TableContainer>
+                          <Table >
 
+                            <TableHead >
+                              <TableRow>
+                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
+                                <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Cards</TableCell>
 
+                              </TableRow>
+                            </TableHead>
 
-                  </Box>
-                ):selectedChoice === 'Clean Sheets'?  (
-                  
-                  <Box >
+                            <TableBody>
 
-                    <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_YellowCards).map((item, idx) => {
 
-                      <Table >
+                                return(
 
-                        <TableHead >
-                          <TableRow>
-                            {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-                            <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
-                            <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Stat</TableCell>
 
-                          </TableRow>
-                        </TableHead>
+                                <TableRow key={idx} sx={{ border: 0}}>
 
-                        <TableBody>
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
+                                  {idx + 1}.
+                                  </TableCell>
 
-                          {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Clean_Sheets> 0).map((item, idx) => {
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
 
-                            return(
+                                    <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                                      {item.First_Name} {item.Last_Name}
+                                    </Link>
+                                  </TableCell>
 
+                                  <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
 
-                            <TableRow key={idx} sx={{ border: 0}}>
+                                    <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
+                                      {item.team}
+                                    </Link>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
-                              {idx + 1}.
-                              </TableCell>
+                                  </TableCell>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
+                                  <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
 
-                                <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
-                                  {item.First_Name} {item.Last_Name}
-                                </Link>
-                              </TableCell>
+                                    {item.Yellow_Cards}
 
-                              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
+                                  </TableCell>
+                                  
+                                </TableRow>
+                                )
 
-                                <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
-                                  {item.team}
-                                </Link>
 
-                              </TableCell>
 
-                              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
+                              })}
 
-                                {item.Clean_Sheets}
+      
+                            </TableBody>
 
-                              </TableCell>
-                              
-                            </TableRow>
-                            )
 
+                          </Table>
 
+                        </TableContainer>
 
-                          })}
 
-  
-                        </TableBody>
 
+                      </Box>
+                    ):selectedChoice === 'Red Cards'?  (
+                      
+                      <Box >
 
-                      </Table>
+                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
-                    </TableContainer>
+                          <Table >
 
+                            <TableHead >
+                              <TableRow>
+                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
+                                <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Cards</TableCell>
 
+                              </TableRow>
+                            </TableHead>
 
-                  </Box>
-                ):selectedChoice === 'Yellow Cards'?  (
-                  
-                  <Box >
+                            <TableBody>
 
-                    <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_RedCards).map((item, idx) => {
 
-                      <Table >
+                                return(
 
-                        <TableHead >
-                          <TableRow>
-                            {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-                            <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
-                            <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Stat</TableCell>
 
-                          </TableRow>
-                        </TableHead>
+                                <TableRow key={idx} sx={{ border: 0}}>
 
-                        <TableBody>
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
+                                  {idx + 1}.
+                                  </TableCell>
 
-                          {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_YellowCards).map((item, idx) => {
+                                  <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
 
-                            return(
+                                    <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                                      {item.First_Name} {item.Last_Name}
+                                    </Link>
+                                  </TableCell>
 
+                                  <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
 
-                            <TableRow key={idx} sx={{ border: 0}}>
+                                    <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
+                                      {item.team}
+                                    </Link>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
-                              {idx + 1}.
-                              </TableCell>
+                                  </TableCell>
 
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
+                                  <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
 
-                                <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
-                                  {item.First_Name} {item.Last_Name}
-                                </Link>
-                              </TableCell>
+                                    {item.Red_Cards}
 
-                              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
+                                  </TableCell>
+                                  
+                                </TableRow>
+                                )
 
-                                <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
-                                  {item.team}
-                                </Link>
+                              })}
 
-                              </TableCell>
+      
+                            </TableBody>
 
-                              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
+                          </Table>
 
-                                {item.Yellow_Cards}
+                        </TableContainer>
 
-                              </TableCell>
-                              
-                            </TableRow>
-                            )
+                      </Box>
+                    ):''}
 
+                </Box>
 
+              </Stack>
+    
+            </TabPanel>
 
-                          })}
+            <TabPanel  value='2'>
+              <Typography textAlign='center'>SOON POPULATED</Typography>
+            </TabPanel>
 
-  
-                        </TableBody>
+          </TabContext>
 
-
-                      </Table>
-
-                    </TableContainer>
-
-
-
-                  </Box>
-                ):selectedChoice === 'Red Cards'?  (
-                  
-                  <Box >
-
-                    <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
-
-                      <Table >
-
-                        <TableHead >
-                          <TableRow>
-                            {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-                            <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
-                            <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                            <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Stat</TableCell>
-
-                          </TableRow>
-                        </TableHead>
-
-                        <TableBody>
-
-                          {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_RedCards).map((item, idx) => {
-
-                            return(
-
-
-                            <TableRow key={idx} sx={{ border: 0}}>
-
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 900, paddingLeft:2, textAlign: 'left'}}>
-                              {idx + 1}.
-                              </TableCell>
-
-                              <TableCell sx={{ fontSize: {xs: 13}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>
-
-                                <Link to={`/DFA/Home/Player/${item.player_id}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
-                                  {item.First_Name} {item.Last_Name}
-                                </Link>
-                              </TableCell>
-
-                              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 13}}}>
-
-                                <Link to={`/DFA/Home/Team/${item.team_id}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black', fontWeight: 900}}>
-                                  {item.team}
-                                </Link>
-
-                              </TableCell>
-
-                              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 13}, fontWeight: 900}}>
-
-                                {item.Red_Cards}
-
-                              </TableCell>
-                              
-                            </TableRow>
-                            )
-
-                          })}
-
-  
-                        </TableBody>
-
-                      </Table>
-
-                    </TableContainer>
-
-                  </Box>
-                ):''}
-
-            </Box>
-
-          </Stack>
- 
-        </TabPanel>
-
-        <TabPanel  value='2'>
-          <Typography textAlign='center'>SOON POPULATED</Typography>
-        </TabPanel>
-
-    </TabContext>
-
+        </Box>
       </Box>
 
     </Box>

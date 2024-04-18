@@ -42,6 +42,7 @@ import GroupsIcon from '@mui/icons-material/Groups'; //Players
 
 
 
+
 // TODO: For fixtures, filter out ucoming fixtures
 
 
@@ -56,11 +57,13 @@ const DFA = () => {
   let players = useSelector((state) => state.DfaPlayers)
   let player_stats = useSelector((state) => state.DfaPlayerStats)
 
-  // console.log(player_stats);
+
 
   let team_most_goals = player_stats && player_stats.length > 0 ? TeamGoalsStructure(player_stats[0]): []
 
   player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];
+
+  // console.log('players', players);
 
 
 
@@ -248,8 +251,9 @@ const DFA = () => {
       <DfaArticles level='first' />
 
       <Divider sx={{ marginTop: 2}} />
-      <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center'>
+      <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center' sx={{ display: {xs: 'none'}}}>
         <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>Weekend Highlights</Typography>
+        
         <Video VideoLocation='Dfa1'/>
       </Box>
       <Divider sx={{ marginTop: 2}} />
@@ -260,7 +264,15 @@ const DFA = () => {
       <Box marginY={1.5} />
       {/* <FixturesData /> */}
       <DfaArticles level='third' />
-      <Video VideoLocation='Dfa2'/>
+
+      {/* Removed video compnents till further notice */}
+
+      <Box display={{ xs: 'none'}}>
+        <Video VideoLocation='Dfa2'/>
+
+      </Box>
+
+
       <Box height={{xs:50}} marginY={1} />
       {/* <BottomNav /> */}
   
@@ -531,7 +543,7 @@ const DFA = () => {
             <Stack spacing={1} justifyContent='center' direction='row' paddingTop={2}>
 
             
-                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}} >
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}} >
 
                   <Link to='/DFA/Home/PlayerGoals' style={{ textDecoration: 'none'}}>
 
@@ -562,7 +574,7 @@ const DFA = () => {
                 </Paper>
 
 
-                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                   <Link to='/DFA/Home/PlayerAssists' style={{ textDecoration: 'none'}}>
                     <Card>
@@ -596,7 +608,7 @@ const DFA = () => {
 
             <Stack spacing={1} justifyContent='center' direction='row' marginTop={2} paddingBottom={1}>
 
-              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                 <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
                   <Card>
@@ -625,7 +637,7 @@ const DFA = () => {
               </Paper>
 
 
-              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                 <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
                   <Card>
@@ -658,10 +670,13 @@ const DFA = () => {
 
             <Stack marginTop={4} marginX={2} >
 
-              <Stack justifyContent='space-between' direction='row'>
+              <Stack justifyContent='center' direction='row'>
 
-                <Typography>Season Stats</Typography>
-                <ArrowRightAltIcon />
+                <Link to='/DFA/Stats' style={{ textDecoration: 'none', color: 'white', paddingBottom: '20px'}}>
+                  <Typography variant="h6" sx={{ border: '1px solid green', padding: 1}}>Season Stats</Typography>
+                </Link>
+
+                {/* <ArrowRightAltIcon /> */}
 
               </Stack>
             </Stack>

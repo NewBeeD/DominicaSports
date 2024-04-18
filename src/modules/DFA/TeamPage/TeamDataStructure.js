@@ -6,8 +6,6 @@ export default function TeamDataStructure(data){
 
    // Function to organize teams in proper order
 
-
-
     let teamPoints = {}
 
     teamPoints['Team_Abbrev'] = TeamNameChange(data.attributes['Name'])
@@ -81,7 +79,8 @@ function StaffImages(staff_values){
 
     let img_point = {}
 
-    img_point['staff_member_name'] = item.attributes.caption
+    img_point['staff_member_name'] = item.attributes.name
+    img_point['staff_member_title'] = item.attributes.caption
     img_point['staff_member_img'] = item.attributes.url
 
     return img_point

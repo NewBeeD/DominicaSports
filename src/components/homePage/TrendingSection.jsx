@@ -48,6 +48,10 @@ const TrendingSection = ({ level }) => {
     
     case 'third':
       articles = articles ? articles.slice(6, 9): null;
+      break;
+
+    case 'fourth':
+      articles = articles ? articles.slice(9): null;
   }
 
 

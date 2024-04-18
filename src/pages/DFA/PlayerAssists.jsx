@@ -103,10 +103,10 @@ const PlayerAssists = () => {
               <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].First_Name}</Typography></Box>
               <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].Last_Name}</Typography></Box>
               <Box><Typography variant='caption' sx={{ fontWeight: 'bold'}}>{players_data[0].team}</Typography></Box>
-              <Box><Typography variant='h5' sx={{ fontWeight: 'bold'}}>{players_data[0].Assists}</Typography></Box>
+              <Box><Typography variant='h5' sx={{ fontWeight: 'bold', fontSize: 27, marginTop: 2}}>{players_data[0].Assists}</Typography></Box>
             </Stack>
 
-            <Box width={{xs: 130}}>
+            <Box width={{xs: 180}}>
               <img src={players_data[0].url} width='100%' height='100%' />
             </Box>
 

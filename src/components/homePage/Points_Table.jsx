@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import '../../css/PointTable.css'
 
+import theme from "../../css/theme";
+
 // Redux
 import { useSelector } from 'react-redux';
 
@@ -116,26 +118,27 @@ const Points_Table = ({ page }) => {
 else if(page === 'dfa'){
 return (
 
-  <Box marginTop={8} marginBottom={2} width={{xs: '100%'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
+  <Box marginTop={8} marginBottom={2} width={{xs: '100%', sm: 900}} sx={{ margin: 'auto', textAlign: 'center',  borderRadius: {xs: '4px'}}}>
 
 
-  <Typography marginTop={2} sx={{ fontWeight: 900}}>DFA Premier League Standings</Typography>
+  <Typography sx={{ fontWeight: 900, paddingTop: {xs: 1,sm: 16}}}>DFA Premier League Standings</Typography>
 
 
-  {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+  {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 2}}} >
 
       <Table >
 
-        <TableHead >
+        <TableHead sx={{ backgroundColor: `var(--color-color2, ${theme.colors.color2})`}}>
           <TableRow>
             {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-            <TableCell width={window_width < 290?110: 200} sx={{ fontSize: {xs: 8}, fontWeight: 900, textAlign:'left'}}>Club</TableCell>
-            <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>P</TableCell>
-            <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>W</TableCell>
-            <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>D</TableCell>
-            <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>L</TableCell>
-            <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>GD</TableCell>
-            <TableCell align="center" sx={{ fontSize: {xs: 8}, fontWeight: 900, paddingX: 0}}>Pts</TableCell>
+            <TableCell width={window_width < 290?110: 60} sx={{ fontSize: {xs: 11}, fontWeight: 900, textAlign:'left'}}>Pos</TableCell>
+            <TableCell width={window_width < 290?110: 200} sx={{ fontSize: {xs: 11}, fontWeight: 900, textAlign:'left'}}>Club</TableCell>
+            <TableCell  width={window_width < 290?110: 60} sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>P</TableCell>
+            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>W</TableCell>
+            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>D</TableCell>
+            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>L</TableCell>
+            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GD</TableCell>
+            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>Pts</TableCell>
           </TableRow>
         </TableHead>
 
@@ -144,7 +147,9 @@ return (
 
             <TableRow key={idx} sx={{ border: 0}}>
 
-              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left'}}>
+              <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, paddingleft:10, textAlign: 'left'}}>{idx + 1}.</TableCell>
+
+              <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 900, paddingLeft:0.5, textAlign: 'left', }}>
 
                 <Link className="hyperlinkactive" to={`/DFA/Home/Team/${row.ID}`} style={{ textDecoration: 'none', cursor: 'pointer', color: 'black'}}>
                   {window_width < 290?row.Team_Abbrev: row.Team}
@@ -152,15 +157,15 @@ return (
                                 
                 </TableCell>
 
-              <TableCell sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 'bold', paddingX:0, textAlign: 'center'}}>{row.Played}</TableCell>
+              <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5,  paddingX:0, textAlign: 'center'}}>{row.Played}</TableCell>
 
-              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 10}}}>{row.Won}</TableCell>
+              <TableCell align="center" sx={{ paddingX: 0, textAlign: 'center', fontSize: {xs: 12}}}>{row.Won}</TableCell>
 
-              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 10}}}>{row.Drawn}</TableCell>
-              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 10}}}>{row.Lost}</TableCell>
+              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.Drawn}</TableCell>
+              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.Lost}</TableCell>
 
-              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 10}, }}>{row.GD}</TableCell>
-              <TableCell align="center" sx={{ fontSize: {xs: 10}, paddingY: 0.5, fontWeight: 'bold', paddingX: 0}}>{row.Points}</TableCell>
+              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}, }}>{row.GD}</TableCell>
+              <TableCell align="center" sx={{ fontSize: {xs: 12}, paddingY: 0.5,  paddingX: 0, fontWeight: 900}}>{row.Points}</TableCell>
               
             </TableRow>
           ))}
@@ -176,6 +181,8 @@ return (
 </Box>  
 )
   }
+
+  
 
   
 }
