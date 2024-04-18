@@ -4,6 +4,7 @@ import { Paper, Box, Stack, Typography, Card, CardHeader, CardContent, CardMedia
 import GetFixtures from "../../modules/Homepage/Fixtures/FixturesDataFetch";
 
 import { useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 
 
 
@@ -20,7 +21,7 @@ const FixturesData = ({ page, type }) => {
 
     return(
 
-      <Box marginTop={0} width={{ xs: '90%', sm:'400px'}} margin='auto' sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}, border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}} >
+      <Box marginTop={0} width={{ xs: '90%', sm:'600px'}} margin='auto' sx={{ backgroundColor: {xs: '#F9F9F9', sm: 'white'}, border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}} >
   
         <Typography variant="h6" sx={{ textAlign: 'center', color: 'blue'}}>Game Fixtures</Typography>
   
@@ -64,10 +65,24 @@ const FixturesData = ({ page, type }) => {
                 
   
               </Card>
-              
+
+                          
             </Box>
+
+            
   
           )})): <Skeleton variant="rectangular" width={310} height={60} />}
+
+          <Box sx={{ textAlign: 'center', marginY: 1}}>
+
+            <Link to='/DFA/Fixtures' style={{ textDecoration: 'none'}}>
+              <Typography >View all fixtures</Typography>
+            
+            </Link>
+
+
+          </Box>
+
   
           {/* <Box>
             <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}}}>

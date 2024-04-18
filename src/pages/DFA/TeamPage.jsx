@@ -105,7 +105,6 @@ const TeamPage = () => {
 
             </Card>
 
-
           </Paper>
 
           <Box>
@@ -197,8 +196,6 @@ const TeamPage = () => {
 
           </Box>
           
-
-
         </Stack>
       
       : <Skeleton variant="rectangular" width={{ xs: '100%'}} height={118} />}

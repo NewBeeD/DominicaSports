@@ -1,10 +1,15 @@
-import { Box } from "@mui/material"
+import { Box, Stack } from "@mui/material"
 import NavBar from "../components/homePage/NavBar"
 import MainNews from "../components/homePage/MainNews"
 import TrendingSection from "../components/homePage/TrendingSection"
 import Points_Table from "../components/homePage/Points_Table"
 import FixturesData from "../components/homePage/Fixtures"
 import Footer from "../components/Footer/Footer"
+
+import Tab from "@mui/material/Tab"; 
+
+import { TabContext, TabList, TabPanel } from "@mui/lab";
+import { useState } from "react"
 
 
 const HomePage = () => {
@@ -15,6 +20,12 @@ const HomePage = () => {
   let first = 'first';
   let second = 'second';
   let third = 'third';
+
+  const [value, setValue] = useState(1);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
 
   return (
@@ -28,11 +39,38 @@ const HomePage = () => {
 
         <MainNews />
         <TrendingSection level={first}/>
-        <Box display={{ sm: 'none'}}>
+        {/* <Stack direction='row'>
           <FixturesData page='home' />
-        </Box>
+        </Stack> */}
         <TrendingSection level={second}/>
-        <Points_Table page='Homepage'/>
+
+        {/* Tabs for fixtures and Points */}
+        <Box marginTop={{ sm: 7}} height='100%'>
+
+          <TabContext value={value}>
+
+            <TabList onChange={handleChange} aria-label="tabs example" centered >
+                      <Tab label='Table' value={1}  />
+                      <Tab label='Fixtures' value={2}  />
+            </TabList>
+
+
+            <TabPanel  value={1}>
+
+              <Points_Table page='Homepage'/>
+
+            </TabPanel>
+
+            <TabPanel  value={2}>
+
+              <FixturesData page='home' />
+              
+            </TabPanel>
+
+          </TabContext>
+
+        </Box>
+        
         <TrendingSection level={third}/>
 
       </Box>
