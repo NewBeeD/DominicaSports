@@ -56,11 +56,13 @@ const DFA = () => {
   let players = useSelector((state) => state.DfaPlayers)
   let player_stats = useSelector((state) => state.DfaPlayerStats)
 
-  // console.log(player_stats);
+
 
   let team_most_goals = player_stats && player_stats.length > 0 ? TeamGoalsStructure(player_stats[0]): []
 
   player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];
+
+  // console.log('players', players);
 
 
 
@@ -248,8 +250,9 @@ const DFA = () => {
       <DfaArticles level='first' />
 
       <Divider sx={{ marginTop: 2}} />
-      <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center'>
+      <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center' sx={{ display: {xs: 'none'}}}>
         <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>Weekend Highlights</Typography>
+        
         <Video VideoLocation='Dfa1'/>
       </Box>
       <Divider sx={{ marginTop: 2}} />
@@ -260,7 +263,15 @@ const DFA = () => {
       <Box marginY={1.5} />
       {/* <FixturesData /> */}
       <DfaArticles level='third' />
-      <Video VideoLocation='Dfa2'/>
+
+      {/* Removed video compnents till further notice */}
+
+      <Box display={{ xs: 'none'}}>
+        <Video VideoLocation='Dfa2'/>
+
+      </Box>
+
+
       <Box height={{xs:50}} marginY={1} />
       {/* <BottomNav /> */}
   

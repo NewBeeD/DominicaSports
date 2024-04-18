@@ -138,7 +138,7 @@ const NavBar = () => {
                         {/* <Link to={`/${button.label}/${item}`}>
                           {item}
                         </Link> */}
-                        <Link className="hyperlinkactive" to={`/DFA/${item}`} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                        <Link className="hyperlinkactive" to={button.label === 'DFA' ?`/DFA/${item}`: '/'} style={{ textDecoration: 'none', cursor: 'pointer'}}>
                           {item}
                         </Link>
 

@@ -2,6 +2,8 @@
 
 export default function PlayerDisplayStructure(data){
 
+  
+
   let final_data = data.map(item => {
 
     let player = {};
@@ -19,7 +21,6 @@ export default function PlayerDisplayStructure(data){
     player['YellowCards'] = item.attributes['Yellow_Cards']
     player['RedCards'] = item.attributes['Red_Cards']
     player['Foot'] = item.attributes['Foot']
-
     player['Current_Team'] = item.attributes['dfa_team'].data.attributes['Name']
     player['League'] = leagueNameChange(item.attributes['all_league'].data.attributes['name'])
     player['url'] = item.attributes['Profile_Pic'].data.attributes.formats['small']['url']

@@ -62,6 +62,8 @@ const TeamPage = () => {
 
         let final_data = TeamDataStructure(result)
 
+        console.log(final_data);
+
         // Set the data state
         setData(final_data);
       } catch (error) {
@@ -126,34 +128,35 @@ const TeamPage = () => {
 
               <Typography variant="h5" sx={{ textAlign: 'center'}}>Staff</Typography>
 
-              {data ? data.staff_imgs.map((item, idx) => {
+                {data ? data.staff_imgs.map((item, idx) => {
 
-                return (<Paper key={idx} sx={{ marginBottom: {xs: 1}}}>
+                  return (<Paper key={idx} sx={{ marginBottom: {xs: 1}}}>
 
-                  <Card sx={{ display: 'flex', justifyContent: 'space-between'}}>
+                    <Card sx={{ display: 'flex', justifyContent: 'space-between'}}>
 
-                    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
 
-                      <CardContent sx={{ flex: '1 0 auto' }}>
+                        <CardContent sx={{ flex: '1 0 auto' }}>
 
-                        <Typography>{item.staff_member_name}</Typography>
+                          <Typography>{item.staff_member_name}</Typography>
 
-                        <Divider />
+                          <Divider />
 
-                        <Typography>{item.staff_member_name === 'Malcolm Bertrand'? 'Head Coach/Manager': item.staff_member_name === 'Ian St Louis'? 'Manager': item.staff_member_name === 'Nickese Morancie'? 'Head Medic': item.staff_member_name === 'Royele Fontaine'? 'Assistant Medic': ''}</Typography>
+                          <Typography>{item.staff_member_title}</Typography>
 
-                      </CardContent>
+                        </CardContent>
 
-                    </Box>
+                      </Box>
 
-                    <CardMedia component='img' image={item.staff_member_img} sx={{ width: {xs: 100}}}/>
+                      <CardMedia component='img' image={item.staff_member_img} sx={{ width: {xs: 100}}}/>
 
-                  </Card>
+                    </Card>
 
-                </Paper>)
+                  </Paper>)
 
 
-              }): <Skeleton variant="rectangular" width={210} height={118} />}
+                }): <Skeleton variant="rectangular" width={210} height={118} />}
+
 
               <Box>
 
