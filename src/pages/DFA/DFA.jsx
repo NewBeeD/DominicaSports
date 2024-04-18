@@ -542,7 +542,7 @@ const DFA = () => {
             <Stack spacing={1} justifyContent='center' direction='row' paddingTop={2}>
 
             
-                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}} >
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}} >
 
                   <Link to='/DFA/Home/PlayerGoals' style={{ textDecoration: 'none'}}>
 
@@ -573,7 +573,7 @@ const DFA = () => {
                 </Paper>
 
 
-                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+                <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                   <Link to='/DFA/Home/PlayerAssists' style={{ textDecoration: 'none'}}>
                     <Card>
@@ -607,7 +607,7 @@ const DFA = () => {
 
             <Stack spacing={1} justifyContent='center' direction='row' marginTop={2} paddingBottom={1}>
 
-              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                 <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
                   <Card>
@@ -636,7 +636,7 @@ const DFA = () => {
               </Paper>
 
 
-              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145}}>
+              <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
 
                 <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
                   <Card>
