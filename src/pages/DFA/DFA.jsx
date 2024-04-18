@@ -42,6 +42,7 @@ import GroupsIcon from '@mui/icons-material/Groups'; //Players
 
 
 
+
 // TODO: For fixtures, filter out ucoming fixtures
 
 
@@ -669,13 +670,13 @@ const DFA = () => {
 
             <Stack marginTop={4} marginX={2} >
 
-              <Stack justifyContent='space-between' direction='row'>
+              <Stack justifyContent='center' direction='row'>
 
-                <Link to='/DFA/Stats'>
-                  <Typography>Season Stats</Typography>
+                <Link to='/DFA/Stats' style={{ textDecoration: 'none', color: 'white', paddingBottom: '20px'}}>
+                  <Typography variant="h6" sx={{ border: '1px solid green', padding: 1}}>Season Stats</Typography>
                 </Link>
 
-                <ArrowRightAltIcon />
+                {/* <ArrowRightAltIcon /> */}
 
               </Stack>
             </Stack>
