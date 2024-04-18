@@ -671,7 +671,10 @@ const DFA = () => {
 
               <Stack justifyContent='space-between' direction='row'>
 
-                <Typography>Season Stats</Typography>
+                <Link to='/DFA/Stats'>
+                  <Typography>Season Stats</Typography>
+                </Link>
+
                 <ArrowRightAltIcon />
 
               </Stack>

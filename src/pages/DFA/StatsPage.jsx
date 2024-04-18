@@ -233,7 +233,7 @@ const StatsPage = () => {
                                 <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
-                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Goals</TableCell>
+                                <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, paddingRight: {xs: 1, sm: 'inherit'}}}>Goals</TableCell>
 
                               </TableRow>
                             </TableHead>
