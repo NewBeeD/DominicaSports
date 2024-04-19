@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material"
+import { Container, Typography, Box } from "@mui/material"
 import { Link } from "react-router-dom"
 import theme from "../../css/theme"
 
@@ -30,11 +30,11 @@ const Footer = () => {
           <IconButton  color="inherit" aria-label="twitter" href="">
             <XIcon />
           </IconButton>
-          <IconButton  color="inherit" aria-label="email" href="mailto:danieldanphil@gmail.com">
-            <EmailIcon />
-          </IconButton>
-
+          
         </Typography>
+
+
+
         <Typography variant="body2" color="textSecondary" align="center" >
           {'Site by '}
           <Link color="inherit" style={{ textDecoration: 'none'}}>
@@ -42,6 +42,12 @@ const Footer = () => {
           </Link>
           
         </Typography>
+
+        <Box width='100%' textAlign='center'>
+          <Typography variant="caption" >For any inquiries, contact me on 767-614-0626 or email : danieldanphil@gmail.com</Typography>
+
+        </Box>
+
       </Container>
     </footer>
   )

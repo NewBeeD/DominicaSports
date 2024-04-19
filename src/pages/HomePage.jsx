@@ -20,6 +20,7 @@ const HomePage = () => {
   let first = 'first';
   let second = 'second';
   let third = 'third';
+  let fourth = 'fourth';
 
   const [value, setValue] = useState(1);
 
@@ -72,6 +73,7 @@ const HomePage = () => {
         </Box>
         
         <TrendingSection level={third}/>
+        <TrendingSection level={fourth}/>
 
       </Box>
 
