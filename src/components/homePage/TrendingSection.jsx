@@ -51,7 +51,12 @@ const TrendingSection = ({ level }) => {
       break;
 
     case 'fourth':
-      articles = articles ? articles.slice(9): null;
+      articles = articles ? articles.slice(9, 15): null;
+      break;
+    
+    case 'fifth':
+      articles = articles ? articles.slice(15): null;
+      break;
   }
 
 
@@ -59,7 +64,7 @@ const TrendingSection = ({ level }) => {
     
     <Box sx={{ backgroundColor: {xs: 'F7F8FA', sm: 'white'}}} marginBottom={4} >  
 
-      {level == 'second'? '':level == 'third'? '':(<Stack marginBottom={{xs: 2}}>
+      {level == 'second'? '':level == 'third'? '':level == 'fourth'? '':level == 'fifth'? '':(<Stack marginBottom={{xs: 2}}>
 
         <Typography style={{ color: `var(--color-color2, ${theme.colors.color2})`}} width={85} marginLeft={2} marginTop={{xs: 2.5, sm: 3}}   fontSize={{xs: 16, sm: 30}} sx={{ letterSpacing: {xs:0, sm: 5}, fontWeight: {xs: '900', sm: '900'}}}>
           WHAT'S 
