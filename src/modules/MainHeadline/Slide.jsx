@@ -32,7 +32,7 @@ const Slide = ({ headline }) => {
             </Box>
 
             <Box>
-              <Typography fontSize={{xs: 12, sm: 25}} sx={{ color: {xs:'white', sm: 'white', fontWeight: 900}}}>{headline.title}</Typography>
+              <Typography fontSize={{xs: 12, sm: 18}} sx={{ color: {xs:'white', sm: 'white', fontWeight: 900}}}>{headline.title}</Typography>
             </Box>
 
           </Stack>      

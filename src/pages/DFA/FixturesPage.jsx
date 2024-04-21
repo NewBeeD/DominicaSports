@@ -20,7 +20,6 @@ const FixturesPage = () => {
 
   const [type, setType] = useState('now')
 
-  // console.log('data', data);
 
 
 
@@ -50,7 +49,6 @@ const FixturesPage = () => {
 
         let final_data = GroupingFixturesByDate(result)
 
-        // console.log(final_data);
 
 
         // Set the data state
@@ -75,6 +73,7 @@ const FixturesPage = () => {
     <Box>
 
       <NavBar />
+      
 
       <Box width={{sm: 800, md: 900}} margin='auto' paddingTop={10}>
 
@@ -103,7 +102,7 @@ const FixturesPage = () => {
                     <Stack direction='column' spacing={0.5}>
                       {item.HomeScore ? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) :(<Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Date}</Typography>)}
 
-                      {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): (<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
+                      {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): item.AwayScore === 0? 0 :(<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
                     </Stack>
 
                   </Stack>

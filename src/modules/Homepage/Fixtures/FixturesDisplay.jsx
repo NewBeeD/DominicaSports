@@ -33,6 +33,8 @@ export default function GroupingFixturesByDate(league_fixtures_data){
     return req_data
   })
 
+  // console.log(final_data);
+
   // for (var item of fixtures_orderedByDate){
 
   //   required_data_fields ={
@@ -52,6 +54,7 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
   //   final_data.push(required_data_fields)
   // }
+  
 
 
   return final_data
