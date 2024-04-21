@@ -40,6 +40,11 @@ function Sort_RedCards(a, b){
   return b.Red_Cards - a.Red_Cards
 }
 
+function Sort_Clean_Sheets(a, b){
+
+  return b.Clean_Sheets - a.Clean_Sheets
+}
+
 
 const StatsPage = () => {
 
@@ -124,49 +129,7 @@ const StatsPage = () => {
     fetchData();
   }, []);
 
-  // Assists fetch
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       // Set loading to true when starting the fetch
-  //       setLoading_Assits(true);
-
-  //       const queryString = qs.stringify(queryParams_prem_players_stats);
-
-  //       // Your API endpoint URL
-  //       const apiUrl = `https://strapi-dominica-sport.onrender.com/api/player-stats?${queryString}`;
   
-
-  //       // Make the fetch request
-  //       const response = await axios.get(apiUrl);
-
-  //       // Check if the request was successful (status code 2xx)
-  //       if (response.status !== 200) {
-  //         throw new Error(`Error: ${response.statusText}`);
-  //       }
-
-  //       // Parse the JSON data
-  //       const result = await response.data.data;
-
-  //       let final_data = player_stats_cleanup(result)
-  //       final_data = final_data.map(goals => goals).sort(Sort_Assists)
-
-  //       setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
-      
-  //       // Set the data state
-  //       setPlayers_Assists_data(final_data);
-  //     } catch (error) {
-  //       // Set the error state if there's an issue
-  //       setError_Assists(error.message);
-  //     } finally {
-  //       // Set loading to false regardless of success or failure
-  //       setLoading_Assits(false);
-  //     }
-  //   };
-
-  //   // Call the fetchData function when the component mounts
-  //   fetchData();
-  // }, []);
 
 
 
@@ -387,7 +350,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Clean_Sheets> 0).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.sort(Sort_Clean_Sheets).filter(playerGoals => playerGoals.Clean_Sheets> 0).map((item, idx) => {
 
                                 return(
 
@@ -529,7 +492,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_RedCards).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Red_Cards > 0).sort(Sort_RedCards).map((item, idx) => {
 
                                 return(
 
