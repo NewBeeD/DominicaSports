@@ -16,6 +16,10 @@ import Comments from "../components/Article/Comments"
 import { auth } from "../config/firebaseConfig"
 import { onAuthStateChanged } from "@firebase/auth"
 
+import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon, RedditShareButton, RedditIcon } from "react-share"
+
+
+import SharePage from "../components/ShareButtons/SharePage"
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -31,14 +35,12 @@ const Article = () => {
 
   // GetArticles()
   const { id } = useParams()
+  const page_url = window.location.href
 
 
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-
-
   
   
 
@@ -121,6 +123,59 @@ const Article = () => {
               </Box>
 
               {/* <Box marginTop={4} /> */}
+
+              {/* Share Buttons Here */}
+
+              <Box marginTop={4}>
+
+                <Typography variant="h5" style={{ textDecoration: 'underline'}}>Share</Typography>
+              </Box>
+
+
+              <SharePage title={articles.title} />
+
+              {/* <Stack direction='horizontal' marginTop={4}>
+
+                <Box marginRight={2}>
+
+                  <FacebookShareButton url={page_url}>
+                    <FacebookIcon />
+                  </FacebookShareButton>
+                  
+                </Box>
+
+
+                <Box  marginRight={2}>
+
+                  <TwitterShareButton url={page_url}>
+                    <TwitterIcon />
+                  </TwitterShareButton>
+
+                </Box>
+
+                <Box  marginRight={2}>
+
+                  <WhatsappShareButton url={page_url}>
+                    <WhatsappIcon />
+                  </WhatsappShareButton>
+
+                </Box>
+
+                <Box>
+
+                  <RedditShareButton url={page_url}>
+                    <RedditIcon />
+                  </RedditShareButton>
+                </Box>
+
+
+
+              </Stack> */}
+
+              <Divider orientation='horizontal' sx={{ marginY: 3}} />
+
+
+
 
               <Divider orientation='vertical' sx={{ marginY: 3}} />
 
