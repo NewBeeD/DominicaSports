@@ -25,7 +25,7 @@ const FixturesData = ({ page, type }) => {
   
         <Typography variant="h6" sx={{ textAlign: 'center', color: 'blue'}}>Game Fixtures</Typography>
   
-        {fixtures_raw ? (fixtures_raw.filter(item => item.Complete != 'Yes' ).slice(0,4).map((item, idx) => {
+        {fixtures_raw ? (fixtures_raw.filter(item => item.Complete != 'Yes' ).slice(0,5).map((item, idx) => {
   
           return(
             
