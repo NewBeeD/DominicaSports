@@ -3,6 +3,7 @@ import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMed
 import qs from 'qs'
 import axios from 'axios'
 
+
 import NavBar from '../../components/homePage/NavBar'
 
 import { queryParams_fixtures } from '../../modules/DFA/QueryParams'
@@ -11,6 +12,7 @@ import GroupingFixturesByDate from '../../modules/Homepage/Fixtures/FixturesDisp
 import { useState, useEffect } from 'react'
 
 import Footer from '../../components/Footer/Footer'
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 
 const FixturesPage = () => {
 
@@ -104,8 +106,76 @@ const FixturesPage = () => {
                     {item.HomeScore ? (<Typography style={{ fontSize: 13, fontWeight:900, color: 'blue' }}>{item.HomeScore}</Typography>) : item.HomeScore === 0 && item.AwayScore != 0? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>0</Typography>):(<Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Date}</Typography>)}
   
                     {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): item.AwayScore === 0 && item.HomeScore != 0? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>0</Typography>):(<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
+                    </Stack>
+
                   </Stack>
 
+                  <Stack marginLeft={2}>
+
+                    
+                    {item.Game_Info != undefined ? (<Stack>
+
+                      <Box marginTop={2}>
+                        <Typography>Goals</Typography>
+
+                      </Box>
+
+                      <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+                        <Box>Home</Box>
+                        <Box>Away</Box>
+                      </Stack>
+
+                      <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+
+                        <Box paddingTop={1}>
+                        {item.Game_Info.Goal_Scorers_Home.map((data_point, key_value) => {
+
+                          return(
+                            <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                              <Box>
+                                <SportsSoccerIcon fontSize='2px'/>
+                              </Box>
+
+                              <Box>
+                                <Typography variant='caption'>{data_point}</Typography>
+                              </Box>
+
+
+                            </Stack>
+                          )
+                        })}  
+                        </Box>
+
+                        <Box paddingTop={1}>
+                        {item.Game_Info.Goal_Scorers_Away.map((data_point, key_value) => {
+
+                          return(
+                            <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                              <Box>
+                                <SportsSoccerIcon fontSize='2px'/>
+                              </Box>
+
+                              <Box>
+                                <Typography variant='caption'>{data_point}</Typography>
+                              </Box>
+
+
+                            </Stack>
+                          )
+                        })}  
+                        </Box>
+
+
+                      </Stack>
+
+
+                                      
+
+                    </Stack>): ''}
                   </Stack>
 
                   <Box >
