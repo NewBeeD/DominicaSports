@@ -29,29 +29,10 @@ export default function GroupingFixturesByDate(league_fixtures_data){
     req_data['Cancelled'] = item.attributes['Cancelled']
     req_data['HomeScore'] = item.attributes['Home_Team_Score']
     req_data['AwayScore'] = item.attributes['Away_Team_Score']
+    req_data['Game_Info'] = gameDetails(item.attributes['Game_Details'])  
 
     return req_data
   })
-
-  // for (var item of fixtures_orderedByDate){
-
-  //   required_data_fields ={
-  //     Home: item.attributes['Home_Team'],
-  //     Away: item.attributes['Away_Team'],
-  //     Date: getOnlyDate(item.attributes['Date']),
-  //     Time: getTimeOnly(item.attributes['Date']),
-  //     Venue: item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA',
-  //     League: leagueNameChange(item.attributes['all_league'].data),
-  //     Complete: item.attributes['Complete'],
-  //     Cancelled: item.attributes['Cancelled'],
-  //     HomeScore:item.attributes['Home_Team_Score'],
-  //     AwayScore: item.attributes['Away_Team_Score']
-  //   }
-
-    
-
-  //   final_data.push(required_data_fields)
-  // }
 
 
   return final_data
@@ -94,19 +75,7 @@ function getOnlyDate(fixture_date){
   return date_split
 }
 
-// function getTimeOnly(fixture_date){
 
-
-//   let new_Time = new Date(fixture_date)
-
-//   // Format the time portion in 12-hour format
-//   new_Time = new_Time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true, timeZone: 'UTC' });
-
-
-//   // new_Time = new_Time.toTimeString().split(' ')[0].slice(0, -3);
-
-//   return new_Time
-// }
 
 function getTimeOnly(fixture_date){
   let new_Time = new Date(fixture_date);
@@ -208,6 +177,22 @@ function upcomingFixtures(fixtures){
   let upcoming_fixtures = fixtures.filter(item => item['attributes']['Date'] > today_date)
 
   return upcoming_fixtures
+}
+
+function gameDetails(game_info){
+
+  if(game_info != null){
+
+    // console.log(game_info['data']);
+    let game_data = {};
+    game_data['Goal_Scorers'] = game_info['data']['Goals']
+    game_data['Assists'] = game_info['data']['Assists']
+    game_data['Yellow_Cards'] = game_info['data']['Cards']['Yellow_Cards']
+    game_data['Red_Cards'] = game_info['data']['Cards']['Red_Cards']
+
+    return game_data
+  }
+
 }
 
 

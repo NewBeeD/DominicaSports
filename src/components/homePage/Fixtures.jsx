@@ -6,6 +6,8 @@ import GetFixtures from "../../modules/Homepage/Fixtures/FixturesDataFetch";
 import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
+import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
+
 
 
 
@@ -55,6 +57,37 @@ const FixturesData = ({ page, type }) => {
                   </Stack>
   
                 </Stack>
+
+                <Stack marginLeft={2}>
+
+                    
+                    {item.Game_Info != undefined ? (<Stack>
+
+                      <Box marginTop={2}>
+                        <Typography>Goals</Typography>
+
+                      </Box>
+
+
+                      {item.Game_Info.Goal_Scorers.map((data_point, key_value) => {
+
+                        return(
+                          <Stack key={key_value} direction='row' alignItems='center' spacing={1}>
+
+                            <Box>
+                              <SportsSoccerIcon fontSize='2px'/>
+                            </Box>
+
+                            <Box>
+                              <Typography variant='caption'>{data_point}</Typography>
+                            </Box>
+
+                          </Stack>
+                        )
+                      })}                  
+
+                    </Stack>): ''}
+                  </Stack>
   
                 <Box >
   
@@ -131,6 +164,35 @@ const FixturesData = ({ page, type }) => {
                     {item.AwayScore? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>): item.AwayScore === 0 && item.HomeScore != 0? (<Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>0</Typography>):(<Typography  fontStyle={{ fontWeight: 900, fontSize: 12.5}}>{item.Time}</Typography>)}
                   </Stack>
   
+                </Stack>
+
+                <Stack marginLeft={2}>
+                  {item.Game_Info != undefined ? (<Stack>
+
+                    <Box marginTop={2}>
+                      <Typography>Goals</Typography>
+
+                    </Box>
+
+
+                    {item.Game_Info.Goal_Scorers.map((data_point, key_value) => {
+
+                      return(
+                        <Stack key={key_value} direction='row' alignItems='center' spacing={1}>
+
+                            <Box>
+                              <SportsSoccerIcon fontSize='2px'/>
+                            </Box>
+
+                            <Box>
+                              <Typography variant='caption'>{data_point}</Typography>
+                            </Box>
+
+                          </Stack>
+                      )
+                    })}                  
+
+                  </Stack>): ''}
                 </Stack>
   
                 <Box >
