@@ -61,18 +61,26 @@ const FixturesData = ({ page, type }) => {
                 <Stack marginLeft={2}>
 
                     
-                    {item.Game_Info != undefined ? (<Stack>
+                  {item.Game_Info != undefined ? (<Stack>
 
-                      <Box marginTop={2}>
-                        <Typography>Goals</Typography>
+                    <Box marginTop={2}>
+                      <Typography>Goals</Typography>
 
-                      </Box>
+                    </Box>
 
+                    <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+                      <Box>Home</Box>
+                      <Box>Away</Box>
+                    </Stack>
 
-                      {item.Game_Info.Goal_Scorers.map((data_point, key_value) => {
+                    <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+
+                      <Box paddingTop={1}>
+                      {item.Game_Info.Goal_Scorers_Home.map((data_point, key_value) => {
 
                         return(
-                          <Stack key={key_value} direction='row' alignItems='center' spacing={1}>
+                          <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
 
                             <Box>
                               <SportsSoccerIcon fontSize='2px'/>
@@ -82,11 +90,40 @@ const FixturesData = ({ page, type }) => {
                               <Typography variant='caption'>{data_point}</Typography>
                             </Box>
 
+
                           </Stack>
                         )
-                      })}                  
+                      })}  
+                      </Box>
 
-                    </Stack>): ''}
+                      <Box paddingTop={1}>
+                      {item.Game_Info.Goal_Scorers_Away.map((data_point, key_value) => {
+
+                        return(
+                          <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                            <Box>
+                              <SportsSoccerIcon fontSize='2px'/>
+                            </Box>
+
+                            <Box>
+                              <Typography variant='caption'>{data_point}</Typography>
+                            </Box>
+
+
+                          </Stack>
+                        )
+                      })}  
+                      </Box>
+
+
+                    </Stack>
+
+
+                                    
+
+                  </Stack>): ''}
                   </Stack>
   
                 <Box >
@@ -167,6 +204,8 @@ const FixturesData = ({ page, type }) => {
                 </Stack>
 
                 <Stack marginLeft={2}>
+
+                    
                   {item.Game_Info != undefined ? (<Stack>
 
                     <Box marginTop={2}>
@@ -174,11 +213,19 @@ const FixturesData = ({ page, type }) => {
 
                     </Box>
 
+                    <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+                      <Box>Home</Box>
+                      <Box>Away</Box>
+                    </Stack>
 
-                    {item.Game_Info.Goal_Scorers.map((data_point, key_value) => {
+                    <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
 
-                      return(
-                        <Stack key={key_value} direction='row' alignItems='center' spacing={1}>
+                      <Box paddingTop={1}>
+                      {item.Game_Info.Goal_Scorers_Home.map((data_point, key_value) => {
+
+                        return(
+                          <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
 
                             <Box>
                               <SportsSoccerIcon fontSize='2px'/>
@@ -188,9 +235,38 @@ const FixturesData = ({ page, type }) => {
                               <Typography variant='caption'>{data_point}</Typography>
                             </Box>
 
+
                           </Stack>
-                      )
-                    })}                  
+                        )
+                      })}  
+                      </Box>
+
+                      <Box paddingTop={1}>
+                      {item.Game_Info.Goal_Scorers_Away.map((data_point, key_value) => {
+
+                        return(
+                          <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                            <Box>
+                              <SportsSoccerIcon fontSize='2px'/>
+                            </Box>
+
+                            <Box>
+                              <Typography variant='caption'>{data_point}</Typography>
+                            </Box>
+
+
+                          </Stack>
+                        )
+                      })}  
+                      </Box>
+
+
+                    </Stack>
+
+
+                                    
 
                   </Stack>): ''}
                 </Stack>

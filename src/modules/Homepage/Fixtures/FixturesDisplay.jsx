@@ -29,7 +29,9 @@ export default function GroupingFixturesByDate(league_fixtures_data){
     req_data['Cancelled'] = item.attributes['Cancelled']
     req_data['HomeScore'] = item.attributes['Home_Team_Score']
     req_data['AwayScore'] = item.attributes['Away_Team_Score']
-    req_data['Game_Info'] = gameDetails(item.attributes['Game_Details'])  
+    req_data['Game_Info'] = gameDetails(item.attributes['Game_Details'])
+    
+    console.log(req_data['Game_Info']);
 
     return req_data
   })
@@ -185,8 +187,10 @@ function gameDetails(game_info){
 
     // console.log(game_info['data']);
     let game_data = {};
-    game_data['Goal_Scorers'] = game_info['data']['Goals']
-    game_data['Assists'] = game_info['data']['Assists']
+    game_data['Goal_Scorers_Home'] = game_info['data']['Goals_Home']
+    game_data['Goal_Scorers_Away'] = game_info['data']['Goals_Away']
+    game_data['Assists_Home'] = game_info['data']['Assists_Home']
+    game_data['Assists_Away'] = game_info['data']['Assists_Away']
     game_data['Yellow_Cards'] = game_info['data']['Cards']['Yellow_Cards']
     game_data['Red_Cards'] = game_info['data']['Cards']['Red_Cards']
 

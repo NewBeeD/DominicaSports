@@ -120,23 +120,60 @@ const FixturesPage = () => {
 
                       </Box>
 
+                      <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+                        <Box>Home</Box>
+                        <Box>Away</Box>
+                      </Stack>
 
-                      {item.Game_Info.Goal_Scorers.map((data_point, key_value) => {
+                      <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
 
-                        return(
-                          <Stack key={key_value} direction='row' alignItems='center' spacing={1}>
+                        <Box paddingTop={1}>
+                        {item.Game_Info.Goal_Scorers_Home.map((data_point, key_value) => {
 
-                            <Box>
-                              <SportsSoccerIcon fontSize='2px'/>
-                            </Box>
+                          return(
+                            <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
 
-                            <Box>
-                              <Typography variant='caption'>{data_point}</Typography>
-                            </Box>
 
-                          </Stack>
-                        )
-                      })}                  
+                              <Box>
+                                <SportsSoccerIcon fontSize='2px'/>
+                              </Box>
+
+                              <Box>
+                                <Typography variant='caption'>{data_point}</Typography>
+                              </Box>
+
+
+                            </Stack>
+                          )
+                        })}  
+                        </Box>
+
+                        <Box paddingTop={1}>
+                        {item.Game_Info.Goal_Scorers_Away.map((data_point, key_value) => {
+
+                          return(
+                            <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                              <Box>
+                                <SportsSoccerIcon fontSize='2px'/>
+                              </Box>
+
+                              <Box>
+                                <Typography variant='caption'>{data_point}</Typography>
+                              </Box>
+
+
+                            </Stack>
+                          )
+                        })}  
+                        </Box>
+
+
+                      </Stack>
+
+
+                                      
 
                     </Stack>): ''}
                   </Stack>
