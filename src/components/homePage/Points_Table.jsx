@@ -1,4 +1,4 @@
-import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, TablePagination , Paper, Box, Stack, Typography, Skeleton } from "@mui/material"
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, TablePagination , Paper, Box, Stack, Typography, Skeleton, Hidden } from "@mui/material"
 
 import { useState } from "react"
 import { Link } from "react-router-dom";
@@ -10,6 +10,8 @@ import theme from "../../css/theme";
 import { useSelector } from 'react-redux';
 
 import GetPoints from "../../modules/Homepage/PointsTables/PointsTableDataFetch";
+
+
 
 
 
@@ -131,14 +133,21 @@ return (
         <TableHead sx={{ backgroundColor: `var(--color-color2, ${theme.colors.color2})`}}>
           <TableRow>
             {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
-            <TableCell width={window_width < 290?110: 1} sx={{ fontSize: {xs: 11}, fontWeight: 900, textAlign:'left'}}>Pos</TableCell>
+
+            <TableCell width={window_width < 290?110: 0.5} sx={{ fontSize: {xs: 11}, fontWeight: 900, textAlign:'left'}}>Pos</TableCell>
             <TableCell width={window_width < 290?110: 170} sx={{ fontSize: {xs: 11}, fontWeight: 900, textAlign:'left'}}>Club</TableCell>
             <TableCell  width={window_width < 290?110: 60} sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>P</TableCell>
             <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>W</TableCell>
             <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>D</TableCell>
             <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>L</TableCell>
-            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GF</TableCell>
-            <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GA</TableCell>
+
+            <Hidden smDown>
+
+              <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GF</TableCell>
+              <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GA</TableCell>
+            </Hidden>
+
+            
             <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>GD</TableCell>
             <TableCell  width={window_width < 290?110: 60} align="center" sx={{ fontSize: {xs: 11}, fontWeight: 900, paddingX: 0}}>Pts</TableCell>
           </TableRow>
@@ -165,8 +174,15 @@ return (
 
               <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.Drawn}</TableCell>
               <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.Lost}</TableCell>
-              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.GF}</TableCell>
-              <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.GA}</TableCell>
+
+              <Hidden smDown>
+
+                <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.GF}</TableCell>
+                <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}}}>{row.GA}</TableCell>
+
+
+              </Hidden>
+
 
               <TableCell align="center" sx={{ paddingX: 0, fontSize: {xs: 12}, }}>{row.GD}</TableCell>
               <TableCell align="center" sx={{ fontSize: {xs: 12}, paddingY: 0.5,  paddingX: 0, fontWeight: 900}}>{row.Points}</TableCell>
