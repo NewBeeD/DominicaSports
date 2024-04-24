@@ -31,7 +31,6 @@ export default function GroupingFixturesByDate(league_fixtures_data){
     req_data['AwayScore'] = item.attributes['Away_Team_Score']
     req_data['Game_Info'] = gameDetails(item.attributes['Game_Details'])
     
-    console.log(req_data['Game_Info']);
 
     return req_data
   })

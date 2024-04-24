@@ -307,8 +307,7 @@ const FixturesData = ({ page, type }) => {
                       <Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Home}</Typography>
                       <Typography style={{ fontSize: 12, fontWeight: 900 }}>{item.Away}</Typography>
     
-                    </Stack>
-    
+                    </Stack>    
 
                     <Stack direction='column' spacing={0.5}>
 
@@ -317,6 +316,72 @@ const FixturesData = ({ page, type }) => {
                       <Typography style={{ fontSize: 13, fontWeight: 900, color: 'blue' }}>{item.AwayScore}</Typography>
                     </Stack>
     
+                  </Stack>
+
+                  <Stack marginLeft={2}>             
+                      {item.Game_Info != undefined ? (<Stack>
+
+                        <Box marginTop={2}>
+                          <Typography>Goals</Typography>
+
+                        </Box>
+
+                        <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+                          <Box>Home</Box>
+                          <Box>Away</Box>
+                        </Stack>
+
+                        <Stack direction='row' justifyContent='space-between' marginRight={2} paddingTop={1}>
+
+                          <Box paddingTop={1}>
+                          {item.Game_Info.Goal_Scorers_Home.map((data_point, key_value) => {
+
+                            return(
+                              <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                                <Box>
+                                  <SportsSoccerIcon fontSize='2px'/>
+                                </Box>
+
+                                <Box>
+                                  <Typography variant='caption'>{data_point}</Typography>
+                                </Box>
+
+
+                              </Stack>
+                            )
+                          })}  
+                          </Box>
+
+                          <Box paddingTop={1}>
+                          {item.Game_Info.Goal_Scorers_Away.map((data_point, key_value) => {
+
+                            return(
+                              <Stack key={key_value} direction='row' alignItems='center' spacing={0.5}>
+
+
+                                <Box>
+                                  <SportsSoccerIcon fontSize='2px'/>
+                                </Box>
+
+                                <Box>
+                                  <Typography variant='caption'>{data_point}</Typography>
+                                </Box>
+
+
+                              </Stack>
+                            )
+                          })}  
+                          </Box>
+
+
+                        </Stack>
+
+
+                                        
+
+                      </Stack>): ''}
                   </Stack>
     
                   <Box marginBottom={1}>
