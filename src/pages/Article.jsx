@@ -20,6 +20,7 @@ import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, Wha
 
 
 import SharePage from "../components/ShareButtons/SharePage"
+import ArticleReads from "../components/Article/ArticleReads"
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -114,6 +115,7 @@ const Article = () => {
               <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={1} sx={{ fontSize: {xs: '12px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
               <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.author}</Box>
               <Box style={{ color: `var(--color-color1, ${theme.colors.color1})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.date}</Box>
+              {/* <ArticleReads articleId={id} /> */}
 
 
               <Divider sx={{ marginTop: 1}} />
