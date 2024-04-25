@@ -6,6 +6,11 @@ import Article from "./pages/Article"
 import "./App.css"
 import DFA from './pages/DFA/DFA'
 import DABA from './pages/DABA/DABA'
+import DABAFixtures from './pages/DABA/DABAFixtures';
+import DABAStats from './pages/DABA/DABAStats';
+import DABATable from './pages/DABA/DABATable';
+import DABATeams from './pages/DABA/DABATeams';
+
 import DAVA from './pages/DAVA/DAVA'
 import DNA from './pages/DNA/DNA'
 
@@ -46,7 +51,7 @@ const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
         
         <Route path="/DFA/Home" element={isAboveSM ? <DfaPageLargeScreens />: <DFA />} />
            
-        <Route path='/DFA/Home' element={<DFA />} />
+        {/* <Route path='/DFA/Home' element={<DFA />} /> */}
         {/* <Route path='/DFA/Home' element={<DfaPageLargeScreens />} /> */}
 
 
@@ -63,6 +68,16 @@ const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
         <Route path='/DFA/Stats' element={<StatsPage />} />
         <Route path='/DFA/Fixtures' element={<FixturesPage />} />
         {/* <Route path='/Signup' element={<SignUp />} /> */}
+
+
+        {/* DABA Routes */}
+
+        <Route path='/DABA/Home' element={<DABA />} />
+        <Route path='/DABA/Fixtures' element={<DABA />} />
+        <Route path='/DABA/Table' element={<DABATable />} />
+        <Route path='/DABA/Teams' element={<DABATeams />} />
+        <Route path='/DABA/Stats' element={<DABAStats />} />
+        <Route path='/DABA/Stats' element={<DABAFixtures />} />
 
 
         

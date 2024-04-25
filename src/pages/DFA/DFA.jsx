@@ -63,11 +63,6 @@ const DFA = () => {
 
   player_stats = player_stats && player_stats.length > 0 ? playStatCleanUp(player_stats[0]): [];
 
-  // console.log('players', players);
-
-
-
- 
 
   const navigate = useNavigate()  
   const [page, setPage] = useState('home')

@@ -2,6 +2,8 @@ import qs from 'qs'
 import axios from 'axios'
 
 
+
+// DFA Business
 export const fetchData_div1_teams = async (queryParams) => {
   const queryString = qs.stringify(queryParams);
   const apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-division-one-teams?${queryString}`;
@@ -10,7 +12,6 @@ export const fetchData_div1_teams = async (queryParams) => {
   return response.data;
 }
 
-
 export const fetchData_prem_teams = async (queryParams) => {
   const queryString = qs.stringify(queryParams);
   const apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-teams?${queryString}`;
@@ -18,7 +19,6 @@ export const fetchData_prem_teams = async (queryParams) => {
   const response = await axios.get(apiUrl);
   return response.data;
 }
-
 
 export const fetchData_women_teams = async (queryParams) => {
   const queryString = qs.stringify(queryParams);
@@ -38,7 +38,6 @@ export const fetchData_div1_table = async (queryParams) => {
 }
 
 
-
 export const fetchData_women_tables = async (queryParams) => {
   const queryString = qs.stringify(queryParams);
   const apiUrl = `https://strapi-dominica-sport.onrender.com/api/dfa-women-tables?${queryString}`;
@@ -46,8 +45,6 @@ export const fetchData_women_tables = async (queryParams) => {
   const response = await axios.get(apiUrl);
   return response.data;
 }
-
-
 
 
 export const fetchData_prem_tables = async (queryParams) => {
@@ -81,6 +78,36 @@ export const fetchData_players_stats = async (queryParams) => {
   const response = await axios.get(apiUrl);
   return response.data;
 }
+
+
+// DABA Business
+export const fetchData_daba_teams = async (queryParams) => {
+  const queryString = qs.stringify(queryParams);
+  const apiUrl = `https://strapi-dominica-sport.onrender.com/api/daba-teams?${queryString}`;
+
+  const response = await axios.get(apiUrl);
+  return response.data;
+}
+
+
+export const fetchData_daba_players = async (queryParams) => {
+  const queryString = qs.stringify(queryParams);
+  const apiUrl = `https://strapi-dominica-sport.onrender.com/api/daba-players?${queryString}`;
+
+  const response = await axios.get(apiUrl);
+  return response.data;
+}
+
+
+
+// DABA Player Stats
+// export const fetchData_daba_players_stats = async (queryParams) => {
+//   const queryString = qs.stringify(queryParams);
+//   const apiUrl = `https://strapi-dominica-sport.onrender.com/api/player-stats?${queryString}`;
+
+//   const response = await axios.get(apiUrl);
+//   return response.data;
+// }
 
 
 

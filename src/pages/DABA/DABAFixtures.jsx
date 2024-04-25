@@ -1,28 +1,8 @@
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel } from '@mui/material'
 
-import theme from '../../css/theme'
-
-import GetDABA from "../../modules/DABA/AllDABAData"
 import NavBar from "../../components/homePage/NavBar"
-import DABAArticles from './DABAArticles'
 
-
-
-import { useSelector } from "react-redux"
-
-const DABA = () => {
-
-  GetDABA()
-
-  let players = useSelector((state) => state.DabaPlayers)
-
-
-
-
-
-
-
-
+const DABAFixtures = () => {
   return (
     <Box height='100vh'>
       <NavBar />
@@ -53,4 +33,4 @@ const DABA = () => {
   )
 }
 
-export default DABA
+export default DABAFixtures

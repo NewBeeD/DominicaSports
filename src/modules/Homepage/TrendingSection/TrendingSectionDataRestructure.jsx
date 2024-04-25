@@ -49,8 +49,8 @@ function leagueNameChange(leagueName){
       case 'President Cup':
         return 'DFA';
       
-      case 'DABA_Division_One':
-      case 'DABA_Premier_League_One':
+      case 'DABA_First_Division':
+      case 'DABA_Premier_League':
       case 'DABA_Women':
         return 'DABA';
 

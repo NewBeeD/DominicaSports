@@ -56,7 +56,7 @@ const NavBar = () => {
 
   const buttonData = [
     { id: 1, label: 'DFA', menuItems: ['Home', 'Fixtures' ,'Table', 'Teams', 'Stats'] },
-    { id: 2, label: 'DABA', menuItems: ['Home', 'Table', 'Teams', 'Stats'] },
+    { id: 2, label: 'DABA', menuItems: ['Home', 'Fixtures' ,'Table', 'Teams', 'Stats'] },
     { id: 3, label: 'DAVA', menuItems: ['Home', 'Teams', 'Stats'] },
     { id: 4, label: 'DNA', menuItems: ['Home', 'Teams', 'Stats'] },
   ];
@@ -138,7 +138,7 @@ const NavBar = () => {
                         {/* <Link to={`/${button.label}/${item}`}>
                           {item}
                         </Link> */}
-                        <Link className="hyperlinkactive" to={button.label === 'DFA' ?`/DFA/${item}`: '/'} style={{ textDecoration: 'none', cursor: 'pointer'}}>
+                        <Link className="hyperlinkactive" to={button.label === 'DFA' ?`/DFA/${item}`: button.label === 'DABA' ?`/DABA/${item}` :'/'} style={{ textDecoration: 'none', cursor: 'pointer'}}>
                           {item}
                         </Link>
 
@@ -188,7 +188,7 @@ const NavBar = () => {
           >
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>Home</MenuItem></Link>
             <Link to='/DFA/Home' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DFA</MenuItem></Link>
-            <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DABA</MenuItem></Link>
+            <Link to='/DABA/Home' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DABA</MenuItem></Link>
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DAVA</MenuItem></Link>
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>DNA</MenuItem></Link>
             <Link to='/' style={{ textDecoration: 'none'}}><MenuItem style={{ fontSize: '18px', color: `var(--color-color4, ${theme.colors.color4})` }} onClick={closeMenu}>MEDIA</MenuItem></Link>
