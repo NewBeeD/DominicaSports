@@ -10,6 +10,7 @@ import DABAFixtures from './pages/DABA/DABAFixtures';
 import DABAStats from './pages/DABA/DABAStats';
 import DABATable from './pages/DABA/DABATable';
 import DABATeams from './pages/DABA/DABATeams';
+import DABASinglePlayer from './pages/DABA/DABASinglePlayerProfile';
 
 import DAVA from './pages/DAVA/DAVA'
 import DNA from './pages/DNA/DNA'
@@ -78,6 +79,7 @@ const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
         <Route path='/DABA/Teams' element={<DABATeams />} />
         <Route path='/DABA/Stats' element={<DABAStats />} />
         <Route path='/DABA/Stats' element={<DABAFixtures />} />
+        <Route path='/DABA/Home/Player/:id' element={<DABASinglePlayer />} />
 
 
         

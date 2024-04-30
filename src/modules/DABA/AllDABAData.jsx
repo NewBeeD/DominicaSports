@@ -16,9 +16,7 @@ import { fetchData_daba_players } from '../DFA/DataFetchQueries';
 import { setDABAPremTeamData } from '../../features/DABAFeatures/DABATeamSlice';
 import { setDabaPlayersData } from '../../features/DABAFeatures/DabaPlayersSlice';
 
-// Structuring data
-// import PlayerDataStructure from '../../modules/DFA/DfaPlayersDisplayStructure'
-// import PlayerStatsDisplayStructure from './PlayerStats/PlayerStatsDisplayStructure';
+import DabaPlayerDisplay from './DabaPlayersDisplay/DabaPlayerDisplay';
 
 
 export default function GetDABA(){
@@ -29,10 +27,10 @@ export default function GetDABA(){
     queryKey: ['Daba-Player'], 
     queryFn: () => fetchData_daba_players(queryParams_daba_players).then((value) =>{
 
-      // let finalData = PlayerDataStructure(value.data);
+      let finalData = DabaPlayerDisplay(value.data);
 
-      // dispatch(setDabaPlayersData(finalData))
-      dispatch(setDabaPlayersData(value))
+      dispatch(setDabaPlayersData(finalData))
+      // dispatch(setDabaPlayersData(value))
       return value
     })
   })

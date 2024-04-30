@@ -52,6 +52,8 @@ const TeamPage = () => {
         // Make the fetch request
         const response = await axios.get(apiUrl);
 
+        console.log(response);
+
         // Check if the request was successful (status code 2xx)
         if (response.status !== 200) {
           throw new Error(`Error: ${response.statusText}`);

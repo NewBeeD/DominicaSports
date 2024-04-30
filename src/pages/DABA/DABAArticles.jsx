@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 
 const DABAArticles = ({ level }) => {
 
+  GetArticles()
+
   const articles_raw = useSelector((state) => state.articles)
   let articles = articles_raw && articles_raw[0] ? articles_raw[0].filter(item => item.league == 'DABA' && item.headline != 'YES') : null;
 

@@ -1,9 +1,4 @@
-import fixtureDisplayStructure from '../Fixtures/fixtureDisplayStructure'
 
-
-let required_data_fields = {Home: '', Away: '', Date: '', Time: '', Venue: '', League: '', HomeScore: 0, AwayScore: 0};
-
-// let final_data = []
 
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function GroupingFixturesByDate(league_fixtures_data){
@@ -60,7 +55,6 @@ function compareByDate(obj1, obj2) {
   }
 }
 
-
 function getOnlyDate(fixture_date){
 
   // let new_Date = Date.parse(fixture_date)
@@ -75,8 +69,6 @@ function getOnlyDate(fixture_date){
   date_split = date_split[0] + ' ' + date_split[2] + ' ' + proper_month
   return date_split
 }
-
-
 
 function getTimeOnly(fixture_date){
   let new_Time = new Date(fixture_date);
@@ -149,8 +141,8 @@ function leagueNameChange(leagueName){
       case 'President Cup':
         return 'DFA';
       
-      case 'DABA_Division_One':
-      case 'DABA_Premier_League_One':
+      case 'DABA_First_Division':
+      case 'DABA_Premier_League':
       case 'DABA_Women':
         return 'DABA';
 

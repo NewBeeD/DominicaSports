@@ -12,6 +12,7 @@ import DfaPlayersReducer from '../features/DFA_Players/DfaPlayersSlice'
 import DfaPremPlayerStatsReducer from '../features/DfaPlayerStats/DfaPlayerStatsSlice'
 import DabaPlayersReducer from '../features/DABAFeatures/DabaPlayersSlice'
 import DabaTeamReducer from '../features/DABAFeatures/DABATeamSlice'
+import DabaPointsReducer from "../features/DABAFeatures/DabaPointsSlice";
 
 const rootReducer = combineReducers({
 
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   DfaPlayerStats: DfaPremPlayerStatsReducer,
   DabaPlayers: DabaPlayersReducer,
   DabaTeams: DabaTeamReducer,
+  DabaPoints: DabaPointsReducer,
 
 })
 

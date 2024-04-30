@@ -55,9 +55,15 @@ function leagueNameChange(leagueName){
       case 'DNA_Men':
       case 'DNA_Women':
         return 'DNA';
+
+      case 'International':
+          return 'International';
+
+      case 'Opinion':
+          return 'Opinion';
       
       default:
-        return '';
+        return leagueName;
 
     }
 
