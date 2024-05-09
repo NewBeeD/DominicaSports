@@ -1,9 +1,4 @@
-import fixtureDisplayStructure from '../Fixtures/fixtureDisplayStructure'
 
-
-let required_data_fields = {Home: '', Away: '', Date: '', Time: '', Venue: '', League: '', HomeScore: 0, AwayScore: 0};
-
-// let final_data = []
 
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function GroupingFixturesByDate(league_fixtures_data){
@@ -24,7 +19,13 @@ export default function GroupingFixturesByDate(league_fixtures_data){
     req_data['Date'] = getOnlyDate(item.attributes['Date'])
     req_data['Time'] = getTimeOnly(item.attributes['Date'])
     req_data['Venue'] = item.attributes['venue'].data != null ? item.attributes['venue'].data['attributes']['Name']: 'TBA'
-    req_data['League'] = leagueNameChange(item.attributes['all_league'].data)
+
+    // req_data['League'] = leagueNameChange(item.attributes['all_league'].data)
+    req_data['League'] = item.attributes['all_league'].data.attributes['name']
+
+    req_data['LeagueName'] = leagueNameChange(item.attributes['all_league'].data)
+    req_data['League_fullName'] = realLeague(item.attributes['all_league'].data)
+
     req_data['Complete'] = item.attributes['Complete']
     req_data['Cancelled'] = item.attributes['Cancelled']
     req_data['HomeScore'] = item.attributes['Home_Team_Score']
@@ -34,7 +35,6 @@ export default function GroupingFixturesByDate(league_fixtures_data){
 
     return req_data
   })
-
 
   return final_data
 }
@@ -60,7 +60,6 @@ function compareByDate(obj1, obj2) {
   }
 }
 
-
 function getOnlyDate(fixture_date){
 
   // let new_Date = Date.parse(fixture_date)
@@ -75,8 +74,6 @@ function getOnlyDate(fixture_date){
   date_split = date_split[0] + ' ' + date_split[2] + ' ' + proper_month
   return date_split
 }
-
-
 
 function getTimeOnly(fixture_date){
   let new_Time = new Date(fixture_date);
@@ -140,6 +137,8 @@ function leagueNameChange(leagueName){
 
 
   if(leagueName == null){return 'Dsport'}
+ 
+
 
   switch(leagueName.attributes['name']){
 
@@ -149,8 +148,8 @@ function leagueNameChange(leagueName){
       case 'President Cup':
         return 'DFA';
       
-      case 'DABA_Division_One':
-      case 'DABA_Premier_League_One':
+      case 'DABA_First_Division':
+      case 'DABA_Premier_League':
       case 'DABA_Women':
         return 'DABA';
 
@@ -161,6 +160,57 @@ function leagueNameChange(leagueName){
       case 'DNA_Men':
       case 'DNA_Women':
         return 'DNA';
+
+      case null:
+        return 'DSport';
+      
+      default:
+        return '';
+
+    }
+}
+
+function realLeague(leagueName){
+
+
+  if(leagueName == null){return 'Dsport'}
+ 
+
+
+  switch(leagueName.attributes['name']){
+
+      case 'DFA_Division_One':
+        return 'Division One' ;
+
+      case 'DFA_Women':
+        return 'Womens';
+
+      case 'DFA_Premier_League_Men':
+        return 'Premier League';
+
+      case 'President Cup':
+        return 'Presidents Cup';
+      
+      case 'DABA_First_Division':
+        return 'Division One';
+
+      case 'DABA_Premier_League':
+        return 'Premier League';
+
+      case 'DABA_Women':
+        return 'Womens';
+
+      case 'DAVA_MEN':
+        return 'Men';
+
+      case 'DAVA_WOMEN':
+          return 'Women';
+      
+      case 'DNA_Men':
+        return 'Men';
+
+      case 'DNA_Women':
+        return 'Men';
 
       case null:
         return 'DSport';

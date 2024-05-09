@@ -45,12 +45,12 @@ export default function PlayerStatsDisplayStructure(playerData){
     // 1st Div league top
 
     if(dfa_division_one_stats.length != 0){
-      let topScorer_div1 = dfa_division_one_stats.length == 0 ? dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer): [];
+      
+      let topScorer_div1 = dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer)
 
+      let topAssist_div1 =dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Assists > maxPlayer.Assists ? currentPlayer : maxPlayer)
 
-      let topAssist_div1 = dfa_division_one_stats.length == 0 ? dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Assists > maxPlayer.Assists ? currentPlayer : maxPlayer): [];
-
-      let topCleanSheet_div1 = dfa_division_one_stats.length == 0 ? dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Clean_Sheets > maxPlayer.Clean_Sheets ? currentPlayer : maxPlayer): [];
+      let topCleanSheet_div1 =dfa_division_one_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Clean_Sheets > maxPlayer.Clean_Sheets ? currentPlayer : maxPlayer)
 
       // Start of Division One League Major Stats
       final_data['top_scorer_div_1_goals'] = topScorer_div1.Goals
@@ -58,25 +58,25 @@ export default function PlayerStatsDisplayStructure(playerData){
       final_data['top_scorer_div_1_first_name'] = topScorer_div1.First_Name
       final_data['top_scorer_div_1_last_name'] = topScorer_div1.Last_Name
 
-      final_data['top_scorer_div_1_assist'] = topAssist_div1.Assists
-      final_data['top_scorer_div_1_url'] = topAssist_div1.url
-      final_data['top_scorer_div_1_first_name'] = topAssist_div1.First_Name
-      final_data['top_scorer_div_1_last_name'] = topAssist_div1.Last_Name
+      final_data['top_Assister_div_1_assist'] = topAssist_div1.Assists
+      final_data['top_Assister_div_1_url'] = topAssist_div1.url
+      final_data['top_Assister_div_1_first_name'] = topAssist_div1.First_Name
+      final_data['top_Assister_div_1_last_name'] = topAssist_div1.Last_Name
 
-      final_data['top_scorer_div_1_clean_sheets'] = topCleanSheet_div1.Clean_Sheets
-      final_data['top_scorer_div_1_url'] = topCleanSheet_div1.url
-      final_data['top_scorer_div_1_first_name'] = topCleanSheet_div1.First_Name
-      final_data['top_scorer_div_1_last_name'] = topCleanSheet_div1.Last_Name
+      final_data['top_Goalie_div_1_clean_sheets'] = topCleanSheet_div1.Clean_Sheets
+      final_data['top_Goalie_div_1_url'] = topCleanSheet_div1.url
+      final_data['top_Goalie_div_1_first_name'] = topCleanSheet_div1.First_Name
+      final_data['top_Goalie_div_1_last_name'] = topCleanSheet_div1.Last_Name
       // End of Division One Major Stats
     }
 
   // Womens league top
     if(dfa_women_stats.length != 0 ){
-      let topScorer_women = dfa_women_stats.length == 0 ? dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer): [];
+      let topScorer_women = dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer)
 
-      let topAssist_women = dfa_women_stats.length == 0 ? dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Assists > maxPlayer.Assists ? currentPlayer : maxPlayer): [];
+      let topAssist_women = dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Assists > maxPlayer.Assists ? currentPlayer : maxPlayer)
 
-      let topCleanSheet_women = dfa_women_stats.length == 0 ? dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Clean_Sheets > maxPlayer.Clean_Sheets ? currentPlayer : maxPlayer): [];
+      let topCleanSheet_women = dfa_women_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Clean_Sheets > maxPlayer.Clean_Sheets ? currentPlayer : maxPlayer)
 
       // Start of Women League Major Stats
       final_data['top_scorer_women_goals'] = topScorer_women.Goals

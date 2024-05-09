@@ -18,6 +18,7 @@ export default function PointsTableStructuredDisplay(data){
     teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     // teamPoints['Team'] = item.attributes['dfa_team'].data.attributes['Name']
     teamPoints['Played'] = item.attributes['Played']
+    teamPoints['Group'] = item.attributes['Group']??'None';
     teamPoints['Won'] = item.attributes['Won']
     teamPoints['Drawn'] = item.attributes['Drawn']
     teamPoints['Lost'] = item.attributes['Lost']
@@ -30,7 +31,6 @@ export default function PointsTableStructuredDisplay(data){
     return teamPoints    
   })
 
-  // console.log(premierTable);
 
   premierTable = sortTablePoints(premierTable)
   return premierTable

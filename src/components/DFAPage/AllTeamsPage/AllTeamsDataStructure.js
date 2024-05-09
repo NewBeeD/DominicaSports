@@ -6,11 +6,6 @@ export default function AllTeamsDataStructure(data){
 
    // Function to organize teams in proper order
 
-   console.log(data[0]);
-
-
-
-
    let all_teams = data.map(item => {
 
     let teamPoints = {}

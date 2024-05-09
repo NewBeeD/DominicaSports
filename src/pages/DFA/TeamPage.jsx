@@ -62,8 +62,6 @@ const TeamPage = () => {
 
         let final_data = TeamDataStructure(result)
 
-        console.log(final_data);
-
         // Set the data state
         setData(final_data);
       } catch (error) {
