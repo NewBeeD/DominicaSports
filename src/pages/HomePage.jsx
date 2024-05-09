@@ -64,7 +64,7 @@ const HomePage = () => {
 
             <TabPanel  value={2}>
 
-              <FixturesData page='home' />
+              <FixturesData page='home' type="now" league='DFA_Premier_League_Men' />
               
             </TabPanel>
 

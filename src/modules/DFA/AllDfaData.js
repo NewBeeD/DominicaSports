@@ -64,14 +64,14 @@ export default function GetDFA(){
 
 
   
-  const div_one_table = useQuery({
-    queryKey: ['Div-One-Table'], 
-    queryFn: () => fetchData_div1_table(queryParams_div1_table).then((value) => {
+  // const div_one_table = useQuery({
+  //   queryKey: ['Div-One-Table'], 
+  //   queryFn: () => fetchData_div1_table(queryParams_div1_table).then((value) => {
 
-      dispatch(setDivOneTableData(value))
-      return value
-    })
-  })
+  //     dispatch(setDivOneTableData(value))
+  //     return value
+  //   })
+  // })
 
   const women_table = useQuery({
     queryKey: ['Women-Table'], 

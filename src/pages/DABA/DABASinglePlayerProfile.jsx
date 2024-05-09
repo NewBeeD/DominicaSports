@@ -95,11 +95,8 @@ const DABASinglePlayer = () => {
           <Box style={{ backgroundColor: `var(--color-color4, ${theme.colors.color4})`}} paddingLeft={{ xs: 2}} sx={{ color: 'white'}}>
 
                 <Typography>
-
-                  {data.Position == 'CM' || data.Position == 'CDM'? 'Midfielder': data.Position == 'LW' || data.Position == 'RW' || data.Position == 'ST' || data.Position == 'CF' || data.Position == 'CAM'? 'Forward': data.Position == 'GK'? 'Goalkeeper' :'Defender'}
-
+                  {data.Position}
                 </Typography>
-
 
             </Box>
 
@@ -110,7 +107,7 @@ const DABASinglePlayer = () => {
 
               <Box width={{xs:280}} height='auto' >
 
-                <img src={data.url} width='100%' />
+                <img src={data.img_url} width='100%' />
 
               </Box>
 
@@ -126,7 +123,7 @@ const DABASinglePlayer = () => {
             <Stack paddingX={{xs: 2}} marginTop={2}>
               <Stack justifyContent='space-between' direction='row'>
                 <Typography>Date of Birth:</Typography>
-                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.BirthDate}</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Birth_Date}</Typography>
               </Stack>
 
               <Divider />
@@ -139,8 +136,29 @@ const DABASinglePlayer = () => {
               <Divider />
 
               <Stack justifyContent='space-between' direction='row'>
+                <Typography>Gender:</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Gender}</Typography>
+              </Stack>
+
+              <Divider />
+
+              <Stack justifyContent='space-between' direction='row'>
+                <Typography>Height:</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Height}</Typography>
+              </Stack>
+
+              <Divider />
+
+              <Stack justifyContent='space-between' direction='row'>
+                <Typography>Weight:</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Weight}</Typography>
+              </Stack>
+
+              <Divider />
+
+              <Stack justifyContent='space-between' direction='row'>
                 <Typography>Club:</Typography>
-                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Current_Team}</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Team}</Typography>
               </Stack>
 
               <Divider />
@@ -150,18 +168,11 @@ const DABASinglePlayer = () => {
                 <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Position}</Typography>
               </Stack>
 
-              <Divider />
-
-              <Stack justifyContent='space-between' direction='row'>
-                <Typography>Foot:</Typography>
-                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontWeight: 900}}>{data.Foot}</Typography>
-              </Stack>
-
             </Stack>
           
           </Card>
 
-          <Box marginTop={2} paddingX={{ xs: 2}} >
+          {/* <Box marginTop={2} paddingX={{ xs: 2}} >
 
             <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h6" sx={{ fontWeight: 900}}>Premier League Record</Typography>
 
@@ -170,21 +181,19 @@ const DABASinglePlayer = () => {
               <Card>
 
                 <Stack width={150} height={80} direction='column' sx={{  textAlign: 'center'}}>
-                  <Typography>Appearances</Typography>
-                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Appearances}</Typography>
+                  <Typography>Games Played</Typography>
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Points}</Typography>
                   
                 </Stack>
               </Card>
 
               <Card>
                 <Stack width={150} height={80} direction='column' sx={{ textAlign: 'center'}}>
-                  <Typography>Goals</Typography>
+                  <Typography>Assists</Typography>
                   <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Goals}</Typography>
                   
                 </Stack>
               </Card>
-
-
 
             </Stack>
 
@@ -207,11 +216,72 @@ const DABASinglePlayer = () => {
                 </Stack>
               </Card>
 
+            </Stack>
 
+            <Stack marginTop={2} direction='row' justifyContent='space-between' >
+
+              <Card>
+
+                <Stack width={150} height={80} direction='column' sx={{  textAlign: 'center'}}>
+                  <Typography>Appearances</Typography>
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Appearances}</Typography>
+                  
+                </Stack>
+              </Card>
+
+              <Card>
+                <Stack width={150} height={80} direction='column' sx={{ textAlign: 'center'}}>
+                  <Typography>Goals</Typography>
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Goals}</Typography>
+                  
+                </Stack>
+              </Card>
 
             </Stack>
 
-          </Box>
+            <Stack marginTop={1} direction='row' justifyContent='space-between'>
+
+            <Card>
+
+              <Stack width={150} height={80} justifyContent='space-between' direction='column' sx={{textAlign: 'center'}}>
+                <Typography>Assists</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Assists}</Typography>
+              </Stack>
+            </Card>
+
+            <Card>
+
+              <Stack width={150} height={80} direction='column' sx={{ textAlign: 'center'}}>
+                <Typography>Yellow Cards</Typography>
+                <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.YellowCards}</Typography>
+                
+              </Stack>
+            </Card>
+
+            </Stack>
+
+            <Stack marginTop={1} direction='row' justifyContent='space-between'>
+
+              <Card>
+
+                <Stack width={150} height={80} justifyContent='space-between' direction='column' sx={{textAlign: 'center'}}>
+                  <Typography>Assists</Typography>
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.Assists}</Typography>
+                </Stack>
+              </Card>
+
+              <Card>
+
+                <Stack width={150} height={80} direction='column' sx={{ textAlign: 'center'}}>
+                  <Typography>Yellow Cards</Typography>
+                  <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} variant="h3" sx={{ fontWeight: 'bold'}}>{data.YellowCards}</Typography>
+                  
+                </Stack>
+              </Card>
+
+            </Stack>
+
+          </Box> */}
 
           
         </Box>

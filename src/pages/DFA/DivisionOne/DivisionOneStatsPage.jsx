@@ -4,7 +4,7 @@ import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Table
 
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import NavBar from "../../components/homePage/NavBar"
+import NavBar from '../../../components/homePage/NavBar';
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 
 import { useState, useEffect } from 'react';
@@ -13,12 +13,11 @@ import qs from 'qs'
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-import theme from '../../css/theme';
-import Footer from '../../components/Footer/Footer';
+import theme from '../../../css/theme';
 
-import { queryParams_prem_players_stats } from '../../modules/DFA/QueryParams';
 
-import StatsPageStructureData from '../../modules/DFA/StatsPage/StatsPageStructureData';
+import { queryParams_prem_players_stats } from '../../../modules/DFA/QueryParams';
+import DivisionOnePlayerStatsDisplayStructure from '../../../modules/DFA/DivOne/DivisionOnePlayerStatsDisplay';
 
 function Sort(a, b){
 
@@ -46,7 +45,7 @@ function Sort_Clean_Sheets(a, b){
 }
 
 
-const StatsPage = () => {
+const DivisionOneStatsPage = () => {
 
   const [players_Goals_data, setPlayers_Goals_data] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -109,7 +108,7 @@ const StatsPage = () => {
         // Parse the JSON data
         const result = await response.data.data;
 
-        let final_data = StatsPageStructureData(result)
+        let final_data = DivisionOnePlayerStatsDisplayStructure(result)
         final_data = final_data.map(goals => goals).sort(Sort)
 
         setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
@@ -561,4 +560,4 @@ const StatsPage = () => {
   }
 
 
-export default StatsPage
+export default DivisionOneStatsPage

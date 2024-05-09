@@ -78,7 +78,7 @@ const FixturesPage = () => {
 
       <NavBar />
 
-      <Box width={{sm: 800, md: 900}} margin='auto' paddingTop={10}>
+      <Box width={{sm: 800, md: 900}} margin='auto' paddingTop={3}>
 
       <Typography paddingBottom={3} variant="h4" sx={{ textAlign: 'center', color: 'blue', fontWeight: 900}}>Game Fixtures</Typography>
 
@@ -180,7 +180,7 @@ const FixturesPage = () => {
 
                   <Box >
 
-                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.Venue}</Typography>
+                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? '': item.League_fullName} | {item.Cancelled === 'Yes'? 'Cancelled': item.Venue}</Typography>
 
                   </Box>
 
@@ -296,7 +296,7 @@ const FixturesPage = () => {
 
                     <Box marginBottom={1}>
 
-                      <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League}</Typography>
+                      <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League_fullName} | {item.Cancelled === 'Yes'? '': item.Venue} </Typography>
 
                     </Box>
 

@@ -52,8 +52,6 @@ const TeamPage = () => {
         // Make the fetch request
         const response = await axios.get(apiUrl);
 
-        console.log(response);
-
         // Check if the request was successful (status code 2xx)
         if (response.status !== 200) {
           throw new Error(`Error: ${response.statusText}`);
@@ -63,8 +61,6 @@ const TeamPage = () => {
         const result = await response.data.data;
 
         let final_data = TeamDataStructure(result)
-
-        console.log(final_data);
 
         // Set the data state
         setData(final_data);
