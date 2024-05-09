@@ -159,6 +159,7 @@ const DFA = () => {
 
   const handleStatsClick = () => {
 
+
     switch(selectedChoice){
 
       case 'Men':
@@ -176,6 +177,7 @@ const DFA = () => {
     }
   }
   const handlePlayersClick = () => {
+
 
     switch(selectedChoice){
 
@@ -1069,9 +1071,9 @@ const DFA = () => {
       <NavBar />
 
       <Box>
-        <TabContext value={valueStats}>
+        <TabContext value={valuePlayers}>
 
-          <TabList onChange={handleChangeTabsStats} aria-label="tabs example" centered>
+          <TabList onChange={handleChangeTabsPlayers} aria-label="tabs example" centered>
 
             <Tab label='Premier' value='1' />
             <Tab label='First Division' value='2' />
