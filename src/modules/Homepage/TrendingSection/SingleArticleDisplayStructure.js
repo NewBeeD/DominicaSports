@@ -57,10 +57,10 @@ function leagueNameChange(leagueName){
         return 'DNA';
 
       case 'International':
-          return 'International';
+        return 'International';
 
       case 'Opinion':
-          return 'Opinion';
+        return 'Opinion';
       
       default:
         return leagueName;
