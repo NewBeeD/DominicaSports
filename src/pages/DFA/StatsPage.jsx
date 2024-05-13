@@ -203,7 +203,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.sort(Sort).filter(playerGoals => playerGoals.Goals> 0).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.sort(Sort).filter(playerGoals => playerGoals.Goals> 0 && playerGoals.league === 'DFA_Premier_League_Men').map((item, idx) => {
 
                                 return(
 
@@ -279,7 +279,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Assists > 0).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.sort(Sort_Assists).filter(playerGoals => playerGoals.Assists > 0 && playerGoals.league === 'DFA_Premier_League_Men').map((item, idx) => {
 
                                 return(
 
@@ -350,7 +350,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.sort(Sort_Clean_Sheets).filter(playerGoals => playerGoals.Clean_Sheets> 0).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.sort(Sort_Clean_Sheets).filter(playerGoals => playerGoals.Clean_Sheets> 0 && playerGoals.league === 'DFA_Premier_League_Men').map((item, idx) => {
 
                                 return(
 
@@ -421,7 +421,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0).sort(Sort_YellowCards).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Yellow_Cards > 0 && playerGoals.league === 'DFA_Premier_League_Men').sort(Sort_YellowCards).map((item, idx) => {
 
                                 return(
 
@@ -492,7 +492,7 @@ const StatsPage = () => {
 
                             <TableBody>
 
-                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Red_Cards > 0).sort(Sort_RedCards).map((item, idx) => {
+                              {players_Goals_data && players_Goals_data.filter(playerGoals => playerGoals.Red_Cards > 0 && playerGoals.league === 'DFA_Premier_League_Men').sort(Sort_RedCards).map((item, idx) => {
 
                                 return(
 

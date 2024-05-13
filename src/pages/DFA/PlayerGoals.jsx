@@ -59,7 +59,9 @@ const PlayerGoals = () => {
         const result = await response.data.data;
 
         let final_data = PlayerStatsDisplayStructure(result)
+        
         final_data = final_data.map(goals => goals).sort(Sort)
+        final_data = final_data.filter(item => item.league === 'DFA_Premier_League_Men')
 
         setCurrentSeason(final_data[0].Season.substring(1).replace('-', '/'))
         
@@ -135,7 +137,7 @@ const PlayerGoals = () => {
 
           <TableBody>
 
-            {players_data && players_data.filter(item => item.Goals > 0).slice(1).map((item, idx) => {
+            {players_data && players_data.filter(item => item.Goals > 0 ).slice(1).map((item, idx) => {
 
               return (
                 
