@@ -203,6 +203,12 @@ const TeamGoals = () => {
 
     </Paper>
 
+    <Box textAlign='center' paddingTop={8} paddingBottom={8}>
+      <Typography variant='caption' color='red' letterSpacing={3}>
+        Own goals are not included.
+      </Typography>
+    </Box>
+
 
 
   </Box>

@@ -31,6 +31,7 @@ const TeamCleanSheets = () => {
 
   const [combineData, setCombineData] = useState(null)
 
+
   const [currentSeason, setCurrentSeason] = useState(null)
 
 
@@ -133,7 +134,7 @@ const TeamCleanSheets = () => {
 
       
       <Box marginBottom={3} paddingLeft={{ xs: 1}} paddingTop={4}>
-        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Assists</Typography>
+        <Typography variant='h5' sx={{ fontWeight: 'bold'}}>Clean Sheets</Typography>
 
         <Typography>
           {currentSeason && currentSeason}
@@ -178,7 +179,7 @@ const TeamCleanSheets = () => {
 
           <TableBody>
 
-            {combineData && combineData.slice(1).map((item, idx) => {
+            {combineData && combineData.filter(dataPoint => dataPoint.totalCleanSheets > 0).slice(1).map((item, idx) => {
 
               return (
                 

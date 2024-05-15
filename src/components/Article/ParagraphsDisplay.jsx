@@ -4,6 +4,7 @@ import { Box } from '@mui/material'
 const ParagraphsDisplay = ({ paragraphs }) => {
 
 
+
   const paragraph = paragraphs.split('\n');
 
 

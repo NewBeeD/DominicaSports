@@ -2,8 +2,10 @@
 
 export default function TeamCleanSheets(players_data){
 
+  console.log(players_data);
+
   // Calculate total goals for each team
-  let teamCleanSheets = players_data.reduce((cleanSheetByTeam, player) => {
+  let teamCleanSheets = players_data.filter(player_league => player_league.league === 'DFA_Premier_League_Men').reduce((cleanSheetByTeam, player) => {
     cleanSheetByTeam[player.team] = (cleanSheetByTeam[player.team] || 0) + player.Clean_Sheets;
     return cleanSheetByTeam;
   }, {});
