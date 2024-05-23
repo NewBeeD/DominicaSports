@@ -390,7 +390,7 @@ const FixturesData = ({ page, type, league}) => {
     
                   <Box marginBottom={1}>
     
-                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League}</Typography>
+                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League_fullName}</Typography>
     
                   </Box>
     
@@ -634,7 +634,7 @@ const FixturesData = ({ page, type, league}) => {
     
                   <Box marginBottom={1}>
     
-                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League}</Typography>
+                    <Typography style={{ fontSize: 12 }} sx={{ textAlign: 'center', color: 'blue'}}>{item.Cancelled === 'Yes'? 'Cancelled': item.League_fullName}</Typography>
     
                   </Box>
     
