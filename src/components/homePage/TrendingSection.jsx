@@ -13,6 +13,7 @@ import theme from '../../css/theme';
 
 import VideoHighlights from '../WeekendHighlights/VideoHighlights';
 import FixturesData from './Fixtures';
+import FeaturedPlayer from '../FeaturedPlayer/FeaturedPlayer';
 
 
 
@@ -194,16 +195,19 @@ const TrendingSection = ({ level }) => {
           {/* Side panel in the homepage */}
           {level === 'first'?<Stack width={{ sm:'380px', md: '400px' }} display={{xs:'none', sm:'inherit'}}
           direction='column'
-          justifyContent='center'
+          // justifyContent='center'
           alignItems='center'
           spacing={0}
           sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}
           height={{ sm: '450px'}}>
 
-            {/* <Typography  variant='h3'>Ad Space here</Typography> */}
-            <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>The Video of The Day</Typography>
+            {/* <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>The Video of The Day</Typography>
 
-            <VideoHighlights VideoLocation='Homepage1' />
+            <VideoHighlights VideoLocation='Homepage1' /> */}
+
+            <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>Featured Player</Typography>
+
+            <FeaturedPlayer />
             
           </Stack>: level === 'second'?
           

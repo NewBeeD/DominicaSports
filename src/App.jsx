@@ -40,7 +40,7 @@ import DfaPageLargeScreens from './pages/DFA/DfaPageLargeScreens'
 function App() {
 
   const theme = useTheme();
-const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
+  const isAboveSM = useMediaQuery(theme.breakpoints.up('sm'));
 
 
 
