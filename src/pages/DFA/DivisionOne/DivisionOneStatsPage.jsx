@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 
 import qs from 'qs'
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import theme from '../../../css/theme';
 
@@ -50,6 +50,8 @@ const DivisionOneStatsPage = () => {
   const [players_Goals_data, setPlayers_Goals_data] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate()
 
   // const [players_Assists_data, setPlayers_Assists_data] = useState(null);
   // const [loading_assist, setLoading_Assits] = useState(true);
@@ -128,10 +130,6 @@ const DivisionOneStatsPage = () => {
     fetchData();
   }, []);
 
-  
-
-
-
 
 
   return (
@@ -161,9 +159,23 @@ const DivisionOneStatsPage = () => {
 
               <Stack direction='column' marginTop={3}>
 
-                <Button variant='contained' size='large' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} endIcon={<KeyboardArrowDownIcon style={{ color: 'white'}} />} sx={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`, width: {sm: 200} }}>
-                {selectedChoice}
-                </Button>
+                <Stack direction='row' justifyContent='space-between'>
+                
+                  
+                  <Button variant='contained' size='large' aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} endIcon={<KeyboardArrowDownIcon style={{ color: 'white'}} />} sx={{ backgroundColor: `var(--color-color1, ${theme.colors.color1})`, width: {sm: 200} }}>
+                  {selectedChoice}
+                  </Button>
+
+                  <Box>
+                    <Button size='large' variant='contained' onClick={()=> navigate('/DFA/Stats')}>
+                      Premier League
+                    </Button>
+                  </Box>
+
+                </Stack>
+
+
+                
 
                 <Menu
                   id="simple-menu"
