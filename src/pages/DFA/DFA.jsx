@@ -807,7 +807,15 @@ const DFA = () => {
 
           <TabPanel value="2" >
 
-            {player_stats && player_stats.length > 0 ? 
+          <Box textAlign='center' marginTop={10} >
+
+            <Typography variant="h4">
+              First division coverage will continue next season, as data collection for the league is inconsistent.  
+            </Typography>
+
+          </Box>
+
+            {/* {player_stats && player_stats.length > 0 ? 
 
               (<Box paddingTop={3} >
 
@@ -877,67 +885,7 @@ const DFA = () => {
                     
                 </Stack>
 
-                {/* <Stack spacing={1} justifyContent='center' direction='row' marginTop={2} paddingBottom={1}>
-
-                  <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
-
-                    <Link to='/DFA/Home/TeamGoals' style={{ textDecoration: 'none'}}>
-                      <Card>
-                        
-                        <CardMedia
-                        component="img"
-                        image={player_stats[0].top_scorer_div_1_url} 
-                        sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
-                        />
-
-                        <CardContent style={{ textAlign: 'center'}}>
-
-                          <Typography sx={{ fontWeight: 'bold'}}>
-                            Team Goals
-                          </Typography>
-
-                          <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                            {team_most_goals[0].totalGoals}
-                          </Typography>
-
-                        </CardContent>
-
-                      </Card>
-                    </Link>
-                  
-                  </Paper>
-
-
-                  <Paper sx={{ marginTop: {xs: 10}, width: window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145, height: '100%'}}>
-
-                    <Link to='/DFA/Home/TeamCleanSheets' style={{ textDecoration: 'none'}}>
-                      <Card>
-
-                      <CardMedia
-                      component="img"
-                      image={player_stats[0].top_clean_sheet_prem_url} 
-                      sx={{ width:  window_width<290?130:window_width==300?145:window_width==350?168:window_width==390?182:window_width==400?192:window_width==420?200:window_width==500?240:145 }}
-                      />
-
-                      <CardContent style={{ textAlign: 'center'}}>
-
-                        <Typography sx={{ fontWeight: 'bold'}}>
-                          Clean Sheets
-                        </Typography>
-
-                        <Typography variant="h4" sx={{ fontWeight: 'bold'}}>
-                          {player_stats[0].top_clean_sheet_prem_clean_sheets}
-                        </Typography>
-
-                      </CardContent>
-
-                      </Card>
-                    </Link>
-
-
-                  </Paper>
-
-                </Stack> */}
+                
 
                 <Stack marginTop={4} marginX={2} >
 
@@ -946,8 +894,6 @@ const DFA = () => {
                     <Link to='/DFA/DivisionOneStats' style={{ textDecoration: 'none', color: 'white', paddingBottom: '20px'}}>
                       <Typography variant="h6" sx={{ border: '1px solid green', padding: 1, backgroundColor: 'blue'}}>Season Stats</Typography>
                     </Link>
-
-                    {/* <ArrowRightAltIcon /> */}
 
                   </Stack>
                 </Stack>
@@ -960,7 +906,7 @@ const DFA = () => {
                   </Typography>
                 </Box>) 
                 :<Skeleton width={300} height={300} sx={{ margin: 'auto'}}/>
-            } 
+            }  */}
 
           </TabPanel>
 

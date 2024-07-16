@@ -172,11 +172,11 @@ const StatsPage = () => {
                   {selectedChoice}
                   </Button>
 
-                  <Box>
+                  {/* <Box>
                     <Button size='large' variant='contained' onClick={()=> navigate('/DFA/DivisionOneStats')}>
                       Divison One
                     </Button>
-                  </Box>
+                  </Box> */}
 
                 </Stack>
 
