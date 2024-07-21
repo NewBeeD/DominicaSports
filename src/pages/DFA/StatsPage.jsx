@@ -277,13 +277,17 @@ const StatsPage = () => {
                       
                       <Box >
 
-                        <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+                        <Typography>
+                          Hopefully we can cover assists in the next upcoming season. Data this season was inconsistent and hard to come by. Hopefull we will develop a data collection system next season to properly cover a different aspect of the game. Assist are just as important as goals in determining a player's ability.
+                        </Typography>
+
+                        {/* <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
 
                           <Table >
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+
                                 <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -339,7 +343,7 @@ const StatsPage = () => {
 
                           </Table>
 
-                        </TableContainer>
+                        </TableContainer> */}
 
 
 
