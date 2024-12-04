@@ -40,6 +40,9 @@ import AssessmentIcon from '@mui/icons-material/Assessment'; //Stats
 import GroupsIcon from '@mui/icons-material/Groups'; //Players
 
 
+import FeaturedPlayer from "../../components/homePage/FeaturedPlayer";
+
+
 
 
 
@@ -288,11 +291,15 @@ const DFA = () => {
       <DfaArticles level='first' />
 
       <Divider sx={{ marginTop: 2}} />
+      
       <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center' sx={{ display: {xs: 'none'}}}>
         <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>Weekend Highlights</Typography>
         
         <Video VideoLocation='Dfa1'/>
+
+
       </Box>
+
       <Divider sx={{ marginTop: 2}} />
 
       <Box marginY={1.5} />

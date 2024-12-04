@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Slide, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, Slide } from '@mui/material';
 
 import '../../css/TrendingNewsCss.css'
 

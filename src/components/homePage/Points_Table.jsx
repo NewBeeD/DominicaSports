@@ -328,6 +328,66 @@ return (
     )
   }
 
+  else if(page === 'DfaHomepage'){
+
+    return (
+    
+
+      <Box marginTop={8} marginBottom={2} width={{ sm: '255px', md: '300px', lg: '300px'}} sx={{ margin: 'auto', textAlign: 'center', border: '1px solid #D3E1FF', borderRadius: {xs: '4px'}}}>
+
+
+        <Typography fontWeight={900}>Premier League Standings</Typography>
+  
+       {premierTable ? <TableContainer component={Paper} sx={{ marginTop: {xs: 1}}} >
+
+          <Table >
+
+            <TableHead >
+              <TableRow >
+                <TableCell sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Team</TableCell>
+                <TableCell sx={{ fontSize: {xs: 13}, fontWeight: 900}}>P</TableCell>
+                <TableCell sx={{ fontSize: {xs: 13}, fontWeight: 900}}>GD</TableCell>
+                <TableCell align="center" sx={{ fontSize: {xs: 13}, fontWeight: 900}}>Pts</TableCell>
+              </TableRow>
+            </TableHead>
+
+            <TableBody>
+              {premierTable.map(row => (
+
+                <TableRow key={row.team} sx={{ border: 0}}>
+
+                  <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Team}</TableCell>
+                  <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Played}</TableCell>
+                  <TableCell sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.GD}</TableCell>
+                  <TableCell align="center" sx={{ fontSize: {xs: 12}, paddingY: 0.5, fontWeight: 'bold'}}>{row.Points}</TableCell>
+                  
+                </TableRow>
+              ))}
+            </TableBody>
+
+
+            </Table>
+
+            <Box>
+
+              <Link to='DFA/Table'>
+                <Typography style={{ fontSize: 13, fontWeight: 'bold'}}  sx={{ textAlign: 'center', paddingY: {xs: '5px'}, backgroundColor: {xs: '#F9F9F9', sm: 'white'}, fontWeight: 900}}>
+                  View Full Table
+                </Typography>
+              </Link>
+            </Box>
+
+        </TableContainer>: <Skeleton variant="rectangular" width={210} height={60} />}
+
+
+
+      </Box>   
+
+)
+
+
+}
+
   
 
   

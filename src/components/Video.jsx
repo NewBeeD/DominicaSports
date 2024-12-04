@@ -33,17 +33,18 @@ const Video = ({ VideoLocation }) => {
   const getVideoDimensions = () => {
     
     const windowWidth = window.innerWidth;
-
-    let width = windowWidth-20;
+    let marginError;
     let height;
 
     // return {width: windowWidth-20, height: '290'}
 
     // Adjust these values based on your layout and design preferences
     if (windowWidth >= 1200) {
-      height= '300'
+      height= '340'
+      marginError = 600;
     } else if (windowWidth >= 768) {
       height= '290'
+      marginError = 200;
     }else if (windowWidth >= 530) {
       height= '280'
     }else if (windowWidth >= 400) {
@@ -57,6 +58,8 @@ const Video = ({ VideoLocation }) => {
     else {
       height= '450'
     }
+
+    let width = windowWidth - marginError;
 
     return {width: width, height: height}
   };
@@ -139,19 +142,29 @@ const Video = ({ VideoLocation }) => {
 
   return(
 
-    <Box display='flex' justifyContent='center' alignItems='center' marginTop={2} width={{xs: '100%'}} style={{ height: '100%'}}>
+    <Box display='flex' justifyContent='center'>
 
-        {video && video.length > 0 ? <Youtube
-        videoId={video}
-        opts={{ ...opts, width, height }}
-        onReady={(event) => {
-          event.target.pauseVideo();
-        }}
-        onEnd={onEnd}
 
-        />: ''}
+      <Box 
+      display='flex' 
+      alignItems='center' 
+      marginTop={2} 
+      
+      >
 
+          {video && video.length > 0 ? <Youtube
+          videoId={video}
+          opts={{ ...opts, width, height }}
+          onReady={(event) => {
+            event.target.pauseVideo();
+          }}
+          onEnd={onEnd}
+
+          />: ''}
+
+      </Box>
     </Box>
+
 
   )
 

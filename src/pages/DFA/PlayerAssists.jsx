@@ -94,8 +94,10 @@ const PlayerAssists = () => {
       </Box>
 
       
-      <Paper marginBottom={4} sx={{ width: {xs: '98%'}, margin: 'auto'}}>
-        {players_data && (
+      {/* width is at 98% before I removed the stats for most assists */}
+      <Paper marginBottom={4} sx={{ width: {xs: '95%'}, margin: 'auto'}}>
+        
+        {/* {players_data && (
 
           <Stack style={{ backgroundColor: `var(--color-color4, ${theme.colors.color4})`}} paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{  color: 'white'}}>
             <Stack direction='column' paddingLeft={{xs: 1}}>
@@ -113,10 +115,19 @@ const PlayerAssists = () => {
 
           </Stack>
 
-        )}
+        )} */}
+
+          <Box width={{xs: '90%'}} textAlign='center' paddingY={10}>
+
+            <Typography>
+            Hopefully we can cover assists in the next upcoming season. Data this season was inconsistent and hard to come by. Hopefull we will develop a data collection system next season to properly cover a different aspect of the game. Assist are just as important as goals in determining a player's ability.
+            </Typography>
+
+
+          </Box>
       </Paper>
 
-      { players_data && players_data.length > 0 ? 
+      {/* { players_data && players_data.length > 0 ? 
       
       <Paper sx={{ width: {xs: '98%'}, margin: 'auto'}}>
 
@@ -151,7 +162,9 @@ const PlayerAssists = () => {
         </Table>
 
       </Paper>
-    : <Skeleton width={300} height={500} sx={{ margin: 'auto'}}/>}
+    : <Skeleton width={300} height={500} sx={{ margin: 'auto'}}/>
+    
+    } */}
 
 
 
