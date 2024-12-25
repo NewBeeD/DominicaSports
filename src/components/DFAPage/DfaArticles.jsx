@@ -29,6 +29,9 @@ const DfaArticles = ({ level }) => {
   const articles_raw = useSelector((state) => state.articles)
   let articles = articles_raw && articles_raw[0] ? articles_raw[0].filter(item => item.league == 'DFA' && item.headline != 'YES') : null;
 
+
+  
+
   let articles_length = articles && articles_raw[0] ? articles.length: 0;
   let part_size = articles_length ? Math.ceil(articles_length/3): 0;
 

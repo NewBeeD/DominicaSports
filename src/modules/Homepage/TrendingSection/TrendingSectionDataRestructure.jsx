@@ -10,7 +10,6 @@ export default function ArticlesStructuredDisplay(data){
 
   let articles_data = data.data 
 
-
   articles_data = articles_data.sort((a, b) => Date.parse(b.attributes['publishedAt']) - Date.parse(a.attributes['publishedAt']));
 
 
@@ -26,14 +25,13 @@ export default function ArticlesStructuredDisplay(data){
     required_data_fields['headline'] = item.attributes['Headline']
     required_data_fields['league'] =  leagueNameChange(item.attributes['all_league'].data)
     required_data_fields['league_name'] =  SpecificleagueName(item.attributes['all_league'].data)
-    required_data_fields['url'] = getAllImages(item.attributes['Article_Img'].data)
-    required_data_fields['date'] = formatDate(item.attributes['publishedAt'])
+    required_data_fields['url'] = getAllImages(item.attributes['Article_Img'].data)?? null;
+    required_data_fields['date'] = formatDate(item.attributes['publishedAt'])    
+    required_data_fields['Rich_Text'] = item.attributes['RichText'] ?? 'none'
 
     return required_data_fields
   })
-
-
-
+  
   return final_data
 }
 

@@ -11,6 +11,7 @@ import SingleStructuredDisplay from "../modules/Homepage/TrendingSection/SingleA
 
 import ImageSlideshow from "../components/Article/ImageSlideshow"
 import Comments from "../components/Article/Comments"
+import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
 // Firebase setup
 import { auth } from "../config/firebaseConfig"
@@ -35,14 +36,12 @@ const Article = () => {
 
   // GetArticles()
   const { id } = useParams()
-  const page_url = window.location.href
-
 
   const [articles, setArticles] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  
+
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -67,8 +66,8 @@ const Article = () => {
         // Parse the JSON data
         const result = await response.data.data;
 
-        let final_data = SingleStructuredDisplay(result)
-        
+        let final_data = SingleStructuredDisplay(result)  
+                    
         // Set the data state
         setArticles(final_data);
         // setModalIsOpen(true);
@@ -87,122 +86,155 @@ const Article = () => {
   }, []);
 
 
+    return (
+
+      <Box width={{xs: '100%', sm: 800, md: 1000}} margin='auto'>
+  
+        <NavBar />
+  
+          
+        <Box margin='auto' width= {{ xs: '90%'}}>
+  
+          {articles? 
+            (
+  
+              <Box>
+  
+                {articles.RichText && articles.RichText === 'none'? <Box marginTop={4} paddingTop={4}>
+                  <Typography style={{ color: `var(--color-color1, ${theme.colors.color1})`}} variant="h4" sx={{ textAlign: 'left'}}>{articles.title}</Typography>
+                </Box>: ''}               
+                
+  
+                {articles.RichText && articles.RichText === 'none'? <Box marginY={2} >
+                  <img width='100%' src={articles.url[0]}/>
+                </Box>:<Box paddingTop={4} />}
+  
+                <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={1} sx={{ fontSize: {xs: '12px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
+  
+                <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.author}</Box>
+                
+                <Box style={{ color: `var(--color-color1, ${theme.colors.color1})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.date}</Box>
+  
+  
+                <Divider sx={{ marginTop: 1}} />
+  
+                {articles.RichText && articles.RichText === 'none'? <Box marginTop={3.5} sx={{ textAlign: 'left'}}>
+                  <ParagraphsDisplay paragraphs={articles.body_content} />
+                </Box>: ''}
+  
+  
+                {/* Rich Text Area - Beginning */}
+  
+                {articles.RichText != 'none' ? <Box 
+                display='flex' 
+                flexDirection='column'
+                alignItems='center'
+                >
+  
+                  <BlocksRenderer content={articles.RichText}  blocks={{
+                    image: ({image}) => {
+  
+                      return(
+  
+                        <Box width={{xs: '100%', sm: 800, md: 1000}} paddingBottom={3} >
+                          
+                          <img 
+                            src={image.url} 
+                            alt='Article Image' 
+                            height='100%' 
+                            width='100%' 
+                            style={{ objectFit: 'cover', objectPosition: "50% 50%"}}
+                          />
+  
+                        </Box>
+                      )
+                      
+                    },
+                    heading: ({children, level}) =>{
+  
+                      switch(level){
+  
+                        case 1:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+  
+                        case 2:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+  
+                        case 3:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+  
+                        case 4:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h4' textAlign='left' paddingTop={2} paddingBottom={2}>{children}</Typography>
+  
+                        case 5:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h5' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+  
+                        case 6:
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h6' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+                      }
+                    }, 
+                    paragraph: ({ children }) => {
+                      return(
+                        <Typography width={{xs: '100%', sm: 800, md: 1000}} align='left' >
+                          {children}
+                        </Typography>
+                      )
+                    }
+                  }}/>
+                </Box>: ''}
+  
+  
+                {/* Rich Text Area - Ending */}
+  
+                {/* <Box marginTop={4} /> */}
+  
+                {/* Share Buttons Here */}
+  
+                <Box marginTop={4}>
+  
+                  <Typography variant="h5" style={{ textDecoration: 'underline'}}>Share</Typography>
+                </Box>
+  
+  
+                <SharePage title={articles.title} />
+  
+  
+  
+                <Divider orientation='horizontal' sx={{ marginY: 3}} />
+  
+                <Divider orientation='vertical' sx={{ marginY: 3}} />
+  
+                {articles.url.length > 2 ? <ImageSlideshow images={articles.url} />: ''}
+  
+  
+  
+                {/* <Box>
+                  {articles.url.length > 1? articles.url.map((articles, idx) => {
+  
+                    return(
+                        <img key={idx} width='100%' src={articles} onClick={() => openModal(idx)} style={{ cursor: 'pointer'}}/>
+                    )
+  
+                  }): ''}
+                </Box> */}
+                
+              </Box>
+            ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
+  
+            <Comments articleId={id} />
+  
+        </Box>
+  
+      </Box>
+    )
+
+
+
+
   
 
 
-  return (
 
-    <Box width={{xs: '100%', sm: 800, md: 1200}} margin='auto'>
-
-      <NavBar />
-
-      <Box margin='auto' width= {{ xs: '90%'}}>
-
-        {articles? 
-          (
-
-            <Box>
-
-              <Box marginTop={4} paddingTop={4}>
-                <Typography style={{ color: `var(--color-color1, ${theme.colors.color1})`}} variant="h4" sx={{ textAlign: 'left'}}>{articles.title}</Typography>
-              </Box>
-
-              <Box marginY={2}>
-                <img width='100%' src={articles.url[0]}/>
-              </Box>
-
-              <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={1} sx={{ fontSize: {xs: '12px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
-              <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.author}</Box>
-              <Box style={{ color: `var(--color-color1, ${theme.colors.color1})`}} marginTop={0.5} sx={{ fontSize: {xs: '12px'}}}>{articles.date}</Box>
-
-
-              <Divider sx={{ marginTop: 1}} />
-
-              <Box marginTop={3.5} sx={{ textAlign: 'left'}}>
-                <ParagraphsDisplay paragraphs={articles.body_content} />
-              </Box>
-
-              {/* <Box marginTop={4} /> */}
-
-              {/* Share Buttons Here */}
-
-              <Box marginTop={4}>
-
-                <Typography variant="h5" style={{ textDecoration: 'underline'}}>Share</Typography>
-              </Box>
-
-
-              <SharePage title={articles.title} />
-
-              {/* <Stack direction='horizontal' marginTop={4}>
-
-                <Box marginRight={2}>
-
-                  <FacebookShareButton url={page_url}>
-                    <FacebookIcon />
-                  </FacebookShareButton>
-                  
-                </Box>
-
-
-                <Box  marginRight={2}>
-
-                  <TwitterShareButton url={page_url}>
-                    <TwitterIcon />
-                  </TwitterShareButton>
-
-                </Box>
-
-                <Box  marginRight={2}>
-
-                  <WhatsappShareButton url={page_url}>
-                    <WhatsappIcon />
-                  </WhatsappShareButton>
-
-                </Box>
-
-                <Box>
-
-                  <RedditShareButton url={page_url}>
-                    <RedditIcon />
-                  </RedditShareButton>
-                </Box>
-
-
-
-              </Stack> */}
-
-              <Divider orientation='horizontal' sx={{ marginY: 3}} />
-
-
-
-
-              <Divider orientation='vertical' sx={{ marginY: 3}} />
-
-              {articles.url.length > 2 ? <ImageSlideshow images={articles.url} />: ''}
-
-
-
-
-              {/* <Box>
-                {articles.url.length > 1? articles.url.map((articles, idx) => {
-
-                  return(
-                      <img key={idx} width='100%' src={articles} onClick={() => openModal(idx)} style={{ cursor: 'pointer'}}/>
-                  )
-
-                }): ''}
-              </Box> */}
-              
-            </Box>
-          ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
-
-          <Comments articleId={id} />
-
-      </Box>
-
-    </Box>
-  )
 }
 
 export default Article

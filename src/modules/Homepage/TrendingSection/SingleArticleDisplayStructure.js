@@ -15,6 +15,7 @@ export default function SingleStructuredDisplay(data){
   required_data_fields['time'] = daysElapsed(data.attributes['publishedAt'])
   required_data_fields['author'] = data.attributes['Author']
   required_data_fields['body_content'] = data.attributes['Body_Content']
+  required_data_fields['RichText'] = data.attributes['RichText'] ?? 'none'
   required_data_fields['headline'] = data.attributes['Headline']
   required_data_fields['league'] = leagueNameChange(data.attributes['all_league'].data.attributes['name'])
 
