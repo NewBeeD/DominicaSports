@@ -9,6 +9,7 @@
 export default function SingleStructuredDisplay(data){
 
   let required_data_fields = {}
+  
 
   required_data_fields['id'] = data.id
   required_data_fields['title'] = data.attributes['Title'],

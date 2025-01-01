@@ -95,7 +95,7 @@ export default function GetDFA(){
 
   const dfa_player_stats = useQuery({
     queryKey: ['Dfa-Player-Stats'], 
-    queryFn: () => fetchData_players_stats(queryParams_prem_players_stats).then((value) =>{
+    queryFn: () => fetchData_players_stats(queryParams_prem_players_stats).then((value) =>{      
 
       let finalData = PlayerStatsDisplayStructure(value.data);
 

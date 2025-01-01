@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import qs from 'qs'
 import axios from "axios"
+import { Link } from 'react-router-dom';
 
 import { queryParams_prem_players_stats } from '../../modules/DFA/QueryParams';
 import PlayerStatsDisplayStructure from '../../modules/DFA/PlayerStats/PlayerStatsDisplayStructure';
@@ -102,17 +103,29 @@ const PlayerGoals = () => {
         {players_data && (
 
           <Stack style={{ backgroundColor: `var(--color-color4, ${theme.colors.color4})`}} paddingY={{xs: 2}} direction='row' justifyContent='space-between' sx={{  color: 'white'}}>
-            <Stack direction='column' paddingLeft={{xs: 1}}>
-              <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
-              <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].First_Name}</Typography></Box>
-              <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].Last_Name}</Typography></Box>
-              <Box><Typography variant='caption' sx={{ fontWeight: 'bold'}}>{players_data[0].team}</Typography></Box>
-              <Box><Typography variant='h5' sx={{ fontWeight: 'bold', fontSize: 27, marginTop: 2}}>{players_data[0].Goals}</Typography></Box>
-            </Stack>
 
-            <Box width={{xs: 180}}>
-              <img src={players_data[0].url} width='100%' height='100%' />
-            </Box>
+
+
+
+            
+
+              <Stack direction='column' paddingLeft={{xs: 1}}>
+
+                <Box><Typography sx={{ fontWeight: 'bold'}}>1</Typography></Box>
+                <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].First_Name}</Typography></Box>
+                <Box><Typography sx={{ fontWeight: 'bold'}}>{players_data[0].Last_Name}</Typography></Box>
+                <Box><Typography variant='caption' sx={{ fontWeight: 'bold'}}>{players_data[0].team}</Typography></Box>
+                <Box><Typography variant='h5' sx={{ fontWeight: 'bold', fontSize: 27, marginTop: 2}}>{players_data[0].Goals}</Typography></Box>
+
+              </Stack>
+
+              <Link to={`/DFA/Home/Player/${players_data[0].Player_ID}`} style={{ textDecoration: 'none', color: 'black', fontWeight: 900}}>
+
+                <Box width={{xs: 180}}>
+                  <img src={players_data[0].url} width='100%' height='100%' />
+                </Box>
+
+              </Link>
 
 
           </Stack>
@@ -144,7 +157,15 @@ const PlayerGoals = () => {
                 <TableRow key={idx}>
 
                   <TableCell sx={{ fontWeight: 'bold', paddingY: 0.5}}>{idx+2}</TableCell>
-                  <TableCell sx={{ paddingY: 0.5}}>{item.Last_Name} {item.First_Name}</TableCell>
+                  <TableCell sx={{ paddingY: 0.5}}>
+
+                    <Link to={`/DFA/Home/Player/${item.Player_ID}`} style={{ textDecoration: 'none', color: 'black', fontWeight: 900}}>
+                    
+                      {item.Last_Name} {item.First_Name}
+                    </Link>
+                    
+                    
+                    </TableCell>
                   <TableCell sx={{ paddingY: 0.5}}>{item.team}</TableCell>
                   <TableCell sx={{ fontWeight: 'bold', paddingY: 0.5}}>{item.Goals}</TableCell>
                 </TableRow>

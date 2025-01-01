@@ -136,7 +136,7 @@ const Article = () => {
   
                       return(
   
-                        <Box width={{xs: '100%', sm: 800, md: 1000}} paddingBottom={3} >
+                        <Box width={{xs: '100%', sm: 800, md: 1000}} >
                           
                           <img 
                             src={image.url} 
@@ -161,10 +161,10 @@ const Article = () => {
                           return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
   
                         case 3:
-                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h2' textAlign='center' paddingTop={2} paddingBottom={2} >{children}</Typography>
   
                         case 4:
-                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h4' textAlign='left' paddingTop={2} paddingBottom={2}>{children}</Typography>
+                          return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h4' textAlign='left' paddingTop={2} paddingBottom={2} lineHeight={{ xs: 1, sm: 'inherit'}}>{children}</Typography>
   
                         case 5:
                           return <Typography width={{xs: '100%', sm: 800, md: 1000}} variant='h5' textAlign='center' paddingTop={2} paddingBottom={2}>{children}</Typography>
@@ -179,6 +179,14 @@ const Article = () => {
                           {children}
                         </Typography>
                       )
+                    },
+                    code: ({ children }) => {
+
+                      return(
+                        <Box marginBottom={3} width={{xs: '100%', sm: 800, md: 1000}} fontSize={13} paddingLeft={0.5}>
+                          {children}
+                        </Box>
+                      )
                     }
                   }}/>
                 </Box>: ''}
@@ -190,23 +198,26 @@ const Article = () => {
   
                 {/* Share Buttons Here */}
   
-                <Box marginTop={4}>
-  
-                  <Typography variant="h5" style={{ textDecoration: 'underline'}}>Share</Typography>
-                </Box>
   
   
-                <SharePage title={articles.title} />
   
   
   
                 <Divider orientation='horizontal' sx={{ marginY: 3}} />
   
-                <Divider orientation='vertical' sx={{ marginY: 3}} />
+                {/* <Divider orientation='vertical' sx={{ marginY: 3}} /> */}
+
+                {articles.RichText && articles.RichText === 'none' && articles.url.length > 2 ? <ImageSlideshow images={articles.url} />: ''}
+
+                <Divider orientation='horizontal' sx={{ marginY: 3}} />
+              
   
-                {articles.url.length > 2 ? <ImageSlideshow images={articles.url} />: ''}
+                <Box marginTop={4}>
   
-  
+                  <Typography variant="h5" style={{ textDecoration: 'underline'}}>Share</Typography>
+                </Box>
+
+                <SharePage title={articles.title} />
   
                 {/* <Box>
                   {articles.url.length > 1? articles.url.map((articles, idx) => {

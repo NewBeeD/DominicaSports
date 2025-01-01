@@ -8,7 +8,7 @@
 // This function identifies the entries in the array/oject that will be used for display in the cards on the Homepage
 export default function ArticlesStructuredDisplay(data){
 
-  let articles_data = data.data 
+  let articles_data = data.data   
 
   articles_data = articles_data.sort((a, b) => Date.parse(b.attributes['publishedAt']) - Date.parse(a.attributes['publishedAt']));
 
