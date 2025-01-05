@@ -72,13 +72,16 @@ const MainNews = () => {
   return (
 
     <div >
-      {headline.length > 0 ? <Slider  {...settings}>
+      {headline.length > 0 ? 
+        <Slider  {...settings}>
         
         {headline.map((slideData, idx) => (
           <Slide key={idx} headline={slideData} />
         ))}
 
-      </Slider>: <Skeleton />}
+        </Slider>: 
+        
+        <Skeleton />}
 
       
     </div>
