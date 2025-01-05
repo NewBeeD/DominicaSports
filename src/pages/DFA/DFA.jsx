@@ -17,34 +17,26 @@ import { useSelector } from 'react-redux';
 import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Tab  } from '@mui/material'
 
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import HomeIcon from '@mui/icons-material/Home';
+
 
 import GetDFA from "../../modules/DFA/AllDfaData";
 
 import DfaArticles from "../../components/DFAPage/DfaArticles";
 import Points_Table from "../../components/homePage/Points_Table";
-import MainNews from "../../components/homePage/MainNews";
 import Video from "../../components/Video";
-import BottomNav from "../../components/DFAPage/BottomNav";
+
 import FixturesData from "../../components/homePage/Fixtures"
 
 import playStatCleanUp from '../../modules/DFA/PlayerStats/PlayerStatsCleanUp'
 import TeamGoalsStructure from '../../modules/DFA/PlayerStats/MostTeamGoals'
 
 // Icons
-import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+
 import NewspaperIcon from '@mui/icons-material/Newspaper'; //Articles
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'; //Fixtures
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered'; //Tables
 import AssessmentIcon from '@mui/icons-material/Assessment'; //Stats
 import GroupsIcon from '@mui/icons-material/Groups'; //Players
-
-
-import FeaturedPlayer from "../../components/homePage/FeaturedPlayer";
-
-
-
-
 
 
 
@@ -734,7 +726,8 @@ const DFA = () => {
                       <CardMedia
                       component="img"
                       image={player_stats[0].top_scorer_prem_url} 
-                      sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 180} }}
+                      sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 170} }}
+                      loading="lazy"
                       />
 
                       <CardContent style={{ textAlign: 'center'}}>
@@ -759,7 +752,8 @@ const DFA = () => {
                       <CardMedia
                       component="img"
                       image={player_stats[0].top_assist_prem_url} 
-                      sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 180} }}
+                      sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 170} }}
+                      loading="lazy"
                       />
 
                       <CardContent style={{ textAlign: 'center'}}>
@@ -789,7 +783,8 @@ const DFA = () => {
                           <CardMedia
                           component="img"
                           image={player_stats[0].top_scorer_prem_url} 
-                          sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 180} }}
+                          sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 170} }}
+                          loading="lazy"
                           />
 
                           <CardContent style={{ textAlign: 'center'}}>
@@ -814,7 +809,8 @@ const DFA = () => {
                           <CardMedia
                           component="img"
                           image={player_stats[0].top_clean_sheet_prem_url} 
-                          sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 180} }}
+                          sx={{ width:  '100%', objectFit: 'cover', objectPosition: "50% 50%", height: {xs: 170} }}
+                          loading="lazy"
                           />
 
                           <CardContent style={{ textAlign: 'center'}}>
@@ -972,20 +968,6 @@ const DFA = () => {
         </TabContext>
       </Box>  
        
-
-
-
-        {/* <Stack marginTop={4} marginX={2} >
-
-          <Stack justifyContent='space-between' direction='row'>
-
-            <Typography>Season Stats</Typography>
-            <ArrowRightAltIcon />
-
-          </Stack>
-
-            
-        </Stack> */}
 
         <Box marginTop={8} />
 
@@ -1172,6 +1154,7 @@ const DFA = () => {
                     component="img"
                     sx={{ width: 80 }}
                     image={item.url}
+                    loading="lazy"
                   />
 
                   </Card>

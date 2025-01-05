@@ -1,4 +1,4 @@
-import {  Box, Typography, Stack, Button, Skeleton } from '@mui/material'
+import {  Skeleton } from '@mui/material'
 import { Link } from 'react-router-dom';
 
 import theme from '../../css/theme';

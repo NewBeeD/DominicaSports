@@ -1,11 +1,10 @@
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider } from '@mui/material'
+import {  Box, Typography, Stack,  Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider } from '@mui/material'
 
 import Points_Table from '../homePage/Points_Table';
 
 
 // Function to fetch article data and structured data
 import GetArticles from '../../modules/Homepage/TrendingSection/TrendingSectionDataFetch'
-import VideoHighlights from '../WeekendHighlights/VideoHighlights';
 import FixturesData from '../homePage/Fixtures';
 
 import theme from '../../css/theme';

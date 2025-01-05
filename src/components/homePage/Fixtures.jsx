@@ -1,4 +1,4 @@
-import { Paper, Box, Stack, Typography, Card, CardHeader, CardContent, CardMedia, CardActions, Skeleton } from "@mui/material"
+import { Box, Stack, Typography, Card, Skeleton } from "@mui/material"
 
 
 import GetFixtures from "../../modules/Homepage/Fixtures/FixturesDataFetch";

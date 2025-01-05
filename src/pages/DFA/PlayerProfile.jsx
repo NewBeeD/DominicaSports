@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom"
-import { useSelector } from "react-redux"
 
 import { useState, useEffect } from "react"
 
@@ -14,12 +13,9 @@ import SinglePlayerDisplay from "../../modules/DFA/PlayerStats/SinglePlayerDispl
 
 
 
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel } from '@mui/material'
-
-// import getPlayInfo from "../../modules/DFA/PlayerStats/PlayerProfileReload"
+import {  Box, Typography, Stack,  Card,  Skeleton, Divider } from '@mui/material'
 
 import NavBar from "../../components/homePage/NavBar"
-import { Diversity1 } from "@mui/icons-material"
 
 
 

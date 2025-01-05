@@ -1,7 +1,7 @@
 import NavBar from "../components/homePage/NavBar"
 
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 
 import qs from 'qs'
 import axios from "axios"
@@ -10,21 +10,16 @@ import { queryParams_articles } from "../modules/DFA/QueryParams"
 import SingleStructuredDisplay from "../modules/Homepage/TrendingSection/SingleArticleDisplayStructure"
 
 import ImageSlideshow from "../components/Article/ImageSlideshow"
-import Comments from "../components/Article/Comments"
+// import Comments from "../components/Article/Comments"
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 
-// Firebase setup
-import { auth } from "../config/firebaseConfig"
-import { onAuthStateChanged } from "@firebase/auth"
-
-import { FacebookShareButton, FacebookIcon, TwitterShareButton, TwitterIcon, WhatsappShareButton, WhatsappIcon, RedditShareButton, RedditIcon } from "react-share"
 
 
 import SharePage from "../components/ShareButtons/SharePage"
 
 // Redux
-import { useSelector } from 'react-redux';
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider } from '@mui/material'
+
+import {  Box, Typography, Skeleton, Divider } from '@mui/material'
 
 import ParagraphsDisplay from "../components/Article/ParagraphsDisplay";
 
@@ -41,9 +36,41 @@ const Article = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
- 
+  const renderedRichText = useMemo(() => {
+    if (articles?.RichText && articles.RichText !== 'none') {
+      return (
+        
+        <BlocksRenderer
+          content={articles.RichText}
+          blocks={{
+            image: ({ image }) => (
+              <Box width={{ xs: '100%', sm: 800, md: 1000 }}>
+                <img
+                  src={image.url}
+                  alt="Article Image"
+                  style={{ objectFit: 'cover', objectPosition: '50% 50%' }}
+                  loading="lazy"
+                  height='100%' 
+                  width='100%'
+                />
+              </Box>
+            ),
+            heading: ({ children, level }) => (
+              <Typography variant={`h${level}`} gutterBottom>
+                {children}
+              </Typography>
+            ),
+            paragraph: ({ children }) => <Typography>{children}</Typography>,
+          }}
+        />
+      );
+    }
+    return null;
+  }, [articles]);
+  
 
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         // Set loading to true when starting the fetch
@@ -78,12 +105,14 @@ const Article = () => {
         // Set loading to false regardless of success or failure
         setLoading(false);
       }
+
+
     };
 
     // Call the fetchData function when the component mounts
-    fetchData();
+    if (id) fetchData();
 
-  }, []);
+  }, [id]);
 
 
     return (
@@ -106,7 +135,7 @@ const Article = () => {
                 
   
                 {articles.RichText && articles.RichText === 'none'? <Box marginY={2} >
-                  <img width='100%' src={articles.url[0]}/>
+                  <img loading='lazy' width='100%' src={articles.url[0]}/>
                 </Box>:<Box paddingTop={4} />}
   
                 <Box style={{ color: `var(--color-color3, ${theme.colors.color3})`}} marginTop={1} sx={{ fontSize: {xs: '12px'}, fontWeight: 'bolder'}}>{articles.league}</Box>
@@ -144,6 +173,7 @@ const Article = () => {
                             height='100%' 
                             width='100%' 
                             style={{ objectFit: 'cover', objectPosition: "50% 50%"}}
+                            loading='lazy'
                           />
   
                         </Box>
@@ -189,6 +219,9 @@ const Article = () => {
                       )
                     }
                   }}/>
+
+                  {/* {renderedRichText} */}
+
                 </Box>: ''}
   
   
@@ -232,7 +265,7 @@ const Article = () => {
               </Box>
             ): <Skeleton width='100%' height='500px' variant="rectangular" sx={{ marginTop: 4}} />}
   
-            <Comments articleId={id} />
+            {/* <Comments articleId={id} /> */}
   
         </Box>
   

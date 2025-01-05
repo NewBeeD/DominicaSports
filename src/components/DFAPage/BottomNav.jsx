@@ -1,15 +1,9 @@
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, BottomNavigation, BottomNavigationAction, Paper, Menu, MenuItem } from '@mui/material'
+import {  Box, Typography, Stack, Button, Paper, Menu, MenuItem } from '@mui/material'
 
 import { useState } from 'react'
 
 import '../../css/DfaMainPage.css'
 
-import { Link } from 'react-router-dom'
-
-import HomeIcon from '@mui/icons-material/Home'
-import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 

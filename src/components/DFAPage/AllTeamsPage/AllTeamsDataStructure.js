@@ -1,6 +1,4 @@
 
-import TeamPlayerDataStructure from '../../../modules/DFA/TeamPage/TeamPlayerStructure'
-
 
 export default function AllTeamsDataStructure(data){
 

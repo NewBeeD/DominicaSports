@@ -1,4 +1,4 @@
-import { Box, Stack, Paper, Card, Typography, Skeleton, CardMedia } from "@mui/material"
+import { Box, Stack, Paper, Card, Typography, Skeleton } from "@mui/material"
 import { Link } from "react-router-dom";
 
 

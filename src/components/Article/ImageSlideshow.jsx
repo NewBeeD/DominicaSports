@@ -37,6 +37,7 @@ const ImageSlideshow = ({ images }) => {
           alt={`Image ${index + 1}`}
           onClick={() => handleClickOpen(index)}
           style={{ cursor: 'pointer', margin: '5px', maxWidth: '100%' }}
+          loading='lazy'
         />
       ))}
 

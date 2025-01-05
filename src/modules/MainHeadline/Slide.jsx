@@ -19,7 +19,7 @@ const Slide = ({ headline }) => {
       <Box width={{xs: '100%', sm: '90%'}} height={{xs: 330, sm: 400}} sx={{ position: {xs: 'relative', sm: 'static'}}}>
 
         <Link to={`/${headline['id']}`}>
-          <img src={headline.url[0]} className='mainImage'/>
+          <img loading='lazy' src={headline.url[0]} className='mainImage'/>
         </Link>
 
 
