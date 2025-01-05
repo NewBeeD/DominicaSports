@@ -2,31 +2,24 @@
 
 export default function PlayerStatsDisplayStructure(data){
 
-  if(data != null){
+  if(data != null){   
     
-    
+
     let structured_data = data.map(item => {
   
       let stat = {};
   
+      stat['Player_ID'] = item.attributes['dfa_player'].data.id
       stat['First_Name'] = item.attributes['dfa_player'].data.attributes['First_Name']
      
       stat['Last_Name'] = item.attributes['dfa_player'].data.attributes['Last_Name']
   
-      stat['Gender'] = item.attributes['dfa_player'].data.attributes['Gender']
-  
       stat['Season'] = item.attributes['Season']
-      
-      stat['Matches_Played'] = item.attributes['Matches_Played']
-      
-      stat['Goals'] = Number(item.attributes['Goals'])
-      
+
       stat['Assists'] = item.attributes['Assists']
       
-      stat['Yellow_Cards'] = item.attributes['Yellow_Cards']
-      
-      stat['Red_Cards'] = item.attributes['Red_Cards']
-      
+      stat['Goals'] = Number(item.attributes['Goals'])
+          
       stat['Clean_Sheets'] = item.attributes['Clean_Sheets']
   
       stat['Foot'] = item.attributes['dfa_player'].data.attributes['Foot']

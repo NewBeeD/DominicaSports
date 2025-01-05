@@ -97,15 +97,19 @@ const TrendingSection = ({ level }) => {
 
                     {/* TODO: Link this page to the premiere league home page */}
 
-                    <Link to='/DFA/Home'>
+                    <Link to={`/${item.league}/Home`}>
+
                     <Typography style={{ color: `var(--color-color5, ${theme.colors.color5})`}} sx={{ fontSize: {xs: 13}, textDecoration: 'underline', fontWeight: 900}}>{item.league}</Typography>
+
                     </Link>
 
 
                     <Stack direction='row' spacing={0.5}>
+
                       <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.author}</Typography>
                       <Divider orientation='vertical' flexItem />
                       <Typography style={{ color: `var(--color-color3, ${theme.colors.color3})`}} sx={{ fontSize: {xs: 9}}}>{item.time}</Typography>
+
                     </Stack>
 
 
@@ -114,20 +118,26 @@ const TrendingSection = ({ level }) => {
                 </CardActions>
 
                 <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+
                   <CardHeader titleTypographyProps={{variant:'body2', fontWeight: 900 }} title={item.title} style={{ color: `var(--color-color3, ${theme.colors.color3})`}}/>
+
                 </Link>
 
 
                 <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
-                 <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+
+                 <CardMedia component='img' loading='lazy' height={200} src={item.url[0]} alt={item.alt}/>
+                 
                 </Link>
 
                 <Link to={`/${item.id}`} style={{ textDecoration: 'none'}}>
+
                   <CardContent>
                     <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
                       {item.body_content.length < 25? item.body_content: (item.body_content.substr(0, 50) + "...")}
                     </Typography>
                   </CardContent>
+                  
                 </Link>
 
 
@@ -177,7 +187,7 @@ const TrendingSection = ({ level }) => {
                   </Link>
 
 
-                  <CardMedia component='img' height={200} src={item.url[0]} alt={item.alt}/>
+                  <CardMedia component='img' loading='lazy' height={200} src={item.url[0]} alt={item.alt}/>
 
                   <CardContent>
                     <Typography sx={{ color: 'black', fontSize: {xs: 13}}}>
@@ -192,24 +202,26 @@ const TrendingSection = ({ level }) => {
           </Grid>
 
           {/* Side panel in the homepage */}
-          {level === 'first'?<Stack width={{ sm:'380px', md: '400px' }} display={{xs:'none', sm:'inherit'}}
-          direction='column'
-          justifyContent='center'
-          alignItems='center'
-          spacing={0}
-          sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}
-          height={{ sm: '450px'}}>
-
-            {/* <Typography  variant='h3'>Ad Space here</Typography> */}
-            <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>The Video of The Day</Typography>
-
-            <VideoHighlights VideoLocation='Homepage1' />
-            
-          </Stack>: level === 'second'?
+          {level === 'first'?
           
-          <Box display={{ xs: 'none'}}>
-            <FixturesData page='home' type='sm' />
-          </Box>
+            <Stack width={{ sm:'380px', md: '400px' }} display={{xs:'none', sm:'inherit'}}
+            direction='column'
+            justifyContent='center'
+            alignItems='center'
+            spacing={0}
+            sx={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`, borderRadius: '8px'}}
+            height={{ sm: '450px'}}>
+
+              {/* <Typography  variant='h3'>Ad Space here</Typography> */}
+              <Typography variant='h4' color='white' padding={0} sx={{ paddingTop: 2}}>The Video of The Day</Typography>
+
+              <VideoHighlights VideoLocation='Homepage1' />
+              
+            </Stack>: level === 'second'?
+            
+            <Box display={{ xs: 'none'}}>
+              <FixturesData page='home' type='sm' />
+            </Box>
           
           : ''}
 

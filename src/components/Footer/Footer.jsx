@@ -6,9 +6,8 @@ import theme from "../../css/theme"
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import {  IconButton} from '@mui/material'
+
+import {  IconButton } from '@mui/material'
 
 const Footer = () => {
 

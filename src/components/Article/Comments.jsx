@@ -1,6 +1,6 @@
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, TextField, InputAdornment, IconButton, Snackbar } from '@mui/material'
+import {  Box, Typography, Card, CardContent, Skeleton, Divider, TextField, InputAdornment, IconButton } from '@mui/material'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 import axios from 'axios'
 import qs from 'qs'
@@ -40,8 +40,13 @@ const Comments = ({ articleId }) => {
       axios.post('https://strapi-dominica-sport.onrender.com/api/comments', payload)
         .then(response => {
 
-          setComments([...comments, response.data]);
+          // Update the comments state immediately to include the new comment
+          const newComment = response.data;
+          setComments((prevComments) => [newComment, ...prevComments]);
           setNewComment('');
+
+          // setComments([...comments, response.data]);
+          // setNewComment('');
         })
         .catch(error => console.error('Error submitting comment:', error));
  
@@ -66,6 +71,7 @@ const Comments = ({ articleId }) => {
   }, [])
 
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         // Set loading to true when starting the fetch
@@ -105,9 +111,11 @@ const Comments = ({ articleId }) => {
     };
 
     // Call the fetchData function when the component mounts
-    fetchData();
+    if (articleId) {
+      fetchData();
+    }
 
-  }, [comments]);
+  }, [articleId]);
 
 
 
@@ -158,13 +166,13 @@ const Comments = ({ articleId }) => {
             InputProps={{
               endAdornment:(
               <InputAdornment position='end'>
-                <IconButton edge='start' onClick={submitComment} disabled={userSignedIn? false: true}>
+                <IconButton edge='start' onClick={submitComment} disabled={!userSignedIn}>
                   <SendIcon />
                 </IconButton>
               </InputAdornment>)
             }}
             sx={{ marginBottom: 2}}
-            disabled={userSignedIn? false: true}
+            disabled={!userSignedIn}
             />      
 
     </Box>

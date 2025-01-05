@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Slide, Typography } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, Slide } from '@mui/material';
 
 import '../../css/TrendingNewsCss.css'
 
@@ -37,6 +37,7 @@ const ImageSlideshow = ({ images }) => {
           alt={`Image ${index + 1}`}
           onClick={() => handleClickOpen(index)}
           style={{ cursor: 'pointer', margin: '5px', maxWidth: '100%' }}
+          loading='lazy'
         />
       ))}
 

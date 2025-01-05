@@ -2,8 +2,6 @@
 
 export default function DABASinglePlayerDisplay(player_data){
 
-  console.log(player_data);
-
   
   let player = {};
 

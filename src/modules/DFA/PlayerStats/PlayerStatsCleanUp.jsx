@@ -17,6 +17,7 @@ export default function PlayerStatsDisplayStructure(playerData){
     // Prem league top
     let topScorer_prem = dfa_prem_league_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Goals > maxPlayer.Goals ? currentPlayer : maxPlayer);
 
+
     let topAssist_prem = dfa_prem_league_stats.reduce((maxPlayer, currentPlayer) => currentPlayer.Assists > maxPlayer.Assists ? currentPlayer : maxPlayer);
 
 

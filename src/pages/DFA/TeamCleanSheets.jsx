@@ -12,11 +12,16 @@ import theme from '../../css/theme';
 import Combine_Team_Crest from '../../modules/DFA/TeamPage/Combine_Team_Crest';
 import TeamGoalsAssists from '../../modules/DFA/TeamGoalsandAssist/TeamGoalsAssists_Img';
 
-import {  Box, Typography, Stack, Button, Card, CardHeader, CardContent, CardMedia, CardActions, Grid, Skeleton, Divider, Menu, MenuItem, Paper, FormControl, Select, InputLabel, Table, TableContainer, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
+import {  Box, Typography, Stack, Paper, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material'
 
 import TeamCleanSheetsStructure from '../../modules/DFA/PlayerStats/MostTeamCleanSheets'
 
 import NavBar from "../../components/homePage/NavBar"
+
+function Sort(a, b){
+
+  return b.totalCleanSheets - a.totalCleanSheets
+}
 
 const TeamCleanSheets = () => {
 
@@ -121,6 +126,11 @@ const TeamCleanSheets = () => {
 
     let final_data = Combine_Team_Crest(players_data, team_data)
 
+    // let display_data = final_data.filter(cleanSheet => { cleanSheet.Clean_Sheets > 0})
+
+    console.log(final_data);
+
+
     setCombineData(final_data)    
   }, [team_data, players_data]); 
 
@@ -179,7 +189,7 @@ const TeamCleanSheets = () => {
 
           <TableBody>
 
-            {combineData && combineData.filter(dataPoint => dataPoint.totalCleanSheets > 0).slice(1).map((item, idx) => {
+            {combineData && combineData.sort(Sort).filter(dataPoint => dataPoint.totalCleanSheets > 0).slice(1).map((item, idx) => {
 
               return (
                 

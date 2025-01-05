@@ -157,7 +157,7 @@ const DivisionOneStatsPage = () => {
 
             <TabPanel  value='1'>
 
-              <Stack direction='column' marginTop={3}>
+              {/* <Stack direction='column' marginTop={3}>
 
                 <Stack direction='row' justifyContent='space-between'>
                 
@@ -203,7 +203,7 @@ const DivisionOneStatsPage = () => {
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+                                
                                 <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -279,7 +279,7 @@ const DivisionOneStatsPage = () => {
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+
                                 <TableCell sx={{ fontSize: {xs: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {xs: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -350,7 +350,7 @@ const DivisionOneStatsPage = () => {
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+
                                 <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -421,7 +421,7 @@ const DivisionOneStatsPage = () => {
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+
                                 <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -492,7 +492,7 @@ const DivisionOneStatsPage = () => {
 
                             <TableHead >
                               <TableRow>
-                                {/* <TableCell sx={{ fontSize: {xs: 8}, fontWeight: 900}}>Pos</TableCell> */}
+  
                                 <TableCell sx={{ fontSize: {sm: 12}}}>Rank</TableCell>
                                 <TableCell sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0, textAlign: 'center'}}>Player</TableCell>
                                 <TableCell align="center" sx={{ fontSize: {sm: 12}, fontWeight: 900, paddingX: 0}}>Club</TableCell>
@@ -552,7 +552,15 @@ const DivisionOneStatsPage = () => {
 
                 </Box>
 
-              </Stack>
+              </Stack> */}
+
+              <Box textAlign='center' marginTop={10} >
+
+                <Typography variant="h4">
+                  First division coverage will continue next season, as data collection for the league is inconsistent.  
+                </Typography>
+
+              </Box>
     
             </TabPanel>
 

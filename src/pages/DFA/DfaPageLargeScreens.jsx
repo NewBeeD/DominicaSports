@@ -8,13 +8,15 @@ import NavBar from '../../components/homePage/NavBar'
 import DfaArticles from "../../components/DFAPage/DfaArticles";
 import Video from "../../components/Video";
 
+import FeaturedPlayer from '../../components/homePage/FeaturedPlayer';
+
 
 
 
 
 const DfaPageLargeScreens = () => {
 
-  GetDFA()
+  // GetDFA()
 
 
   
@@ -23,6 +25,7 @@ const DfaPageLargeScreens = () => {
 
     <Box>
       <NavBar />
+
 
       <Box width={{ sm: 800, md: 1200}} margin='auto'>
 
@@ -44,9 +47,19 @@ const DfaPageLargeScreens = () => {
         <DfaArticles level='first' />
 
         <Divider sx={{ marginTop: 2}} />
-        <Box style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} marginTop={2} textAlign='center'>
-          <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>Weekend Highlights</Typography>
-          {/* <Video VideoLocation='Dfa1'/> */}
+        
+        <Box 
+        style={{ backgroundColor: `var(--color-color3, ${theme.colors.color3})`}} paddingBottom={3} 
+        marginTop={2} 
+        textAlign='center'
+        >
+
+          <Typography variant="h5" style={{ textDecoration: 'underline', color: 'white'}}>
+            Weekend Highlights
+          </Typography>
+
+          <Video VideoLocation='Dfa1'/>
+
         </Box>
         <Divider sx={{ marginTop: 2}} />
 

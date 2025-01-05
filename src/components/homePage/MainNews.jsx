@@ -1,4 +1,4 @@
-import {  Box, Typography, Stack, Button, Skeleton } from '@mui/material'
+import {  Skeleton } from '@mui/material'
 import { Link } from 'react-router-dom';
 
 import theme from '../../css/theme';
@@ -72,13 +72,16 @@ const MainNews = () => {
   return (
 
     <div >
-      {headline.length > 0 ? <Slider  {...settings}>
+      {headline.length > 0 ? 
+        <Slider  {...settings}>
         
         {headline.map((slideData, idx) => (
           <Slide key={idx} headline={slideData} />
         ))}
 
-      </Slider>: <Skeleton />}
+        </Slider>: 
+        
+        <Skeleton />}
 
       
     </div>
